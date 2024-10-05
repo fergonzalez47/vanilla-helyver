@@ -1,0 +1,30 @@
+@media screen and (min-width: 576px) {
+
+    header {
+        display: flex;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .open ul {
+        display: flex;
+    }
+
+    nav ul li {
+        flex: 1;
+    }
+
+    nav a {
+        display: block;
+        padding: 0.5rem 1rem;
+        text-align: center;
+    }
+}
