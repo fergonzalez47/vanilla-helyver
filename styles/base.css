@@ -1,20 +1,65 @@
-* {
-    margin: 0;
-    padding: 0;
+:root {
+    /* FIRST PALLET */
+    --font-body: "Nunito", sans-serif;
+    --font-heading: "Bebas Neue", serif;
+    --a-primary-color: #e7b324;
+    /* --a-primary-color: #e05215; */
+    --a-secondary-color: #2d3142;
+    --a-white-color: #ffffff;
+    --a-background-color: #bfc0c0;
+    --a-auxiliar-color: #4f5d75;
+
+    /* secondary pallet  */
+    --b-primary-color: #F6C279;
+    --b-secondary-color: #161B33;
+    --b-white-color: #DBDBDB;
+    --b-background-color: #0D0C1D;
+    --b-auxiliar-color: #2ca73c;
+    /* --b-auxiliar-color: #52B77C; */
 }
 
 
-header,
-footer {
-    background-color: rgb(85, 0, 128);
-    color: white;
-    text-align: center;
 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* <uniquifier>: Use a unique and descriptive class name
+ <weight>: Use a value from 200 to 1000 */
+
+body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+#cta-btn {
+
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+header {
+    background-color: var(--a-white-color);
+    color: var(--a-auxiliar-color);
+    text-align: center;
 
 }
 
 h1 {
-    font-size: clamp(1.4rem, 2vw, 3rem);
+    font-size: clamp(1.6rem, 3vw, 4rem);
 
 }
 
@@ -25,60 +70,15 @@ header {
     padding: 0.75rem;
 
     align-items: center;
+    border-bottom: 0.3rem solid var(--a-primary-color);
 
 }
 
-nav ul {
-
-    list-style: none;
-    display: none;
-    flex-direction: column;
-
-}
-
-li {
-
-    margin: 0.25rem;
-
-}
-
-.open ul {
-    display: block;
-}
-
-
-nav a {
-
-    width: 97%;
-    margin: 0.75rem auto;
-    padding: 0.3rem 0.3rem;
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    transition: 0.2s;
-    color: white;
-}
-
-/* nav a:hover {
-    background-color: antiquewhite;
-    color: black;
-    font-weight: bold;
-} */
-
-
-
-main {
-    max-width: 80%;
-    margin: 0 auto;
-    text-align: center;
-}
-
-
-#menu {
+header #menu {
     font-size: 1rem;
     border: 0;
     background: none;
-    color: white;
+    color: var(--a-auxiliar-color);
     position: absolute;
     top: 0.6rem;
     right: 1rem;
@@ -95,9 +95,201 @@ main {
     cursor: pointer;
     font-family: "Manrope", sans-serif;
     font-weight: bold;
-    color: rgb(239, 162, 162);
+    color: var(--a-primary-color);
     font-size: 24px;
     font-weight: bold;
 
 
+}
+
+nav ul {
+
+    list-style: none;
+    display: none;
+    flex-direction: column;
+}
+
+
+.open ul {
+    display: block;
+}
+
+nav li {
+    transition: 0.2s;
+    color: var(--a-auxiliar-color);
+
+}
+
+nav li:hover {
+    background-color: var(--a-secondary-color);
+}
+
+nav a {
+    width: 97%;
+    /* display: block; */
+    text-decoration: none;
+    text-align: center;
+    transition: 0.2s;
+    color: var(--a-auxiliar-color);
+}
+
+nav a:hover {
+    color: var(--a-white-color);
+}
+
+/* main */
+
+
+main {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+
+main section:not(:first-of-type) {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+
+/* HERO ELEMENT */
+
+.hero {
+    background-image: url("/images/hero-large.webp");
+    width: 100%;
+    height: 100%;
+    color: var(--a-white-color);
+
+}
+
+.hero-content {
+    height: 100%;
+    padding: 1.25rem;
+    background-color: rgba(0, 0, 0, 0.7);
+
+}
+
+.hero h2 {
+    font-size: clamp(2rem, 4vw, 8rem);
+    text-align: center;
+
+}
+
+.hero .hero-content .hero-text {
+
+    background-color: #0d0c1dbb;
+    text-align: center;
+    max-width: 75%;
+    margin: 1.25rem auto;
+
+}
+
+.hero .hero-content .hero-text h3 {
+
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 3rem);
+
+
+}
+
+
+.hero-button {
+    text-align: center;
+}
+
+#cta-btn {
+
+
+
+    width: 45%;
+    height: auto;
+    padding: .6rem 1.5rem;
+    background-color: var(--a-white-color);
+    color: var(--a-secondary-color);
+    font-size: clamp(1rem, 3.5vh, 4rem);
+    font-weight: 400;
+    border-radius: 8px;
+    box-shadow: 0 8px 12px rgb(231, 179, 36, 0.5);
+    transition: all 0.2s ease-in-out;
+
+}
+
+#cta-btn span {
+    color: var(--b-auxiliar-color);
+}
+
+#cta-btn:hover span {
+    color: var(--a-primary-color);
+}
+
+#cta-btn:hover {
+    cursor: pointer;
+    background-color: var(--a-secondary-color);
+    color: var(--a-white-color);
+    transform: scale(1.05);
+    box-shadow: 0 5px 6px rgba(255, 255, 255, 0.7);
+
+}
+
+
+
+
+.Whatsapp-floating-chat {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    transition: 0.2s;
+}
+
+
+.Whatsapp-floating-chat:hover {
+    transform: scale(1.2);
+}
+
+
+/* FOOTER */
+
+footer {
+    display: grid;
+    justify-content: center;
+    background-color: var(--a-secondary-color);
+    color: var(--a-white-color);
+}
+
+footer div {
+    padding: 0.5rem;
+}
+
+footer ul {
+    list-style: none;
+    gap: 1.25rem;
+    justify-content: center;
+}
+
+footer a {
+
+    text-decoration: none;
+    text-align: center;
+    transition: 0.2s;
+    color: var(--a-white-color);
+}
+
+footer a:hover {
+    color: var(--a-primary-color);
+}
+
+
+
+.footer-social-media ul{
+    display: flex;
+    margin: 0.5rem;
+    gap: 0.75rem;
+}
+
+.footer-social-media li {
+    transition: 0.2s;
+}
+
+.footer-social-media li:hover {
+    transform: scale(1.2);
 }
