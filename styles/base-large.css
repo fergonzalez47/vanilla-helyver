@@ -86,20 +86,34 @@
     }
 
 
+
+    main section:nth-child(2) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    main section:nth-child(2) h1 {
+        grid-column: 1 /-1;
+        ;
+    }
+
+    main section:nth-child(2) div:nth-child(4) {
+        grid-column: 1 /-1;
+        
+    }
+
     footer {
         display: grid;
-        column-gap: 0.5rem;
         grid-template-columns: repeat(4, 1fr);
     }
 
-    footer div:not(:last-of-type){
+    footer div:not(:last-of-type) {
 
-        color: var(--a-secondary-color);
-        background: rgb(45, 49, 66);
+        color: var(--a-white-color);
+        /* background: rgb(45, 49, 66);
         background: -moz-linear-gradient(0deg, rgba(45, 49, 66, 1) 0%, rgba(255, 255, 255, 1) 100%);
         background: -webkit-linear-gradient(0deg, rgba(45, 49, 66, 1) 0%, rgba(255, 255, 255, 1) 100%);
         background: linear-gradient(0deg, rgba(45, 49, 66, 1) 0%, rgba(255, 255, 255, 1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2d3142", endColorstr="#ffffff", GradientType=1);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2d3142", endColorstr="#ffffff", GradientType=1); */
     }
 
     footer .footer-dev {

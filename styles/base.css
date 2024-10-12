@@ -27,13 +27,12 @@
     box-sizing: border-box;
 }
 
-/* <uniquifier>: Use a unique and descriptive class name
- <weight>: Use a value from 200 to 1000 */
 
 body {
     font-family: var(--font-body);
     font-weight: 400;
     font-style: normal;
+    font-size: clamp(1rem, 2.3vw, 1.5rem);
 }
 
 h1,
@@ -43,7 +42,7 @@ h4,
 h5,
 h6,
 a,
-#cta-btn {
+.cta-btn {
 
     font-family: var(--font-heading);
     font-weight: 400;
@@ -67,7 +66,7 @@ h1 {
 header {
 
     justify-content: space-between;
-    padding: 0.75rem;
+    padding: 0.5rem;
 
     align-items: center;
     border-bottom: 0.3rem solid var(--a-primary-color);
@@ -103,18 +102,21 @@ header #menu {
 }
 
 nav ul {
-
     list-style: none;
     display: none;
     flex-direction: column;
+
 }
 
 
 .open ul {
-    display: block;
+    display: flex;
+
+
 }
 
 nav li {
+    margin: 0.3rem 0;
     transition: 0.2s;
     color: var(--a-auxiliar-color);
 
@@ -124,17 +126,25 @@ nav li:hover {
     background-color: var(--a-secondary-color);
 }
 
+nav li:hover a {
+    color: var(--a-white-color);
+}
+
 nav a {
-    width: 97%;
-    /* display: block; */
+    font-size: clamp(1.25rem, 2vw, 1.3rem);
+    padding: 0.2rem;
+    width: 100%;
+    display: block;
     text-decoration: none;
     text-align: center;
     transition: 0.2s;
     color: var(--a-auxiliar-color);
 }
 
-nav a:hover {
-    color: var(--a-white-color);
+
+.active {
+    color: var(--a-primary-color);
+    background-color: var(--a-secondary-color);
 }
 
 /* main */
@@ -145,10 +155,33 @@ main {
     margin: 0 auto;
 }
 
+main h1,
+main h2,
+main h3,
+main h4 {
+    color: var(--a-auxiliar-color);
+    margin: 0.2rem;
+    text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4),
+        0px 8px 13px rgba(0, 0, 0, 0.1),
+        0px 18px 23px rgba(0, 0, 0, 0.1);
+}
+
+main p {
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+
+
+.heading-span {
+    color: var(--a-primary-color);
+
+}
 
 main section:not(:first-of-type) {
     max-width: 80%;
-    margin: 0 auto;
+    margin: 2rem auto;
+    display: grid;
 }
 
 
@@ -159,25 +192,33 @@ main section:not(:first-of-type) {
     width: 100%;
     height: 100%;
     color: var(--a-white-color);
+    background-size: cover;
+
+    background-position: right;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
 
 }
+
+
 
 .hero-content {
     height: 100%;
     padding: 1.25rem;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
 
 }
 
 .hero h2 {
-    font-size: clamp(2rem, 4vw, 8rem);
+    font-size: clamp(2rem, 5vw, 9rem);
     text-align: center;
+    color: var(--a-white-color);
 
 }
 
 .hero .hero-content .hero-text {
 
-    background-color: #0d0c1dbb;
     text-align: center;
     max-width: 75%;
     margin: 1.25rem auto;
@@ -188,6 +229,7 @@ main section:not(:first-of-type) {
 
     font-family: var(--font-body);
     font-size: clamp(1rem, 2vw, 3rem);
+    color: var(--a-white-color);
 
 
 }
@@ -195,15 +237,16 @@ main section:not(:first-of-type) {
 
 .hero-button {
     text-align: center;
+    margin-bottom: 1rem;
 }
 
-#cta-btn {
+.cta-btn {
 
 
 
-    width: 45%;
+    width: 50%;
     height: auto;
-    padding: .6rem 1.5rem;
+    padding: .6rem 1.3rem;
     background-color: var(--a-white-color);
     color: var(--a-secondary-color);
     font-size: clamp(1rem, 3.5vh, 4rem);
@@ -211,39 +254,64 @@ main section:not(:first-of-type) {
     border-radius: 8px;
     box-shadow: 0 8px 12px rgb(231, 179, 36, 0.5);
     transition: all 0.2s ease-in-out;
+    animation: heartbeat-cta 7.5s infinite;
 
 }
 
-#cta-btn span {
+.cta-btn span {
     color: var(--b-auxiliar-color);
 }
 
-#cta-btn:hover span {
+.cta-btn:hover span {
     color: var(--a-primary-color);
 }
 
-#cta-btn:hover {
+.cta-btn:hover {
     cursor: pointer;
     background-color: var(--a-secondary-color);
     color: var(--a-white-color);
     transform: scale(1.05);
     box-shadow: 0 5px 6px rgba(255, 255, 255, 0.7);
+    animation: none;
 
 }
 
+main ul {
 
+    list-style: none;
+}
+
+main ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    
+}
+
+ main ul li img {
+    margin-right: 0.5rem;
+    
+}
+
+
+/* main sections  */
+
+main
 
 
 .Whatsapp-floating-chat {
     position: fixed;
-    bottom: 2rem;
+    bottom: 1.5rem;
     right: 2rem;
     transition: 0.2s;
+    animation: heartbeat 7.5s infinite;
+
 }
 
 
 .Whatsapp-floating-chat:hover {
     transform: scale(1.2);
+    animation: none;
 }
 
 
@@ -251,18 +319,31 @@ main section:not(:first-of-type) {
 
 footer {
     display: grid;
-    justify-content: center;
+
     background-color: var(--a-secondary-color);
     color: var(--a-white-color);
 }
 
+footer p {
+    text-align: center;
+}
+
 footer div {
     padding: 0.5rem;
+    margin: 0.2rem 0;
 }
+
+footer h3,
+h4 {
+    text-align: center;
+    color: var(--a-primary-color);
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
 
 footer ul {
     list-style: none;
-    gap: 1.25rem;
     justify-content: center;
 }
 
@@ -280,8 +361,9 @@ footer a:hover {
 
 
 
-.footer-social-media ul{
+footer ul:not(.footer-menu) {
     display: flex;
+    flex-wrap: wrap;
     margin: 0.5rem;
     gap: 0.75rem;
 }
@@ -292,4 +374,54 @@ footer a:hover {
 
 .footer-social-media li:hover {
     transform: scale(1.2);
+}
+
+
+.footer-contact p {
+    text-align: center;
+    margin: 0.5rem;
+}
+
+
+.footer-dev {
+    text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
+        0px 8px 13px rgba(0, 0, 0, 0.1),
+        0px 18px 23px rgba(0, 0, 0, 0.1);
+}
+
+/* animations */
+
+
+@keyframes heartbeat {
+
+    0%,
+    8% {
+        transform: scale(1);
+    }
+
+    5% {
+        transform: scale(1.1);
+    }
+
+}
+
+
+@keyframes heartbeat-cta {
+
+    0% {
+        transform: scale(1);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+
+    22% {
+        transform: scale(1.05);
+    }
+
+    26% {
+        transform: scale(1);
+    }
+
 }
