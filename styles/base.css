@@ -145,6 +145,7 @@ nav a {
 .active {
     color: var(--a-primary-color);
     background-color: var(--a-secondary-color);
+    transition: 0.2s;
 }
 
 /* main */
