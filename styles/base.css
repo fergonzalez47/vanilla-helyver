@@ -385,6 +385,8 @@ main section:nth-child(3) div:nth-child(4)>div {
 
 main section:not(.hero) {
 text-align: center;
+background-color: #161B33;
+color:white;
 
 }
 
