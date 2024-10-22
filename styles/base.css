@@ -345,6 +345,12 @@ main section:nth-child(3) {
 
 }
 
+main section:nth-child(3) #truck {
+    width: 160px;
+    height: 160px;
+
+}
+
 .linea {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -431,12 +437,25 @@ text-align: center;
 .next {
     right: 0;
     border-radius: 3px 0 0 3px;
+    display: none;
+}
+
+/* Position the "next button" to the right */
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+    display: none;
 }
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev:active,
+.next:active {
+    background-color: rgba(0, 0, 0, 0);
 }
 
 /* Caption text */

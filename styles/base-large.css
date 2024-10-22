@@ -180,6 +180,10 @@
         /* Mantiene la proporción de la imagen en pantallas pequeñas */
     }
 
+        .prev, .next {
+            display: initial;
+        }
+
     footer {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
