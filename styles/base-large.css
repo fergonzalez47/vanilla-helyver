@@ -180,9 +180,22 @@
         /* Mantiene la proporción de la imagen en pantallas pequeñas */
     }
 
-        .prev, .next {
-            display: initial;
-        }
+    .prev,
+    .next {
+        display: initial;
+    }
+
+
+
+
+
+
+
+    .ul-ventanas li {
+        grid-template-columns: 1fr 2fr;
+
+    }
+
 
     footer {
         display: grid;

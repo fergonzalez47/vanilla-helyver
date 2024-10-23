@@ -30,7 +30,7 @@ body {
     font-family: var(--font-body);
     font-weight: 400;
     font-style: normal;
-    font-size: clamp(1rem, 2.3vw, 1.5rem);
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
 }
 
 h1,
@@ -52,7 +52,7 @@ a,
 
     font-family: var(--font-heading);
     font-weight: 400;
-    font-size: clamp(1.5rem, 4vw, 4rem);
+    font-size: clamp(2rem, 4vw, 4rem);
     font-style: normal;
 
 }
@@ -159,7 +159,7 @@ nav a {
 .hero {
     background-image: url("../images/hero-large.webp");
     width: 100%;
-    height: 100%;
+    height: 125vh;
     color: var(--a-white-color);
     background-size: cover;
     background-position: right;
@@ -273,9 +273,7 @@ h1 {
 
 
 main section .svg-icon {
-    min-width: 48px;
-    max-width: 80px;
-    width: 72px;
+    width: 18%;
 }
 
 
@@ -304,8 +302,7 @@ main section:not(.hero) {
     max-width: 90%;
     margin: 4rem auto;
     display: grid;
-
-
+    text-align: center;
 }
 
 
@@ -326,7 +323,6 @@ h1 {
 
 
 main section:nth-child(2) {
-
     display: grid;
     gap: 2rem;
 
@@ -389,10 +385,24 @@ main section:nth-child(3) div:nth-child(4)>div {
     
 }
 
-main section:not(.hero) {
-text-align: center;
+main section:nth-child(3)>div:nth-child(5) {
+    margin-top: 2rem;
+    
+
 
 }
+
+main section:nth-child(3)>div:nth-child(5) ul {
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+
+}
+
+main section:nth-child(3)>div:nth-child(5) ul li {
+    margin: 1rem .5rem;
+
+}
+
 
 
 
@@ -515,6 +525,34 @@ text-align: center;
 
 
 
+
+
+
+
+
+/* section ventanas  */
+
+
+.ul-ventanas {
+    color: var(--a-auxiliar-color);
+    display: grid;
+    
+}
+
+.ul-ventanas li {
+    display: grid;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 2.5rem;
+}
+
+.ul-ventanas li div {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
 
 
 /* FOOTER */
