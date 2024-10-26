@@ -1,14 +1,45 @@
+:root {
+    /* FIRST PALLET */
+    --font-body: "Nunito", sans-serif;
+    --font-heading: "Bebas Neue", serif;
+    --a-primary-color: #e7b324;
+    /* --a-primary-color: #e05215; */
+    --a-secondary-color: #2d3142;
+    --a-white-color: #ffffff;
+    --a-background-color: #bfc0c0;
+    --a-auxiliar-color: #4f5d75;
+
+    /* secondary pallet  */
+    --b-primary-color: #F6C279;
+    --b-secondary-color: #161B33;
+    --b-white-color: #DBDBDB;
+    --b-background-color: #0D0C1D;
+    --b-auxiliar-color: #2ca73c;
+    /* --b-auxiliar-color: #52B77C; */
+}
+
+
+
+
+
 /* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+
 html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
 }
 
 
+body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1rem, 2.3vw, 1.5rem);
+}
+
 legend,
 fieldset div {
-    font-family: "Denk One", sans-serif;
-    font-weight: 400;
+
     font-style: normal;
 }
 
@@ -23,7 +54,7 @@ main {
 
 }
 
-/*----------- FORMS --------------*/
+/*----------- FORM --------------*/
 
 
 .required-element {
@@ -31,19 +62,18 @@ main {
 }
 
 .wf1 {
-    max-width: 500px;
-    margin: 0.5rem auto;
-    background-color: #2c605c36;
-    border: 1px solid rgb(182, 178, 178);
-    border-radius: 6px;
-    box-shadow: 1px 1px 12px 1px #555;
-    padding: .5rem;
 
+    background-color: #928f8f47;
+    max-width: 500px;
+    margin: 2.5rem auto;
+    /* border: 1px solid var(--a-primary-color); */
+    border-radius: 8px;
+    padding: .5rem;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.20);
 }
 
 .wf1 fieldset {
     margin: 1rem auto;
-    margin: 2rem 0;
     border: none;
     border-radius: 6px;
     padding: .5rem 2%;
@@ -51,7 +81,7 @@ main {
 }
 
 .wf1 legend {
-    color: #2c605c;
+    color: var(--a-secondary-color);
 
 }
 
@@ -65,9 +95,9 @@ main {
 }
 
 .wf1 div {
-    padding-top: 1rem;
+
     padding-bottom: .75rem;
-    font-size: .9rem;
+    font-size: .95rem;
 }
 
 .wf1 input[type="text"],
@@ -97,52 +127,39 @@ main {
 .wf1 input[type="submit"] {
     font-size: 20px;
     border: none;
-    background-image: linear-gradient(#39918a, #2c605c);
-    color: white;
+    background-image: linear-gradient(var(--a-primary-color), var(--a-primary-color));
+    color: var(--a-secondary-color);
     padding: .75rem;
     width: 96%;
-    max-width: 400px;
+    max-width: 300px;
     border-radius: 6px;
     margin: -1rem 4% 2rem 4%;
+    transition: 0.2s;
 }
 
 .wf1 input[type="submit"]:hover {
     cursor: pointer;
     border: initial;
-    background-image: linear-gradient(#2c605c, #39918a);
+    background-image: linear-gradient(var(--a-primary-color), var(--a-primary-color));
+    color: wheat;
+    transform: scale(1.02);
 
 }
 
 .wf1 input:required {
     border-bottom: solid 3px red;
+    transition: 0.3s;
 }
 
 .wf1 input:required:valid {
-    border-bottom: solid 9px green;
+    border-bottom: solid 3px var(--b-auxiliar-color);
+    transition: 0.3s;
 }
 
-
 p {
-    margin: 2rem auto;
+    margin: 1rem auto;
     width: 100%;
     max-width: 600px;
 
 }
 
-section {
-    text-align: center;
-}
-
-a {
-    text-decoration: none;
-    color: rgb(160, 105, 38);
-    font-weight: 700;
-    transition: 0.2s;
-}
-
-a:hover {
-    cursor: pointer;
-
-    color: rgb(0, 74, 94);
-    font-weight: 800;
-}
