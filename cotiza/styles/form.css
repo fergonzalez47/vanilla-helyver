@@ -1,0 +1,148 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+
+legend,
+fieldset div {
+    font-family: "Denk One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+
+
+
+/*----------- MAIN --------------*/
+main {
+    padding: 0 2%;
+
+}
+
+/*----------- FORMS --------------*/
+
+
+.required-element {
+    color: rgb(128, 29, 29);
+}
+
+.wf1 {
+    max-width: 500px;
+    margin: 0.5rem auto;
+    background-color: #2c605c36;
+    border: 1px solid rgb(182, 178, 178);
+    border-radius: 6px;
+    box-shadow: 1px 1px 12px 1px #555;
+    padding: .5rem;
+
+}
+
+.wf1 fieldset {
+    margin: 1rem auto;
+    margin: 2rem 0;
+    border: none;
+    border-radius: 6px;
+    padding: .5rem 2%;
+
+}
+
+.wf1 legend {
+    color: #2c605c;
+
+}
+
+.wf1 label {
+    padding-left: .75rem;
+    display: block;
+    font-size: .9rem;
+    align-items: center;
+    align-content: center;
+    padding-bottom: 1rem;
+}
+
+.wf1 div {
+    padding-top: 1rem;
+    padding-bottom: .75rem;
+    font-size: .9rem;
+}
+
+.wf1 input[type="text"],
+.wf1 input[type="tel"],
+.wf1 input[type="email"],
+.wf1 input[type="url"],
+.wf1 input[type="date"],
+.wf1 input[type="number"],
+.wf1 select {
+    background-color: #eee;
+    align-content: start;
+    border: solid 1px gray;
+    border-radius: 6px;
+    padding: .75rem;
+    color: #555;
+    width: 100%;
+    max-width: 400px;
+    appearance: none;
+}
+
+.wf1 input[type="radio"],
+.wf1 input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+
+.wf1 input[type="submit"] {
+    font-size: 20px;
+    border: none;
+    background-image: linear-gradient(#39918a, #2c605c);
+    color: white;
+    padding: .75rem;
+    width: 96%;
+    max-width: 400px;
+    border-radius: 6px;
+    margin: -1rem 4% 2rem 4%;
+}
+
+.wf1 input[type="submit"]:hover {
+    cursor: pointer;
+    border: initial;
+    background-image: linear-gradient(#2c605c, #39918a);
+
+}
+
+.wf1 input:required {
+    border-bottom: solid 3px red;
+}
+
+.wf1 input:required:valid {
+    border-bottom: solid 9px green;
+}
+
+
+p {
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 600px;
+
+}
+
+section {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(160, 105, 38);
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+a:hover {
+    cursor: pointer;
+
+    color: rgb(0, 74, 94);
+    font-weight: 800;
+}

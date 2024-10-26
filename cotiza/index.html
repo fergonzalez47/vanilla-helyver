@@ -17,10 +17,12 @@
 
     <link rel="stylesheet" href="/styles/base.css">
     <link rel="stylesheet" href="/styles/base-large.css">
+    <link rel="stylesheet" href="styles/form.css">
 
     <title>Fabricación e Instalación de Ventanas, Puertas y Espejos en Santiago | </title>
     <script src="/scripts/main.js" type="text/javascript" defer></script>
     <script src="/scripts/getdates.js" type="text/javascript" defer></script>
+    <script src="/scripts/cotiza.js" defer></script>
 </head>
 
 <body>
@@ -38,6 +40,60 @@
             </ul>
         </nav>
     </header>
+
+
+    <main>
+        <h2>Cotiza en línea</h2>
+        <p>Recibe un presupuesto de forma instantánea</p>
+        <form class="wf1" action="gracias.html" method="get">
+            <fieldset>
+
+                <legend><span class="required-element">*</span>Selecciona el servicio</legend>
+                <label>
+                    <select name="service" id="service" required>
+                        <option value="" selected aria-disabled="true" disabled>Selecciona un servicio...</option>
+                        <option value="espejo">Espejo</option>
+                        <option value="puerta">Puerta</option>
+                        <option value="ventana">Ventana</option>
+
+                    </select>
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend><span class="required-element"></span>Fecha estimada de servicio</legend>
+                <label>
+                    <input type="date" name="date" id="date">
+                </label>
+
+
+                <div>Which features did you find useful in the product?
+                    <p><i>(Check all that apply)</i></p>
+                </div>
+                <label><input type="checkbox" id="durability" name="durability" value="yes">Durability</label>
+                <label><input type="checkbox" id="use" name="use" value="yes">Ease of Use</label>
+                <label><input type="checkbox" id="performance" name="performance" value="yes">Performance</label>
+                <label><input type="checkbox" id="design" name="design" value="yes">Design</label>
+            </fieldset>
+
+
+            <fieldset>
+                <legend>Written Review <span class="optional"> (Optional)</span></legend>
+                <label>
+                    <textarea name="written-review" id="written-review"></textarea>
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Your Name <span class="optional"> (Optional)</span></legend>
+                <label>
+                    <input type="text" id="name" name="name">
+                </label>
+            </fieldset>
+            <input type="submit" value="Post Review">
+        </form>
+    </main>
+
 
 
     <footer>
