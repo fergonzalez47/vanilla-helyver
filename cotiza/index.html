@@ -15,14 +15,14 @@
         rel="stylesheet">
 
 
-    <link rel="stylesheet" href="/styles/base.css">
-    <link rel="stylesheet" href="/styles/base-large.css">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/base-large.css">
     <link rel="stylesheet" href="styles/form.css">
 
     <title>Fabricación e Instalación de Ventanas, Puertas y Espejos en Santiago | </title>
-    <script src="/scripts/main.js" type="text/javascript" defer></script>
-    <script src="/scripts/getdates.js" type="text/javascript" defer></script>
-    <script src="/scripts/cotiza.js" defer></script>
+    <script src="../scripts/main.js" type="text/javascript" defer></script>
+    <script src="../scripts/getdates.js" type="text/javascript" defer></script>
+    <script src="../scripts/cotiza.js" defer></script>
 </head>
 
 <body>
@@ -33,10 +33,10 @@
         <button id="menu" aria-label="Abrir menú de navegación"></button>
         <nav class="navigation">
             <ul>
-                <li class="active"><a href="/cotiza/index.html">Cotiza</a></li>
-                <li><a href="/servicios/index.html">Servicios</a></li>
-                <li><a href="/nosotros/index.html">Quienes Somos</a></li>
-                <li><a href="/contacto/index.html">Contacto</a></li>
+                <li class="active"><a href="../cotiza/index.html">Cotiza</a></li>
+                <li><a href="../servicios/index.html">Servicios</a></li>
+                <li><a href="../nosotros/index.html">Quienes Somos</a></li>
+                <li><a href="../contacto/index.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -61,6 +61,25 @@
             </fieldset>
 
             <fieldset>
+                <legend>Cotización de Ventana</legend>
+
+                <div><i>Por favor, ingrese solo el número de las medidas en centímetros (cm), sin incluir el texto
+                        "cm".</i></div>
+
+                <label>
+                    <p>Ancho: </p>
+                    <input placeholder="Ejemplo: 125 (cm)" type="number" name="window-width" required id="window-width">
+                    Cm
+                </label>
+                <label>
+                    <p>Alto: </p> <input placeholder="Ejemplo: 90 (cm)" type="number" name="window-height" required
+                        id="window-height">
+                    Cm
+                </label>
+                `;
+            </fieldset>
+
+            <!-- <fieldset>
                 <legend><span class="required-element"></span>Fecha estimada de servicio</legend>
                 <label>
                     <input type="date" name="date" id="date">
@@ -89,8 +108,8 @@
                 <label>
                     <input type="text" id="name" name="name">
                 </label>
-            </fieldset>
-            <input type="submit" value="Post Review">
+            </fieldset> -->
+            <input type="submit" value="Cotizar en linea">
         </form>
     </main>
 
@@ -103,17 +122,18 @@
                 para tus propias
                 ideas y requerimientos</p>
             <ul>
-                <li><a href="#" target="_blank"><img src="/images/facebook-svg.svg" alt="Icono de Facebook"></a></li>
-                <li><a href="#" target="_blank"><img src="/images/instagram-svg.svg" alt="Icono de Instagram"></a></li>
-                <li><a href="#" target="_blank"><img src="/images/gmail-svg.svg" alt=" Icono de Gmail "></a></li>
+                <li><a href="#" target="_blank"><img src="../images/facebook-svg.svg" alt="Icono de Facebook"></a></li>
+                <li><a href="#" target="_blank"><img src="../images/instagram-svg.svg" alt="Icono de Instagram"></a>
+                </li>
+                <li><a href="#" target="_blank"><img src="../images/gmail-svg.svg" alt=" Icono de Gmail "></a></li>
             </ul>
         </div>
         <div class="footer-information">
             <h3>Información</h3>
             <ul>
                 <li><a href="">Preguntas Frecuentes</a>
-                <li><a href="/politica-de-privacidad">Política de Privacidad</a></li>
-                <li><a href="/terminos-y-condiciones">Términos de Servicio</a></li>
+                <li><a href="../politica-de-privacidad">Política de Privacidad</a></li>
+                <li><a href="../terminos-y-condiciones">Términos de Servicio</a></li>
             </ul>
         </div>
 
@@ -121,10 +141,10 @@
             <h3>Menu</h3>
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="/servicios/index.html">Servicios</a></li>
-                <li><a href="/cotiza/index.html">Cotiza</a></li>
-                <li><a href="/nosotros/index.html">Quienes Somos</a></li>
-                <li><a href="/contacto/index.html">Contacto</a></li>
+                <li><a href="../servicios/index.html">Servicios</a></li>
+                <li><a href="../cotiza/index.html">Cotiza</a></li>
+                <li><a href="../nosotros/index.html">Quienes Somos</a></li>
+                <li><a href="../contacto/index.html">Contacto</a></li>
             </ul>
         </div>
         <div class="footer-contact">
