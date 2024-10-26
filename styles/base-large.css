@@ -180,9 +180,20 @@
         /* Mantiene la proporción de la imagen en pantallas pequeñas */
     }
 
-        .prev, .next {
-            display: initial;
-        }
+    .prev,
+    .next {
+        display: initial;
+    }
+
+
+
+
+    main section:nth-child(4) ul li {
+        flex-direction: initial;
+    }
+
+
+
 
     footer {
         display: grid;

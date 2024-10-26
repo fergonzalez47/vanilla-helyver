@@ -126,6 +126,7 @@ nav li {
     margin: 0.3rem 0;
     transition: 0.2s;
     color: var(--a-auxiliar-color);
+    border-radius: 3px;
 
 }
 
@@ -133,7 +134,7 @@ nav li:hover {
     background-color: var(--a-secondary-color);
 }
 
-nav li:hover a {
+nav li:hover a  {
     color: var(--a-white-color);
 }
 
@@ -146,12 +147,16 @@ nav a {
     text-align: center;
     transition: 0.2s;
     color: var(--a-auxiliar-color);
+    
 }
 
 .active {
-    color: var(--a-primary-color);
-    background-color: var(--a-secondary-color);
+     background-color: var(--a-secondary-color); 
     transition: 0.2s;
+}
+.active a {
+    color: var(--a-primary-color);
+
 }
 
 /* HERO ELEMENT */
@@ -211,17 +216,19 @@ nav a {
     font-weight: 400;
     border-radius: 8px;
     box-shadow: 0 8px 12px rgb(231, 179, 36, 0.5);
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
     animation: heartbeat-cta 7.5s infinite;
 
 }
 
 .cta-btn span {
     color: var(--b-auxiliar-color);
+    transition: 0.2s;
 }
 
 .cta-btn:hover span {
     color: var(--a-primary-color);
+
 }
 
 .cta-btn:hover {
@@ -274,8 +281,8 @@ h1 {
 
 main section .svg-icon {
     min-width: 48px;
-    max-width: 80px;
-    width: 72px;
+    max-width: 88px;
+    width: 80px;
 }
 
 
@@ -351,6 +358,7 @@ main section:nth-child(3) #truck {
 
 }
 
+
 .linea {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -361,6 +369,7 @@ main section:nth-child(3) #truck {
     grid-auto-flow: row;
     margin: 2.5rem 0;
     background-color: var(--a-auxiliar-color);
+    border-radius: 5px;
 
 }
 
@@ -379,22 +388,35 @@ p {
     padding-left: .75rem .5rem;
     margin-bottom: 1rem;
     padding: 0.75rem;
-
-
 }
 
 
-main section:nth-child(3) div:nth-child(4)>div {
+main section:nth-child(3)>div:nth-child(4),
+main section:nth-child(3)>div:nth-child(5) {
+margin: 3rem 0;
+}
+
+main section:nth-child(3)>div:nth-child(4) {
     text-align: center;
-    
+   
+    background-color: var(--a-auxiliar-color);
+    color: var(--a-white-color);
+    border-radius: 5px;
+
 }
 
-main section:not(.hero) {
-text-align: center;
 
+main section:nth-child(3)>div:nth-child(4) h3 {
+    text-align: center;
+    color: var(--a-background-color);
+    font-size: clamp(1.5rem, 3vw, 4rem);
 }
 
+main section:not(.hero),
+main section:nth-child(3)>div:nth-child(4) p {
+    text-align: center;
 
+}
 
 
 /* carrusel */
@@ -492,7 +514,7 @@ text-align: center;
     transition: background-color 0.6s ease;
 }
 
-.active,
+/* .active, */
 .dot:hover {
     background-color: var(--a-primary-color);
 }
@@ -511,6 +533,16 @@ text-align: center;
     to {
         opacity: 1
     }
+}
+
+
+
+
+/* section 4 ventanas y ventanales */
+
+main section:nth-child(4) ul li {
+    display: flex;
+    flex-direction: column;
 }
 
 
