@@ -188,13 +188,11 @@
 
 
 
-
-
-
-    .ul-ventanas li {
-        grid-template-columns: 1fr 2fr;
-
+    main section:nth-child(4) ul li {
+        flex-direction: initial;
     }
+
+
 
 
     footer {
