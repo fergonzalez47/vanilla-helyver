@@ -37,11 +37,6 @@ body {
     font-size: clamp(1rem, 2.3vw, 1.5rem);
 }
 
-legend,
-fieldset div {
-
-    font-style: normal;
-}
 
 
 
@@ -50,7 +45,7 @@ fieldset div {
 
 /*----------- MAIN --------------*/
 main {
-    padding: 0 2%;
+    padding: 2rem 2%;
 
 }
 
@@ -62,14 +57,14 @@ main {
 }
 
 .wf1 {
-
+    
     background-color: #928f8f47;
     max-width: 500px;
     margin: 2.5rem auto;
     /* border: 1px solid var(--a-primary-color); */
     border-radius: 8px;
     padding: .5rem;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.20);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 6px 2px 2px rgba(0, 0, 0, 0.192), 0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.20);
 }
 
 .wf1 fieldset {
@@ -81,7 +76,9 @@ main {
 }
 
 .wf1 legend {
-    color: var(--a-secondary-color);
+    color: var(--b-background-color);
+    font-family: var(--font-heading);
+    
 
 }
 
@@ -107,12 +104,12 @@ main {
 .wf1 input[type="date"],
 .wf1 input[type="number"],
 .wf1 select {
-    background-color: #eee;
+    background-color: var(--a-white-color);
     align-content: start;
-    border: solid 1px gray;
+    border: solid 1px var(--a-secondary-color);
     border-radius: 6px;
     padding: .75rem;
-    color: #555;
+    color: var(--a-secondary-color);
     width: 100%;
     max-width: 400px;
     appearance: none;
@@ -125,23 +122,24 @@ main {
 
 
 .wf1 input[type="submit"] {
-    font-size: 20px;
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    font-family: var(--font-heading);
     border: none;
     background-image: linear-gradient(var(--a-primary-color), var(--a-primary-color));
     color: var(--a-secondary-color);
-    padding: .75rem;
-    width: 96%;
-    max-width: 300px;
+    padding: .5rem;
+    width: 100%;
+    max-width: 100%;
     border-radius: 6px;
-    margin: -1rem 4% 2rem 4%;
+    text-align: center;
     transition: 0.2s;
 }
 
 .wf1 input[type="submit"]:hover {
     cursor: pointer;
     border: initial;
-    background-image: linear-gradient(var(--a-primary-color), var(--a-primary-color));
-    color: wheat;
+    background-image: radial-gradient(#e7b324,#be9112dc);
+    color: var(--b-background-color);
     transform: scale(1.02);
 
 }
@@ -162,4 +160,3 @@ p {
     max-width: 600px;
 
 }
-
