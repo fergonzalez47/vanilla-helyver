@@ -315,8 +315,15 @@ main section:not(.hero) {
     text-align: center;
 }
 
+figure {
+    max-width: 40%;
+    margin: 1rem auto;
+}
 
-
+figure img {
+    max-width: 100%;
+    height: auto;
+}
 
 main .section1-svg-icons {
     display: flex;
