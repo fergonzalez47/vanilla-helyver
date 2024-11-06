@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         },
-        { threshold: 0.1 } // este valor representa el procentaje del elemento mostrandose en pantalla en %. efecto ocurra antes o después
+        { threshold: 0.4 } // este valor representa el procentaje del elemento mostrandose en pantalla en %. efecto ocurra antes o después
     );
 
     objectsToTransition.forEach(obj => observer.observe(obj));
