@@ -136,7 +136,8 @@ nav li:hover {
     background-color: var(--a-secondary-color);
 }
 
-nav li:hover a, nav ul li:first-of-type a:hover  {
+nav li:hover a,
+nav ul li:first-of-type a:hover {
     color: var(--a-white-color);
 }
 
@@ -149,8 +150,9 @@ nav a {
     text-align: center;
     transition: 0.2s;
     color: var(--a-auxiliar-color);
-    
+
 }
+
 nav ul li:first-of-type a {
     color: #ad8005;
 }
@@ -158,9 +160,10 @@ nav ul li:first-of-type a {
 
 
 .active {
-     background-color: var(--a-secondary-color); 
+    background-color: var(--a-secondary-color);
     transition: 0.2s;
 }
+
 .active a {
     color: var(--a-primary-color);
 
@@ -406,12 +409,12 @@ p {
 
 main section:nth-child(3)>div:nth-child(4),
 main section:nth-child(3)>div:nth-child(5) {
-margin: 3rem 0;
+    margin: 3rem 0;
 }
 
 main section:nth-child(3)>div:nth-child(4) {
     text-align: center;
-   
+
     background-color: var(--a-auxiliar-color);
     color: var(--a-white-color);
     border-radius: 5px;
@@ -636,6 +639,36 @@ footer ul:not(.footer-menu) {
         0px 8px 13px rgba(0, 0, 0, 0.1),
         0px 18px 23px rgba(0, 0, 0, 0.1);
 }
+
+
+
+
+/* Inersection Observer Object: */
+
+/* 1*/
+.hidden {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden-content {
+    opacity: 0;
+    transform: translateY(-100px) scale(1);
+    transition: opacity 1s ease-in, transform 1s ease-in;
+}
+
+.visible-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition-delay: 0.3s;
+}
+
 
 /* animations */
 
