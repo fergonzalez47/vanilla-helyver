@@ -566,6 +566,44 @@ main section:nth-child(4) ul li {
 
 
 
+/* Cotiza */
+.color {
+    display: flex;
+    
+}
+.color-option {
+    width: 30px;
+    height: 20px;
+    border: 1px solid rgb(187, 179, 179);
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 30px;
+
+}
+
+#color-blanco {
+
+    background-color: var(--a-white-color);
+}
+#color-madera {
+
+    background-color: #A0522D;
+}
+#color-mate {
+
+    background-color: #B0B0B0;
+}
+#color-negro {
+
+    background-color: black;
+}
+
+#color-titanio {
+
+    background-color: #8C8C8C;
+}
+
 /* FOOTER */
 
 footer {
@@ -659,7 +697,7 @@ footer ul:not(.footer-menu) {
 
 .hidden-content {
     opacity: 0;
-    transform: translateY(-100px) scale(1);
+    transform: translateX(-100px) scale(1);
     transition: opacity 1s ease-in, transform 1s ease-in;
 }
 

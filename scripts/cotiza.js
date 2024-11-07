@@ -128,11 +128,11 @@ function createBaseQuote(serviceType) {
         innerElements += `
         <fieldset>
             <legend>Color:</legend>
-            <label><input type="radio" name="color" value="blanco"> Blanco</label>
-            <label><input type="radio" name="color" value="madera"> Madera</label>
-            <label><input type="radio" name="color" value="mate"> Mate</label>
-            <label><input type="radio" name="color" value="Negro"> Negro</label>
-            <label><input type="radio" name="color" value="titanio"> Titanio</label>
+            <label class="color"><input type="radio" name="color" value="blanco">Blanco <div class="color-option" id="color-blanco"></div></label>
+            <label class="color"><input type="radio" name="color" value="madera"> Madera <div class="color-option" id="color-madera"></div></label>
+            <label class="color"><input type="radio" name="color" value="mate"> Mate <div class="color-option" id="color-mate"></div></label>
+            <label class="color"><input type="radio" name="color" value="Negro"> Negro <div class="color-option" id="color-negro"></div></label>
+            <label class="color"><input type="radio" name="color" value="titanio"> Titanio <div class="color-option" id="color-titanio"></div></label>
         </fieldset>
         <fieldset>
             <legend>Tamaño:</legend>
@@ -177,11 +177,11 @@ function createBaseQuote(serviceType) {
             innerElements += `
         <fieldset>
             <legend>Color:</legend>
-            <label><input type="radio" name="color" value="blanco"> Blanco</label>
-            <label><input type="radio" name="color" value="madera"> Madera</label>
-            <label><input type="radio" name="color" value="mate"> Mate</label>
-            <label><input type="radio" name="color" value="Negro"> Negro</label>
-            <label><input type="radio" name="color" value="titanio"> Titanio</label>
+            <label class="color"><input type="radio" name="color" value="blanco">Blanco <div class="color-option" id="color-blanco"></div></label>
+            <label class="color"><input type="radio" name="color" value="madera"> Madera <div class="color-option" id="color-madera"></div></label>
+            <label class="color"><input type="radio" name="color" value="mate"> Mate <div class="color-option" id="color-mate"></div></label>
+            <label class="color"><input type="radio" name="color" value="Negro"> Negro <div class="color-option" id="color-negro"></div></label>
+            <label class="color"><input type="radio" name="color" value="titanio"> Titanio <div class="color-option" id="color-titanio"></div></label>
         </fieldset>
     `;
         }
