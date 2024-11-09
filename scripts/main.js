@@ -9,6 +9,18 @@ hamburgerMenu.addEventListener("click", () => {
 
 
 
+// tooltip
+
+
+function toggleTooltip(event) {
+    const tooltip = event.currentTarget;
+    tooltip.classList.toggle('active');
+}
+
+
+
+
+
 //IntersectionObserver
 document.addEventListener("DOMContentLoaded", () => {
     const objectsToTransition = document.querySelectorAll(".IOO");

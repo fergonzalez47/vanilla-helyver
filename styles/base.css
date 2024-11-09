@@ -30,7 +30,7 @@ body {
     font-family: var(--font-body);
     font-weight: 400;
     font-style: normal;
-    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    font-size: clamp(1.3rem, 2.2vw, 1.8rem);
 }
 
 h1,
@@ -92,6 +92,7 @@ header #menu {
 
 #menu::before {
     content: "☰";
+    transition: 0.1s ease-in;
 }
 
 #menu.open::before {
@@ -104,6 +105,7 @@ header #menu {
     color: var(--a-primary-color);
     font-size: 24px;
     font-weight: bold;
+    transition: 0.1s ease-in;
 
 
 }
@@ -116,9 +118,10 @@ nav ul {
 }
 
 
+
 .open ul {
     display: flex;
-
+    margin-top: 0.25rem;
 
 }
 
@@ -142,7 +145,7 @@ nav ul li:first-of-type a:hover {
 }
 
 nav a {
-    font-size: clamp(1.25rem, 2vw, 1.3rem);
+    font-size: clamp(1.4rem, 2.1vw, 1.4rem);
     padding: 0.2rem;
     width: 100%;
     display: block;
@@ -569,8 +572,9 @@ main section:nth-child(4) ul li {
 /* Cotiza */
 .color {
     display: flex;
-    
+
 }
+
 .color-option {
     width: 30px;
     height: 20px;
@@ -586,14 +590,17 @@ main section:nth-child(4) ul li {
 
     background-color: var(--a-white-color);
 }
+
 #color-madera {
 
     background-color: #A0522D;
 }
+
 #color-mate {
 
     background-color: #B0B0B0;
 }
+
 #color-negro {
 
     background-color: black;
@@ -707,6 +714,45 @@ footer ul:not(.footer-menu) {
     transition-delay: 0.3s;
 }
 
+
+
+
+
+/* tooltips */
+
+
+.tooltip {
+    position: relative;
+    cursor: pointer;
+
+}
+
+.tooltip img {
+    width: 22px;
+    height: 22px;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip.active .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
 
 /* animations */
 
