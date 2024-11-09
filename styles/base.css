@@ -734,15 +734,16 @@ footer ul:not(.footer-menu) {
 
 .tooltip-text {
     visibility: hidden;
-    width: 200px;
-    background-color: #333;
+    width: 220px;
+    max-width: 280px;
+    background-color: #333333da;
     color: #fff;
     text-align: center;
     border-radius: 4px;
     padding: 5px;
     position: absolute;
     z-index: 1;
-    bottom: 125%;
+    bottom: 40%;
     left: 50%;
     margin-left: -100px;
     opacity: 0;
