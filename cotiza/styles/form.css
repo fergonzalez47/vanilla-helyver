@@ -14,11 +14,9 @@
     --b-secondary-color: #161B33;
     --b-white-color: #DBDBDB;
     --b-background-color: #0D0C1D;
-    --b-auxiliar-color: #2ca73c;
-    /* --b-auxiliar-color: #52B77C; */
+    --b-auxiliar-color: #36d830;
+    
 }
-
-
 
 
 
@@ -175,13 +173,19 @@ p {
 }
 
 
-#add-btn {
+.add-btn, .delete-btn {
+    
     border: none;
+    background-color: #161b3300;
+    transition: 0.3s ease-out;
 }
+
 
 
 .new-service {
     text-align: center;
+    
+    
 }
 
 .new-service img {
@@ -191,8 +195,22 @@ p {
 
 
 }
-.new-service img:hover {
+
+.delete-btn img{
+    height: initial;
+    width: initial;
+}
+.new-service img:hover, .delete-btn:hover {
     transform: scale(1.09);
     cursor: pointer;
     color: var(--a-primary-color);
+}
+
+
+
+.container-delete-btn {
+    border-bottom: 1px solid #2d314259;
+    height: 30px;
+    text-align: right;
+    padding-right: 1.25rem;
 }
