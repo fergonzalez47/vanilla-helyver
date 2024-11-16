@@ -87,9 +87,7 @@ main {
     font-size: .9rem;
     align-items: center;
     align-content: center;
-    padding-bottom: 0.5rem;
-    border: 1px solid blue;
-
+    padding: 0.5rem 0;
 }
 
 .wf1 div {
@@ -99,8 +97,10 @@ main {
 }
 
 .div-label-input {
+
     display: grid;
     grid-template-columns: 1fr 1fr;
+
 }
 
 .wf1 input[type="text"],
@@ -121,9 +121,9 @@ main {
     appearance: none;
 }
 
-.wf1 input[type="radio"],
-.wf1 input[type="checkbox"] {
+.wf1 input[type="radio"] {
     margin-right: 8px;
+
 }
 
 
@@ -191,11 +191,7 @@ p {
 
 
 
-/* .new-service {
-    text-align: center;
-    
-    
-} */
+
 
 .new-service img {
     width: 50px;
@@ -240,7 +236,7 @@ p {
     border-radius: 10px;
     display: inline-block;
     vertical-align: middle;
-    margin-right: 30px;
+    margin-right: 40px;
 
 }
 

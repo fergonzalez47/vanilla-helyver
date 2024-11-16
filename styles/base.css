@@ -368,6 +368,7 @@ main section:nth-child(2) .services img {
 main section:nth-child(3) {
     display: grid;
     gap: 2rem;
+    
 
 }
 
@@ -413,6 +414,7 @@ p {
 main section:nth-child(3)>div:nth-child(4),
 main section:nth-child(3)>div:nth-child(5) {
     margin: 3rem 0;
+    
 }
 
 main section:nth-child(3)>div:nth-child(4) {
@@ -420,10 +422,33 @@ main section:nth-child(3)>div:nth-child(4) {
 
     background-color: var(--a-auxiliar-color);
     color: var(--a-white-color);
-    border-radius: 5px;
+    border-radius: 5px
 
 }
 
+main section:nth-child(3)>div:nth-child(5) .cta-btn {
+    margin-top: 1rem;
+    max-width: 20%;
+}
+
+.img-gallery {
+
+    justify-self: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    display: grid;
+    justify-content: center;
+    padding: 1rem;
+    width: 90%;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    column-gap: 2rem;
+    row-gap: 2rem;
+}
+
+.img-gallery img {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
 
 main section:nth-child(3)>div:nth-child(4) h3 {
     text-align: center;

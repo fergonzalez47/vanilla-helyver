@@ -8,7 +8,39 @@ const config = {
     ventanaProyectante: { name: "Ventana-Proyectante", lineOptions: ["Linea 42"] }
 
 };
-
+const prices = {
+    ventana: {
+        'linea-25': {
+            mate: 80000,
+            titanio: 90000,
+            blanco: 90000,
+            negro: 90000,
+            madera: 120000
+        },
+        'linea-5000': {
+            mate: 50000,
+            titanio: 60000,
+            blanco: 60000,
+            negro: 60000,
+            madera: 70000
+        }
+    },
+    puerta: {
+        'linea-35': {
+            todos: 180000
+        }
+    },
+    proyectante: {
+        'linea-42': {
+            todos: 90000
+        }
+    },
+    celosia: {
+        pequeña: 70000,
+        grande: 110000
+    },
+    espejo: 60000
+};
 
 function createAddButton() {
 
@@ -68,7 +100,8 @@ function chooseOptionToDisplay(param, parent, childBefore) {
 
     switch (param) {
         case "celocia":
-            div.appendChild(createCelocia());
+            let fieldsetCelocia = createCelocia();
+            div.appendChild(fieldsetCelocia);
             break;
         case "espejo":
             div.appendChild(createMirror());
@@ -356,19 +389,20 @@ function createCelocia() {
     innerElements += `
         <fieldset>
             <legend><span class="required-element">*</span>Escoge un color:</legend>
-            <label class="color"><input type="radio" name="color" value="blanco">Blanco <div class="color-option" id="color-blanco"></div></label>
-            <label class="color"><input type="radio" name="color" value="madera"> Madera <div class="color-option" id="color-madera"></div></label>
-            <label class="color"><input type="radio" name="color" value="mate"> Mate <div class="color-option" id="color-mate"></div></label>
-            <label class="color"><input type="radio" name="color" value="Negro"> Negro <div class="color-option" id="color-negro"></div></label>
-            <label class="color"><input type="radio" name="color" value="titanio"> Titanio <div class="color-option" id="color-titanio"></div></label>
+            <label class="color"><input type="radio" name="color" required value="blanco">Blanco <div class="color-option" id="color-blanco"></div></label>
+            <label class="color"><input type="radio" name="color" required value="madera"> Madera <div class="color-option" id="color-madera"></div></label>
+            <label class="color"><input type="radio" name="color" required value="mate"> Mate <div class="color-option" id="color-mate"></div></label>
+            <label class="color"><input type="radio" name="color" required value="Negro"> Negro <div class="color-option" id="color-negro"></div></label>
+            <label class="color"><input type="radio" name="color" required value="titanio"> Titanio <div class="color-option" id="color-titanio"></div></label>
         </fieldset>
         <fieldset>
             <legend><span class="required-element">*</span>Tamaño:</legend>
-            <label><input type="radio" name="tamaño" value="grande"> Grande</label>
-            <label><input type="radio" name="tamaño" value="pequeña"> Pequeña</label>
+            <label><input type="radio" name="tamaño" value="grande" required> Grande</label>
+            <label><input type="radio" name="tamaño" value="pequeña" required> Pequeña</label>
         </fieldset>
     `;
     fieldset.innerHTML = innerElements;
+
     return fieldset;
 }
 
@@ -377,3 +411,22 @@ function createCelocia() {
 displayOption.appendChild(createAddButtonContainer());
 
 
+
+
+
+// Calculos
+
+function calcPrice(service, linea, color, ancho, alto) {
+    let area = (ancho / 100) * (alto / 100); // Conversión a metros cuadrados
+    let precioBase;
+
+    if (service === 'espejo') {
+        precioBase = precios.espejo;
+    } else if (service === 'celosia') {
+        precioBase = precios.celosia[linea];
+    } else {
+        precioBase = precios[service][linea][color] || precios[service][linea].todos;
+    }
+
+    return area * precioBase;
+}
