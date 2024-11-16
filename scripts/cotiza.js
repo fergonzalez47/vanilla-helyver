@@ -110,7 +110,7 @@ function createServiceSelect(deleteBtn) {
     label.innerHTML = `
         <select name="service" id="service" required> 
             <option value="" selected aria-disabled="true" disabled>Elige el producto o servicio...</option>
-            <option value="celocia">Celocia</option>
+            <option value="celocia">Celocia </option>
             <option value="espejo">Espejo</option>
             <option value="puerta">Puerta</option>
             <option value="ventanaNormal">Ventana</option>
@@ -162,14 +162,16 @@ function createWindow() {
 
     innerElements += `
             <div><i>Por favor, ingrese las medidas en centímetros (cm), sin incluir el texto "cm".</i></div>
+            <div class="div-label-input">
             <label>
-                <p><span class="required-element">*</span>Ancho:</p>
-                <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required class="${selectedService.name}-width"> Cm
+                <p><span class="required-element">*</span>Ancho (cm):</p>
+                <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required class="${selectedService.name}-width">
             </label>
             <label>
-                <p><span class="required-element">*</span>Alto: </p> 
-                <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required class="${selectedService.name}-height"> Cm
+                <p><span class="required-element">*</span>Alto (cm): </p> 
+                <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required class="${selectedService.name}-height">
             </label>
+            </div>
         `;
 
     // opciones de línea de aluminio solo si aplica
@@ -186,7 +188,7 @@ function createWindow() {
         `;
 
         innerElements += `
-        <fieldset>
+        <fieldset class="fieldset-block-color">
             <legend><span class="required-element">*</span>Escoge el color del perfil:</legend>
             <label class="color"><input type="radio" name="color" value="blanco">Blanco <div class="color-option" id="color-blanco"></div></label>
             <label class="color"><input type="radio" name="color" value="madera"> Madera <div class="color-option" id="color-madera"></div></label>
@@ -216,14 +218,16 @@ function createProjectingWindow() {
 
     innerElements += `
             <div><i>Por favor, ingrese las medidas en centímetros (cm), sin incluir el texto "cm".</i></div>
+             <div class="div-label-input">
             <label>
-                <p><span class="required-element">*</span>Ancho:</p>
-                <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required class="${selectedService.name}-width"> Cm
+                <p><span class="required-element">*</span>Ancho (cm):</p>
+                <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required class="${selectedService.name}-width">
             </label>
             <label>
-                <p><span class="required-element">*</span>Alto: </p> 
-                <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required class="${selectedService.name}-height"> Cm
+                <p><span class="required-element">*</span>Alto (cm): </p> 
+                <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required class="${selectedService.name}-height">
             </label>
+            </div>
         `;
 
     // opciones de línea de aluminio solo si aplica
@@ -322,14 +326,16 @@ function createMirror() {
             <legend>Cotización de ${selectedService.name}</legend>`;
     innerElements += `
             <div><i>Por favor, ingrese las medidas en centímetros (cm), sin incluir el texto "cm".</i></div>
+            <div class="div-label-input">
             <label>
-                <p><span class="required-element">*</span>Ancho:</p>
-                <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required class="${selectedService.name}-width"> Cm
+                <p><span class="required-element">*</span>Ancho (cm):</p>
+                <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required class="${selectedService.name}-width">
             </label>
             <label>
-                <p><span class="required-element">*</span>Alto: </p> 
-                <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required class="${selectedService.name}-height"> Cm
+                <p><span class="required-element">*</span>Alto (cm): </p> 
+                <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required class="${selectedService.name}-height">
             </label>
+            </div>
         `;
 
     fieldset.innerHTML = innerElements;
@@ -369,3 +375,5 @@ function createCelocia() {
 
 
 displayOption.appendChild(createAddButtonContainer());
+
+

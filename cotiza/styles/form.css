@@ -15,7 +15,7 @@
     --b-white-color: #DBDBDB;
     --b-background-color: #0D0C1D;
     --b-auxiliar-color: #36d830;
-    
+
 }
 
 
@@ -55,11 +55,10 @@ main {
 }
 
 .wf1 {
-    
+
     background-color: #928f8f47;
     max-width: 500px;
     margin: 2.5rem auto;
-    /* border: 1px solid var(--a-primary-color); */
     border-radius: 8px;
     padding: .5rem;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 6px 2px 2px rgba(0, 0, 0, 0.192), 0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.20);
@@ -76,7 +75,9 @@ main {
 .wf1 legend {
     color: var(--b-background-color);
     font-family: var(--font-heading);
-    
+    align-items: center;
+    align-content: center;
+
 
 }
 
@@ -86,7 +87,9 @@ main {
     font-size: .9rem;
     align-items: center;
     align-content: center;
-    /* padding-bottom: 1rem; */
+    padding-bottom: 0.5rem;
+    border: 1px solid blue;
+
 }
 
 .wf1 div {
@@ -94,10 +97,12 @@ main {
     padding-bottom: .75rem;
     font-size: .95rem;
 }
+
 .div-label-input {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
 .wf1 input[type="text"],
 .wf1 input[type="tel"],
 .wf1 input[type="email"],
@@ -111,10 +116,10 @@ main {
     border-radius: 6px;
     padding: .75rem;
     color: var(--a-secondary-color);
-    width: 100%;
+    width: 80%;
     max-width: 400px;
     appearance: none;
-} 
+}
 
 .wf1 input[type="radio"],
 .wf1 input[type="checkbox"] {
@@ -134,12 +139,12 @@ main {
     border-radius: 6px;
     text-align: center;
     transition: 0.2s;
-} 
+}
 
 .wf1 input[type="submit"]:hover {
     cursor: pointer;
     border: initial;
-    background-image: radial-gradient(#e7b324,#be9112dc);
+    background-image: radial-gradient(#e7b324, #be9112dc);
     color: var(--b-background-color);
     transform: scale(1.02);
 
@@ -176,8 +181,9 @@ p {
 }
 
 
-.add-btn, .delete-btn {
-    
+.add-btn,
+.delete-btn {
+
     border: none;
     background-color: #161b3300;
     transition: 0.3s ease-out;
@@ -199,11 +205,13 @@ p {
 
 }
 
-.delete-btn img{
+.delete-btn img {
     height: initial;
     width: initial;
 }
-.new-service img:hover, .delete-btn:hover {
+
+.new-service img:hover,
+.delete-btn:hover {
     transform: scale(1.09);
     cursor: pointer;
     color: var(--a-primary-color);
@@ -216,4 +224,57 @@ p {
     height: 30px;
     text-align: right;
     padding-right: 1.25rem;
+
+}
+
+/* Cotiza */
+.color {
+    display: flex;
+
+}
+
+.color-option {
+    width: 30px;
+    height: 20px;
+    border: 1px solid rgb(187, 179, 179);
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 30px;
+
+}
+
+#color-blanco {
+
+    background-color: var(--a-white-color);
+}
+
+#color-madera {
+
+    background-color: #A0522D;
+}
+
+#color-mate {
+
+    background-color: #B0B0B0;
+}
+
+#color-negro,
+.color-negro {
+
+    background-color: black;
+}
+
+#color-titanio {
+
+    background-color: #8C8C8C;
+}
+
+
+.fieldset-block-color {
+    display: block;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+
 }
