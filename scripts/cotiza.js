@@ -27,10 +27,10 @@ function createAddButton() {
     return addBtn;
 }
 
-
 function handleAddButtonClick(event) {
     const addBtn = event.currentTarget;
     const container = addBtn.parentElement;
+
     const deleteButton = createDeleteButton(container);
     addBtn.remove();
 
@@ -53,32 +53,41 @@ function handleServiceSelectChange(event, parentContainer, childBefore) {
     chooseOptionToDisplay(event.target.value, parentContainer, childBefore);
 }
 
+
 function chooseOptionToDisplay(param, parent, childBefore) {
+  
+    let div = parent.querySelector(".show-service");
+    if (!div) {
+        div = document.createElement("div");
+        div.classList.add("show-service");
+        parent.insertBefore(div, childBefore);
+    } else {
+        div.innerHTML = "";
+    }
+
 
     switch (param) {
         case "celocia":
-            parent.insertBefore(createCelocia(), childBefore);
-
+            div.appendChild(createCelocia());
             break;
         case "espejo":
-            parent.insertBefore(createMirror(), childBefore);
+            div.appendChild(createMirror());
             break;
         case "puerta":
-            parent.insertBefore(createDoor(), childBefore);
+            div.appendChild(createDoor());
             break;
         case "ventanaNormal":
-            parent.insertBefore(createWindow(), childBefore);
-
+            div.appendChild(createWindow());
             break;
         case "ventanaProyectante":
-            parent.insertBefore(createProjectingWindow(), childBefore);
+            div.appendChild(createProjectingWindow());
             break;
-
         default:
+            div.innerHTML = "<p>Opción no válida, selecciona una opción correcta.</p>";
             break;
     }
-
 }
+
 
 
 
@@ -93,18 +102,13 @@ function createAddButtonContainer() {
 function createServiceSelect(deleteBtn) {
 
     let fieldset = document.createElement("fieldset");
-
     let legend = document.createElement("legend");
-
-    legend.innerHTML = `<span class="required-element">*</span>¿Qué quieres cotizar?`;
-   
+    legend.innerHTML = `<span class="required-element">*</span>¿Qué quieres cotizar? `;
     legend.appendChild(deleteBtn);
-
     fieldset.appendChild(legend);
-
     let label = document.createElement("label");
     label.innerHTML = `
-        <select name="service" id="service" required>
+        <select name="service" id="service" required> 
             <option value="" selected aria-disabled="true" disabled>Elige el producto o servicio...</option>
             <option value="celocia">Celocia</option>
             <option value="espejo">Espejo</option>
@@ -114,8 +118,6 @@ function createServiceSelect(deleteBtn) {
         </select>
     `;
     fieldset.appendChild(label);
-
-    console.log("fieldset generado:", fieldset); // Verifica el DOM generado
     return fieldset;
 }
 
@@ -161,11 +163,11 @@ function createWindow() {
     innerElements += `
             <div><i>Por favor, ingrese las medidas en centímetros (cm), sin incluir el texto "cm".</i></div>
             <label>
-                <p>Ancho:</p>
+                <p><span class="required-element">*</span>Ancho:</p>
                 <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required class="${selectedService.name}-width"> Cm
             </label>
             <label>
-                <p>Alto: </p> 
+                <p><span class="required-element">*</span>Alto: </p> 
                 <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required class="${selectedService.name}-height"> Cm
             </label>
         `;
@@ -174,7 +176,7 @@ function createWindow() {
     if (selectedService.lineOptions) {
         innerElements += `
             <fieldset>
-                <legend>Línea Aluminio:</legend>
+                <legend><span class="required-element">*</span>Línea Aluminio:</legend>
                 ${selectedService.lineOptions.map(line => `
                     <label>
                         <input type="radio" name="line" required value="${line}"> ${line}
@@ -183,12 +185,9 @@ function createWindow() {
             </fieldset>
         `;
 
-        // opciones adicionales de color, tipo de cristal y grosor
-
-        // esto despues lo puedo separar en otra condicional mas si es necesario
         innerElements += `
         <fieldset>
-            <legend>Color:</legend>
+            <legend><span class="required-element">*</span>Escoge el color del perfil:</legend>
             <label class="color"><input type="radio" name="color" value="blanco">Blanco <div class="color-option" id="color-blanco"></div></label>
             <label class="color"><input type="radio" name="color" value="madera"> Madera <div class="color-option" id="color-madera"></div></label>
             <label class="color"><input type="radio" name="color" value="mate"> Mate <div class="color-option" id="color-mate"></div></label>
@@ -218,11 +217,11 @@ function createProjectingWindow() {
     innerElements += `
             <div><i>Por favor, ingrese las medidas en centímetros (cm), sin incluir el texto "cm".</i></div>
             <label>
-                <p>Ancho:</p>
+                <p><span class="required-element">*</span>Ancho:</p>
                 <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required class="${selectedService.name}-width"> Cm
             </label>
             <label>
-                <p>Alto: </p> 
+                <p><span class="required-element">*</span>Alto: </p> 
                 <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required class="${selectedService.name}-height"> Cm
             </label>
         `;
@@ -231,7 +230,7 @@ function createProjectingWindow() {
     if (selectedService.lineOptions) {
         innerElements += `
             <fieldset>
-                <legend>Línea Aluminio:</legend>
+                <legend><span class="required-element">*</span>Línea Aluminio:</legend>
                 ${selectedService.lineOptions.map(line => `
                     <label>
                         <input type="radio" name="line" required value="${line}"> ${line}
@@ -242,7 +241,7 @@ function createProjectingWindow() {
 
         innerElements += `
         <fieldset>
-            <legend>Color:</legend>
+            <legend><span class="required-element">*</span>Escoge el color del perfil:</legend>
             <label class="color"><input type="radio" name="color" value="blanco">Blanco <div class="color-option" id="color-blanco"></div></label>
             <label class="color"><input type="radio" name="color" value="madera"> Madera <div class="color-option" id="color-madera"></div></label>
             <label class="color"><input type="radio" name="color" value="mate"> Mate <div class="color-option" id="color-mate"></div></label>
@@ -255,6 +254,8 @@ function createProjectingWindow() {
     fieldset.innerHTML = innerElements;
     return fieldset;
 }
+
+
 
 function createDoor() {
     let selectedService = config.puerta;
@@ -269,21 +270,23 @@ function createDoor() {
 
     innerElements += `
             <div><i>Por favor, ingrese las medidas en centímetros (cm), sin incluir el texto "cm".</i></div>
+            <div class="div-label-input">
             <label>
-                <p>Ancho:</p>
-                <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required class="${selectedService.name}-width"> Cm
+                <p><span class="required-element">*</span>Ancho (cm):</p>
+                <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required class="${selectedService.name}-width">
             </label>
             <label>
-                <p>Alto: </p> 
-                <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required class="${selectedService.name}-height"> Cm
+                <p><span class="required-element">*</span>Alto (cm): </p> 
+                <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required class="${selectedService.name}-height">
             </label>
+            </div>
         `;
 
     // opciones de línea de aluminio solo si aplica
     if (selectedService.lineOptions) {
         innerElements += `
             <fieldset>
-                <legend>Línea Aluminio:</legend>
+                <legend><span class="required-element">*</span>Línea Aluminio:</legend>
                 ${selectedService.lineOptions.map(line => `
                     <label>
                         <input type="radio" name="line" required value="${line}"> ${line}
@@ -294,7 +297,7 @@ function createDoor() {
 
         innerElements += `
         <fieldset>
-            <legend>Color:</legend>
+            <legend><span class="required-element">*</span>Escoge el color del marco:</legend>
             <label class="color"><input type="radio" name="color" value="blanco">Blanco <div class="color-option" id="color-blanco"></div></label>
             <label class="color"><input type="radio" name="color" value="madera"> Madera <div class="color-option" id="color-madera"></div></label>
             <label class="color"><input type="radio" name="color" value="mate"> Mate <div class="color-option" id="color-mate"></div></label>
@@ -320,11 +323,11 @@ function createMirror() {
     innerElements += `
             <div><i>Por favor, ingrese las medidas en centímetros (cm), sin incluir el texto "cm".</i></div>
             <label>
-                <p>Ancho:</p>
+                <p><span class="required-element">*</span>Ancho:</p>
                 <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required class="${selectedService.name}-width"> Cm
             </label>
             <label>
-                <p>Alto: </p> 
+                <p><span class="required-element">*</span>Alto: </p> 
                 <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required class="${selectedService.name}-height"> Cm
             </label>
         `;
@@ -346,7 +349,7 @@ function createCelocia() {
             <legend>Cotización de ${selectedService.name}</legend>`;
     innerElements += `
         <fieldset>
-            <legend>Color:</legend>
+            <legend><span class="required-element">*</span>Escoge un color:</legend>
             <label class="color"><input type="radio" name="color" value="blanco">Blanco <div class="color-option" id="color-blanco"></div></label>
             <label class="color"><input type="radio" name="color" value="madera"> Madera <div class="color-option" id="color-madera"></div></label>
             <label class="color"><input type="radio" name="color" value="mate"> Mate <div class="color-option" id="color-mate"></div></label>
@@ -354,7 +357,7 @@ function createCelocia() {
             <label class="color"><input type="radio" name="color" value="titanio"> Titanio <div class="color-option" id="color-titanio"></div></label>
         </fieldset>
         <fieldset>
-            <legend>Tamaño:</legend>
+            <legend><span class="required-element">*</span>Tamaño:</legend>
             <label><input type="radio" name="tamaño" value="grande"> Grande</label>
             <label><input type="radio" name="tamaño" value="pequeña"> Pequeña</label>
         </fieldset>

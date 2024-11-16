@@ -86,7 +86,7 @@ main {
     font-size: .9rem;
     align-items: center;
     align-content: center;
-    padding-bottom: 1rem;
+    /* padding-bottom: 1rem; */
 }
 
 .wf1 div {
@@ -94,7 +94,10 @@ main {
     padding-bottom: .75rem;
     font-size: .95rem;
 }
-
+.div-label-input {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 .wf1 input[type="text"],
 .wf1 input[type="tel"],
 .wf1 input[type="email"],
@@ -111,7 +114,7 @@ main {
     width: 100%;
     max-width: 400px;
     appearance: none;
-}
+} 
 
 .wf1 input[type="radio"],
 .wf1 input[type="checkbox"] {
@@ -131,7 +134,7 @@ main {
     border-radius: 6px;
     text-align: center;
     transition: 0.2s;
-}
+} 
 
 .wf1 input[type="submit"]:hover {
     cursor: pointer;
@@ -153,7 +156,7 @@ main {
 }
 
 p {
-    margin: 1rem auto;
+    margin: 0 auto;
     width: 100%;
     max-width: 600px;
 
@@ -182,11 +185,11 @@ p {
 
 
 
-.new-service {
+/* .new-service {
     text-align: center;
     
     
-}
+} */
 
 .new-service img {
     width: 50px;
