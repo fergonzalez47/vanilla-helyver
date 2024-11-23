@@ -191,11 +191,37 @@
 
 
 
-    main section:nth-child(4) ul li {
-        flex-direction: initial;
+
+
+    .all-services-ventanas {
+        grid-column: 1 / -1;
     }
 
+    .all-services-ventanas ul {
+        display: flex;
+        flex-direction: row;
 
+    }
+
+    .all-services>div>p {
+     
+        width: 90%;
+    }
+
+    .all-services>div {
+        padding: 0.5rem;
+        border-top: 8px solid rgb(179, 173, 173);
+        border-bottom: 8px solid gray;
+        border-right: 8px solid gray;
+        border-left: 8px solid rgb(179, 173, 173);
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    }
+
+    .all-services {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2.5rem;
+        row-gap: 1rem;
+    }
 
 
     footer {
