@@ -152,6 +152,41 @@
                     </select></th>
                 <th>$ 120.000</th>
             </tr>
+
+            <tr>
+                <th>
+                    <select name="service" id="service" required>
+                        <option value="" selected aria-disabled="true" disabled>Elige el producto o servicio...</option>
+                        <option value="celocia">Celocia </option>
+                        <option value="espejo">Espejo</option>
+                        <option value="puerta">Puerta</option>
+                        <option value="ventanaNormal">Ventana</option>
+                        <option value="ventanaProyectante">Ventana Proyectante</option>
+                    </select>
+                </th>
+                <th><select name="" id="" required>
+                        <option value="" selected aria-disabled="true" disabled>Elige el color...</option>
+                        <option value="blanco">Blanco </option>
+                        <option value="madera">madera</option>
+                        <option value="mate">Mate</option>
+                        <option value="negro">Negro</option>
+                        <option value="titanio">Titanio</option>
+                    </select></th>
+                <th><label>
+                        <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required
+                            class="${selectedService.name}-width">
+                    </label></th>
+                <th><label>
+                        <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required
+                            class="${selectedService.name}-height">
+                    </label></th>
+                <th><select name="" id="" required>
+                        <option value="" selected aria-disabled="true" disabled>Linea de aluminio...</option>
+                        <option value="blanco">Blanco </option>
+                        <option value="madera">madera</option>
+                    </select></th>
+                <th>$ 120.000</th>
+            </tr>
             <tr>
                 <th>
                     <select name="service" id="service" required>
@@ -193,7 +228,7 @@
                 <td></td>
                 <td></td>
                 <td><button class="add-btn" title="Añadir nueva cotización"><img src="../images/svg/add-btn.svg"
-                        alt="Simbolo de añadir"></button></td>
+                            alt="Simbolo de añadir"></button></td>
             </tr>
         </table>
     </main>
