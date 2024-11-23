@@ -72,9 +72,13 @@ h1 {
 
 header {
 
-    justify-content: space-between;
-    padding: 0.5rem;
+    /* esto */
+    /* display: flex; */
 
+
+    justify-content: space-between;
+    padding: 0.75rem;
+    
     align-items: center;
     border-bottom: 0.3rem solid var(--a-primary-color);
 
@@ -88,11 +92,14 @@ header #menu {
     position: absolute;
     top: 0.6rem;
     right: 1rem;
+    cursor: pointer;
 }
 
 #menu::before {
     content: "☰";
     transition: 0.1s ease-in;
+    padding-right: 0.5rem;
+    font-size: 20px;
 }
 
 #menu.open::before {
@@ -127,6 +134,7 @@ nav ul {
 
 nav li {
     margin: 0.3rem 0;
+    padding: 0.3rem 0;
     transition: 0.2s;
     color: var(--a-auxiliar-color);
     border-radius: 3px;
@@ -183,7 +191,7 @@ nav ul li:first-of-type a {
     background-position: right;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    
+
 
 }
 
@@ -620,7 +628,7 @@ main section:nth-child(3)>div:nth-child(4) p {
     flex-direction: column;
     transform: scale(0.7);
     background-color: var(--a-auxiliar-color);
-    color:var(--a-background-color);
+    color: var(--a-background-color);
     border-radius: 8px;
     padding: 0.75rem;
 
