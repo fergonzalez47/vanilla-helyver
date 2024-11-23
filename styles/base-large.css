@@ -168,6 +168,9 @@
 
     /* carrusel */
 
+    .slideshow-container {
+        height: 600px;
+    }
 
     .carousel-control {
         font-size: 1.5rem;

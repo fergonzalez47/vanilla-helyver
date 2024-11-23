@@ -1,0 +1,30 @@
+.quote-instructions {
+    margin: 2rem 1rem 1rem 1rem;
+    padding: 0, 5rem;
+}
+
+.quote-instructions ol {
+    margin-left: 2rem;
+    transform: scale(0.7);
+}
+
+.quote-instructions ol li {
+    font-style: italic;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+
+}
+
+table td,
+th {
+    margin: 0;
+    border: 1px solid rgb(180, 169, 169);
+    padding: 0.4rem;
+}
+
+table {
+    font-size:  1rem;
+}

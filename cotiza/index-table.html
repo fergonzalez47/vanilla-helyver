@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Fernando Gonzalez">
+    <meta name="description"
+        content="Cotiza en línea ventanas y puertas de aluminio, espejos y estructuras a medida en Santiago de Chile. Obtén un presupuesto rápido y garantizado con nuestro servicio profesional y de calidad.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/base-large.css">
+    <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/table.css">
+    <title>Cotiza en linea | Fabricación e Instalación de Ventanas, Puertas y Espejos en Santiago </title>
+    <script src="../scripts/main.js" type="text/javascript" defer></script>
+    <script src="../scripts/getdates.js" type="text/javascript" defer></script>
+    <script src="../scripts/cotiza.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html" aria-label="Ir al inicio">
+            Helyver S
+        </a>
+        <button id="menu" aria-label="Abrir menú de navegación"></button>
+        <nav class="navigation">
+            <ul>
+                <li class="active"><a href="../cotiza/index.html">Cotiza</a></li>
+                <li><a href="../servicios/index.html">Servicios</a></li>
+                <li><a href="../nosotros/index.html">Quienes Somos</a></li>
+                <li><a href="../contacto/index.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+        <h2>Cotiza en línea</h2>
+
+        <p>Recibe un presupuesto de forma instantánea
+        </p>
+        <div class="quote-instructions">
+            <h2>Pasos para cotizar tu ventana</h2>
+            <ol>
+                <li>
+                    <strong>Selecciona el color:</strong> Elige el color de aluminio que deseas para tu ventana.
+                </li>
+                <li>
+                    <strong>Ingresa las medidas:</strong>
+                    <ul>
+                        <li>Ancho en centímetros (cm).</li>
+                        <li>Largo en centímetros (cm).</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Elige la línea de aluminio:</strong> Selecciona la línea que se ajuste a tus necesidades
+                    (Línea 25,
+                    Línea 5000, etc.).
+                </li>
+                <li>
+                    <strong>Obtén el precio:</strong> El sistema calculará automáticamente el costo total según las
+                    especificaciones ingresadas.
+                </li>
+            </ol>
+            <p class="tip">
+                💡 <em>Puedes modificar los datos si necesitas ajustar la cotización.</em>
+            </p>
+        </div>
+
+        <table>
+            <tr class="table-heading">
+                <th>Servicio</th>
+                <th>Color</th>
+                <th>Ancho (cm)</th>
+                <th>Largo (cm)</th>
+                <th>Linea Aluminio</th>
+                <th class="price">Precio</th>
+            </tr>
+            <tr>
+                <th>
+                    <select name="service" id="service" required>
+                        <option value="" selected aria-disabled="true" disabled>Elige el producto o servicio...</option>
+                        <option value="celocia">Celocia </option>
+                        <option value="espejo">Espejo</option>
+                        <option value="puerta">Puerta</option>
+                        <option value="ventanaNormal">Ventana</option>
+                        <option value="ventanaProyectante">Ventana Proyectante</option>
+                    </select>
+                </th>
+                <th><select name="" id="" required>
+                        <option value="" selected aria-disabled="true" disabled>Elige el color...</option>
+                        <option value="blanco">Blanco </option>
+                        <option value="madera">madera</option>
+                        <option value="mate">Mate</option>
+                        <option value="negro">Negro</option>
+                        <option value="titanio">Titanio</option>
+                    </select></th>
+                <th><label>
+                        <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required
+                            class="${selectedService.name}-width">
+                    </label></th>
+                <th><label>
+                        <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required
+                            class="${selectedService.name}-height">
+                    </label></th>
+                <th><select name="" id="" required>
+                        <option value="" selected aria-disabled="true" disabled>Linea de aluminio...</option>
+                        <option value="blanco">Blanco </option>
+                        <option value="madera">madera</option>
+                    </select></th>
+                <th>$ 120.000</th>
+            </tr>
+            <tr>
+                <th>
+                    <select name="service" id="service" required>
+                        <option value="" selected aria-disabled="true" disabled>Elige el producto o servicio...</option>
+                        <option value="celocia">Celocia </option>
+                        <option value="espejo">Espejo</option>
+                        <option value="puerta">Puerta</option>
+                        <option value="ventanaNormal">Ventana</option>
+                        <option value="ventanaProyectante">Ventana Proyectante</option>
+                    </select>
+                </th>
+                <th><select name="" id="" required>
+                        <option value="" selected aria-disabled="true" disabled>Elige el color...</option>
+                        <option value="blanco">Blanco </option>
+                        <option value="madera">madera</option>
+                        <option value="mate">Mate</option>
+                        <option value="negro">Negro</option>
+                        <option value="titanio">Titanio</option>
+                    </select></th>
+                <th><label>
+                        <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required
+                            class="${selectedService.name}-width">
+                    </label></th>
+                <th><label>
+                        <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required
+                            class="${selectedService.name}-height">
+                    </label></th>
+                <th><select name="" id="" required>
+                        <option value="" selected aria-disabled="true" disabled>Linea de aluminio...</option>
+                        <option value="blanco">Blanco </option>
+                        <option value="madera">madera</option>
+                    </select></th>
+                <th>$ 120.000</th>
+            </tr>
+            <tr>
+                <th>
+                    <select name="service" id="service" required>
+                        <option value="" selected aria-disabled="true" disabled>Elige el producto o servicio...</option>
+                        <option value="celocia">Celocia </option>
+                        <option value="espejo">Espejo</option>
+                        <option value="puerta">Puerta</option>
+                        <option value="ventanaNormal">Ventana</option>
+                        <option value="ventanaProyectante">Ventana Proyectante</option>
+                    </select>
+                </th>
+                <th><select name="" id="" required>
+                        <option value="" selected aria-disabled="true" disabled>Elige el color...</option>
+                        <option value="blanco">Blanco </option>
+                        <option value="madera">madera</option>
+                        <option value="mate">Mate</option>
+                        <option value="negro">Negro</option>
+                        <option value="titanio">Titanio</option>
+                    </select></th>
+                <th><label>
+                        <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required
+                            class="${selectedService.name}-width">
+                    </label></th>
+                <th><label>
+                        <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required
+                            class="${selectedService.name}-height">
+                    </label></th>
+                <th><select name="" id="" required>
+                        <option value="" selected aria-disabled="true" disabled>Linea de aluminio...</option>
+                        <option value="blanco">Blanco </option>
+                        <option value="madera">madera</option>
+                    </select></th>
+                <th>$ 120.000</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button class="add-btn" title="Añadir nueva cotización"><img src="../images/svg/add-btn.svg"
+                        alt="Simbolo de añadir"></button></td>
+            </tr>
+        </table>
+    </main>
+
+
+
+    <footer>
+        <div class="IOO hidden footer-social-media">
+            <h3>Nombre de la Marca</h3>
+            <p>Siguenos en redes sociales y estemos en contacto. Conocer nuestros proyectos! Encuentra inspiración
+                para tus propias
+                ideas y requerimientos</p>
+            <ul>
+                <li><a href="#" target="_blank"><img src="../images/facebook-svg.svg" alt="Icono de Facebook"></a></li>
+                <li><a href="#" target="_blank"><img src="../images/instagram-svg.svg" alt="Icono de Instagram"></a>
+                </li>
+                <li><a href="#" target="_blank"><img src="../images/gmail-svg.svg" alt=" Icono de Gmail "></a></li>
+            </ul>
+        </div>
+        <div class="IOO hidden footer-information">
+            <h3>Información</h3>
+            <ul>
+                <li><a href="">Preguntas Frecuentes</a>
+                <li><a href="../politica-de-privacidad">Política de Privacidad</a></li>
+                <li><a href="../terminos-y-condiciones">Términos de Servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="IOO hidden footer-menu">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../servicios/index.html">Servicios</a></li>
+                <li><a href="../cotiza/index.html">Cotiza</a></li>
+                <li><a href="../nosotros/index.html">Quienes Somos</a></li>
+                <li><a href="../contacto/index.html">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="IOO hidden footer-contact">
+            <h3>Contáctanos</h3>
+            <h4>Teléfono</h4>
+            <p>+56 9 3583 6484</p>
+            <h4>Correo</h4>
+            <p>example@gmail.com</p>
+        </div>
+        <div class="footer-dev">
+            <p>©<span id="currentYear"></span> - Desarrollado por Fernando Gonzalez | Santiago de Chile</p>
+            <p>Ultima Modificación: <span id="lastModified"></span></p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
