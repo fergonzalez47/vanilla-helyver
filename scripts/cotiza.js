@@ -157,6 +157,8 @@ function createServiceSelect(deleteBtn) {
 
 
 
+// DELETE BUTTON
+
 function createDeleteButton(container) {
     const div = document.createElement("div");
     div.classList.add("container-delete-btn");
@@ -181,6 +183,9 @@ function deleteService(container) {
     displayOption.removeChild(container);
 }
 
+
+
+// CREATE SERVICES
 
 function createWindow() {
     let selectedService = config.ventanaNormal;
@@ -292,8 +297,6 @@ function createProjectingWindow() {
     return fieldset;
 }
 
-
-
 function createDoor() {
     let selectedService = config.puerta;
 
@@ -340,6 +343,21 @@ function createDoor() {
             <label class="color"><input type="radio" name="color" value="mate"> Mate <div class="color-option" id="color-mate"></div></label>
             <label class="color"><input type="radio" name="color" value="Negro"> Negro <div class="color-option" id="color-negro"></div></label>
             <label class="color"><input type="radio" name="color" value="titanio"> Titanio <div class="color-option" id="color-titanio"></div></label>
+        </fieldset>
+        <fieldset class="hidden-toggles">
+
+            <input name="coloration-level" type="radio" id="coloration-low" class="hidden-toggles__input">
+            <label for="coloration-low" class="hidden-toggles__label">Low</label>
+
+            <input name="coloration-level" type="radio" id="coloration-medium" class="hidden-toggles__input" checked>
+            <label for="coloration-medium" class="hidden-toggles__label">Medium</label>
+
+            <input name="coloration-level" type="radio" id="coloration-high" class="hidden-toggles__input">
+            <label for="coloration-high" class="hidden-toggles__label">High</label>
+
+            <input name="coloration-level" type="radio" id="coloration-striking" class="hidden-toggles__input">
+            <label for="coloration-striking" class="hidden-toggles__label">Striking</label>
+
         </fieldset>
     `;
     }

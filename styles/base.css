@@ -78,7 +78,7 @@ header {
 
     justify-content: space-between;
     padding: 0.75rem;
-    
+
     align-items: center;
     border-bottom: 0.3rem solid var(--a-primary-color);
 
@@ -165,9 +165,8 @@ nav a {
 }
 
 nav ul li:first-of-type a {
-    color: #ad8005;
+    color: var(--a-secondary-color)
 }
-
 
 
 .active {
@@ -311,6 +310,14 @@ main section .svg-icon {
     width: 18%;
 }
 
+.svg-icon-phone {
+    width: clamp(1.25rem, 1.9vw, 1.5rem);
+    ;
+    height: clamp(1.25rem, 1.9vw, 1.5rem);
+    vertical-align: middle;
+
+
+}
 
 main ul {
 
@@ -363,6 +370,9 @@ h1 {
 
 }
 
+.container-shadow {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
 
 main section:nth-child(2) {
     display: grid;
@@ -451,7 +461,7 @@ main section:nth-child(3)>div:nth-child(5) .cta-btn {
     justify-content: center;
     padding: 1rem;
     width: 90%;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     column-gap: 2rem;
     row-gap: 2rem;
 }
@@ -473,7 +483,19 @@ main section:nth-child(3)>div:nth-child(4) p {
 
 }
 
+main section:nth-child(6) {
+    display: grid;
+}
 
+
+main section:nth-child(6) img {
+    width: 100%;
+    height: auto;
+}
+
+main section:nth-child(6) div {
+    padding: 1rem;
+}
 
 /* carrusel */
 
@@ -648,13 +670,14 @@ main section:nth-child(3)>div:nth-child(4) p {
 
 footer {
     display: grid;
-
+    
     background-color: var(--a-secondary-color);
     color: var(--a-white-color);
 }
 
 footer p {
     text-align: center;
+    font-size: calc(clamp(1.25rem, 1.9vw, 1.5rem) * 0.8);
 }
 
 footer div {

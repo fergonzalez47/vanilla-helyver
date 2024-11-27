@@ -1,3 +1,11 @@
+:root {
+    --accent: #007ecc;
+    --accent-2: #ec2f4b;
+    --text: #003f66;
+    --text-hover: var(--accent);
+    --text-active: #ffffff;
+    --border-width: 0.125em;
+}
 .quote-instructions {
     margin: 2rem 1rem 1rem 1rem;
     padding: 0, 5rem;
@@ -28,3 +36,94 @@ th {
 table {
     font-size:  1rem;
 }
+
+
+
+/* 
+
+.hidden-toggles {
+    position: relative;
+    border-radius: 999em;
+    overflow: hidden;
+    height: 2.75em;
+    width: 20em;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.hidden-toggles>* {
+    flex: 0 0 33.33%;
+}
+
+.hidden-toggles:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: var(--border-width) solid var(--accent);
+    border-radius: 999em;
+    pointer-events: none;
+}
+
+.hidden-toggles__input {
+    display: none;
+}
+
+.hidden-toggles__input:checked+.hidden-toggles__label {
+    background-color: var(--accent);
+    color: var(--text-active);
+}
+
+.hidden-toggles__input:checked+.hidden-toggles__label:before {
+    opacity: 1;
+}
+
+.hidden-toggles__input:checked+.hidden-toggles__label:last-of-type {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+}
+
+.hidden-toggles__input:nth-of-type(1)+label {
+    order: 4;
+}
+
+.hidden-toggles__input:nth-of-type(2)+label {
+    order: 3;
+}
+
+.hidden-toggles__input:nth-of-type(3)+label {
+    order: 2;
+}
+
+.hidden-toggles__input:nth-of-type(4)+label {
+    order: 1;
+}
+
+.hidden-toggles__input:nth-of-type(1):checked~label:last-of-type,
+.hidden-toggles__input:nth-of-type(2):checked~label:last-of-type {
+    margin-right: -33.33%;
+}
+
+.hidden-toggles__label {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    color: var(--text);
+}
+
+.hidden-toggles__label:hover {
+    color: var(--text-hover);
+}
+
+.hidden-toggles__label:nth-of-type(2) {
+    border-left: var(--border-width) solid var(--accent);
+    border-right: var(--border-width) solid var(--accent);
+}
+
+.hidden-toggles__label:last-of-type {
+    border-left: var(--border-width) solid var(--accent);
+} */
