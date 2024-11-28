@@ -163,7 +163,12 @@
         grid-row: 4 / 5;
     }
 
+    main section:nth-child(3)>div:nth-child(5) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
+
+  
 
 
     /* carrusel */

@@ -130,6 +130,7 @@ nav ul {
     display: flex;
     margin-top: 0.25rem;
 
+
 }
 
 nav li {
@@ -164,10 +165,6 @@ nav a {
 
 }
 
-nav ul li:first-of-type a {
-    color: var(--a-secondary-color)
-}
-
 
 .active {
     background-color: var(--a-secondary-color);
@@ -176,7 +173,6 @@ nav ul li:first-of-type a {
 
 .active a {
     color: var(--a-primary-color);
-
 }
 
 /* HERO ELEMENT */
@@ -367,6 +363,32 @@ main .section1-svg-icons,
 .main-section-2-div ul,
 h1 {
     margin: 2rem 0 2rem 0;
+}
+
+
+.main-section-2-div ul li img {
+
+    width: 100%;
+    height: auto;
+
+}
+
+.main-section-2-div ul {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+}
+
+.main-section-2-div p {
+    text-align: center;
+}
+
+.main-section-2-div ul li {
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    margin-bottom: 0.75rem;
 
 }
 
@@ -389,8 +411,7 @@ main section:nth-child(2) .services img {
 
 main section:nth-child(3) {
     display: grid;
-    gap: 2rem;
-
+    gap: 1rem;
 
 }
 
@@ -433,6 +454,60 @@ p {
 }
 
 
+.section5-cto {
+    background-color: var(--a-auxiliar-color);
+    color: var(--a-white-color);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+
+.section5-cto div {
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    padding: .5rem;
+    font-size: calc(clamp(1.25rem, 1.9vw, 1.5rem) * 0.8);
+
+
+}
+
+
+.section5-cto a {
+    background-color: var(--a-primary-color);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.2s;
+    padding: 0.25rem;
+}
+
+.section5-cto a:link,
+.section5-cto a:visited {
+    color: var(--b-background-color);
+
+}
+
+
+.section5-cto a:hover {
+    background-color: var(--a-white-color);
+    /* Estilo cuando el usuario pasa el cursor */
+}
+
+.section5-cto a:active {
+    color: orange;
+    /* Estilo durante el clic */
+}
+
+.section5-cto a:focus {
+    outline: 2px solid #ff0;
+    /* Estilo cuando está enfocado */
+}
+
+
+
 main section:nth-child(3)>div:nth-child(4),
 main section:nth-child(3)>div:nth-child(5) {
     margin: 3rem 0;
@@ -446,6 +521,12 @@ main section:nth-child(3)>div:nth-child(4) {
     color: var(--a-white-color);
     border-radius: 5px
 }
+
+main section:nth-child(3)>div:nth-child(5) {
+    display: grid;
+    column-gap: 0.5rem;
+}
+
 
 main section:nth-child(3)>div:nth-child(5) .cta-btn {
     margin-top: 1rem;
@@ -633,9 +714,11 @@ main section:nth-child(6) div {
 
 /* section 4 ventanas y ventanales */
 
+
 .all-services ul li {
     display: flex;
     flex-direction: column;
+
     transform: scale(0.7);
     background-color: var(--a-auxiliar-color);
     color: white;
@@ -670,7 +753,7 @@ main section:nth-child(6) div {
 
 footer {
     display: grid;
-    
+
     background-color: var(--a-secondary-color);
     color: var(--a-white-color);
 }
