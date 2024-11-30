@@ -22,7 +22,7 @@
     <title>Cotiza en linea | Fabricación e Instalación de Ventanas, Puertas y Espejos en Santiago </title>
     <script src="../scripts/main.js" type="text/javascript" defer></script>
     <script src="../scripts/getdates.js" type="text/javascript" defer></script>
-    <script src="../scripts/cotiza.js" defer></script>
+    <script src="../scripts/cotiza-3.js" defer></script>
 </head>
 
 <body>
@@ -48,33 +48,39 @@
         <p>Recibe un presupuesto de forma instantánea
         </p>
         <div class="quote-instructions">
-            <h2>Pasos para cotizar tu ventana</h2>
+            <h2>Pasos para obtener tu cotización</h2>
             <ol>
                 <li>
-                    <strong>Selecciona el color:</strong> Elige el color de aluminio que deseas para tu ventana.
+                    <strong>Selecciona el servicio:</strong> Elige que tipo de producto quieres cotizar (ventana,
+                    puerta, etc...).
                 </li>
                 <li>
-                    <strong>Ingresa las medidas:</strong>
+                    <strong>Selecciona el color <i>(si aplica)</i>:</strong> Elige el color de aluminio que deseas para
+                    tu ventana.
+                </li>
+                <li>
+                    <strong>Ingresa las medidas <i>(si aplica)</i>:</strong>
                     <ul>
                         <li>Ancho en centímetros (cm).</li>
                         <li>Largo en centímetros (cm).</li>
                     </ul>
                 </li>
                 <li>
-                    <strong>Elige la línea de aluminio:</strong> Selecciona la línea que se ajuste a tus necesidades
+                    <strong>Elige la línea de aluminio <i>(si aplica)</i>:</strong> Selecciona la línea que se ajuste a
+                    tus necesidades
                     (Línea 25,
                     Línea 5000, etc.).
                 </li>
                 <li>
                     <strong>Obtén el precio:</strong> El sistema calculará automáticamente el costo total según las
-                    especificaciones ingresadas.
+                    especificaciones ingresadas. Puedes ir agregando items y el total aparecera al final de
                 </li>
             </ol>
             <p class="tip">
                 💡 <em>Puedes modificar los datos si necesitas ajustar la cotización.</em>
             </p>
         </div>
-<!-- 
+        <!-- 
         <table>
             <tr class="table-heading">
                 <th>Servicio</th>
@@ -213,54 +219,129 @@
         </fieldset> -->
 
 
-<table>
-    <caption>Statement Summary</caption>
-    <thead>
-        <tr>
-            <th scope="col">Account</th>
-            <th scope="col">Due Date</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Period</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td data-label="Account">Visa - 3412</td>
-            <td data-label="Due Date">04/01/2016</td>
-            <td data-label="Amount">$1,190</td>
-            <td data-label="Period">03/01/2016 - 03/31/2016</td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Account">Visa - 6076</td>
-            <td data-label="Due Date">03/01/2016</td>
-            <td data-label="Amount">$2,443</td>
-            <td data-label="Period">02/01/2016 - 02/29/2016</td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Account">Corporate AMEX</td>
-            <td data-label="Due Date">03/01/2016</td>
-            <td data-label="Amount">$1,181</td>
-            <td data-label="Period">02/01/2016 - 02/29/2016</td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Acount">Visa - 3412</td>
-            <td data-label="Due Date">02/01/2016</td>
-            <td data-label="Amount">$842</td>
-            <td data-label="Period">01/01/2016 - 01/31/2016</td>
-        </tr>
-    </tbody>
-</table>
-<div class="custom-select" style="width:200px;">
-    <select>
-        <option value="0">Elige un producto</option>
-        <option value="celocia">Celocia</option>
-        <option value="espejo">Espejo</option>
-        <option value="puerta">Puerta</option>
-        <option value="ventana">Ventana</option>
-        <option value="ventanaProyectante">Ventana Proyectante</option>
-    </select>
-</div>
-        
+        <table id="table">
+            <caption>Resumen Cotización</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Servicio</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Ancho (cm)</th>
+                    <th scope="col">Largo (cm)</th>
+                    <th scope="col">Linea Aluminio</th>
+                    <th scope="col">Subtotal</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Servicio">
+                        <div class="custom-select">
+                            <select>
+                                <option value="0">Elige un producto</option>
+                                <option value="celocia">Celocia</option>
+                                <option value="espejo">Espejo</option>
+                                <option value="puerta">Puerta</option>
+                                <option value="ventana">Ventana</option>
+                                <option value="ventanaProyectante">Ventana Proyectante</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td data-label="Color">
+                        <div class="custom-select">
+                            <select>
+                                <option value="0">Elige el color</option>
+                                <option value="blanco">Blanco</option>
+                                <option value="espejo">Espejo</option>
+                                <option value="puerta">Puerta</option>
+                                <option value="ventana">Ventana</option>
+                                <option value="ventanaProyectante">Ventana Proyectante</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td data-label="Ancho (cm)"><label>
+                            <input placeholder="Ejemplo: 30 (cm)" type="number" name="height" required
+                                class="${selectedService.name}-width">
+                        </label>
+                    </td>
+                    <td data-label="Largo(cm)"><label>
+                            <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required
+                                class="${selectedService.name}-height">
+                        </label>
+                    </td>
+                    <td data-label="Linea Aluminio">
+                        <div class="custom-select">
+                            <select>
+                                <option value="0">Elige la linea</option>
+                                <option value="linea-35">Linea 35</option>
+                                <option value="linea-5000">Linea 5000</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td data-label="Subtotal"><span>$ 100.000</span>
+                    </td>
+                    <td data-label=""> x o +
+                    </td>
+
+                </tr>
+                <tr>
+                    <td data-label="Servicio">
+                        <div class="custom-select">
+                            <select>
+                                <option value="0">Elige un producto</option>
+                                <option value="celocia">Celocia</option>
+                                <option value="espejo">Espejo</option>
+                                <option value="puerta">Puerta</option>
+                                <option value="ventana">Ventana</option>
+                                <option value="ventanaProyectante">Ventana Proyectante</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td data-label="Color">
+                        <div class="custom-select">
+                            <select>
+                                <option value="0">Elige el color</option>
+                                <option value="celocia">Celocia</option>
+                                <option value="espejo">Espejo</option>
+                                <option value="puerta">Puerta</option>
+                                <option value="ventana">Ventana</option>
+                                <option value="ventanaProyectante">Ventana Proyectante</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td data-label="Ancho (cm)"><label>
+                            <input placeholder="Ejemplo: 30 (cm)" type="number" name="height" required
+                                class="${selectedService.name}-width">
+                        </label></td>
+                    <td data-label="Largo(cm)"><label>
+                            <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required
+                                class="${selectedService.name}-height">
+                        </label></td>
+                    <td data-label="Linea Aluminio">
+                        <div class="custom-select">
+                            <select>
+                                <option value="0">Elige la linea</option>
+                                <option value="linea-35">Linea 35</option>
+                                <option value="linea-5000">Linea 5000</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td data-label="Subtotal"><span>$ 100.000</span></td>
+
+                </tr>
+            </tbody>
+        </table>
+        <button id="add-btn"><img src="../images/svg/add-btn.svg" alt="Simbolo de añadir"></button>
+        <!-- <div class="custom-select">
+            <select>
+                <option value="0">Elige un producto</option>
+                <option value="celocia">Celocia</option>
+                <option value="espejo">Espejo</option>
+                <option value="puerta">Puerta</option>
+                <option value="ventana">Ventana</option>
+                <option value="ventanaProyectante">Ventana Proyectante</option>
+            </select>
+        </div> -->
+
     </main>
 
 
