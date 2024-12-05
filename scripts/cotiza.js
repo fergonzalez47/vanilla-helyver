@@ -69,7 +69,7 @@ function handleAddButtonClick(event) {
 
     let serviceSelect = createServiceSelect(deleteButton);
     serviceSelect.addEventListener("change", (e) => {
-        handleServiceSelectChange(e,  , deleteButton);
+        handleServiceSelectChange(e, container, deleteButton);
     });
 
 
