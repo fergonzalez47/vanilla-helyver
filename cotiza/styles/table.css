@@ -250,11 +250,7 @@ input[type="number"] {
         border-bottom: 3px solid #ddd;
         display: block;
         margin-bottom: .625em;
-        background-color: #007ecc;
-    }
-
-    table tr:nth-child(even) {
-        background-color: #007ecc;
+    
     }
 
     table td {
@@ -279,7 +275,7 @@ input[type="number"] {
     }
 
     .custom-select {
-        width: 50%;
+        width: 45%;
     }
 
     input[type="text"],
