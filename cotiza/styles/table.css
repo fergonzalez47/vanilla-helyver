@@ -1,11 +1,4 @@
 :root {
-    --accent: #007ecc;
-    --accent-2: #ec2f4b;
-    --text: #003f66;
-    --text-hover: var(--accent);
-    --text-active: #ffffff;
-    --border-width: 0.125em;
-
 
     /* FIRST PALLET */
     --font-body: "Nunito", sans-serif;
@@ -27,6 +20,30 @@
 
 }
 
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+
+/*----------- MAIN --------------*/
+main {
+    padding: 2rem 2%;
+
+}
+
+
+input:required {
+    border-bottom: solid 3px red;
+    transition: 0.3s;
+}
+
+input:required:valid {
+    border-bottom: solid 3px var(--b-auxiliar-color);
+    transition: 0.3s;
+}
+
 .quote-instructions {
     margin: 2rem 1rem 1rem 1rem;
     padding: 0, 5rem;
@@ -41,33 +58,17 @@
     font-style: italic;
 }
 
-/* table {
-    border-collapse: collapse;
-    width: 80%;
-
-}
-
-table td,
-th {
-    margin: 0;
-    border: 1px solid rgb(180, 169, 169);
-    padding: 0.4rem;
-}
-
-table {
-    font-size:  1rem;
-} */
-
 
 
 table {
+    font-size: clamp(.7rem, 1vw, 1.2rem);
     border: 1px solid #ccc;
     border-collapse: collapse;
     margin: 0;
     padding: 0;
     width: 100%;
     table-layout: fixed;
-    margin-bottom: 14rem;
+
 }
 
 table caption {
@@ -95,9 +96,8 @@ table th {
 
 
 
-
 tr {
-    border: 1px solid black;
+    border: 1px solid var(--a-secondary-color);
 }
 
 tbody tr:nth-child(even) {
@@ -122,15 +122,21 @@ input[type="number"] {
     appearance: none;
 }
 
-/* SELECT PERSONALIZADO */
 
+input[type="number"] {
+
+    font-size: clamp(.6rem, .7vw, 1rem);
+}
+
+
+
+/* SELECT PERSONALIZADO */
 
 /* The container must be positioned relative: */
 .custom-select {
     position: relative;
     text-align: center;
     justify-self: end;
-
 }
 
 .custom-select select {
@@ -193,6 +199,7 @@ input[type="number"] {
 .container-add-btn {
     text-align: end;
     padding: .25rem;
+    margin-bottom: 14rem;
 }
 
 #add-btn {
@@ -229,6 +236,7 @@ input[type="number"] {
 @media screen and (max-width: 600px) {
     table {
         border: 0;
+
     }
 
     table caption {
@@ -247,14 +255,16 @@ input[type="number"] {
     }
 
     table tr {
+        
         border-bottom: 3px solid #ddd;
         display: block;
         margin-bottom: .625em;
-    
+
     }
 
     table td {
-        border-bottom: 1px solid #ddd;
+        
+        border-bottom: 1px solid white;
         display: block;
         text-align: right;
     }
@@ -265,9 +275,13 @@ input[type="number"] {
     content: attr(aria-label);
     */
         content: attr(data-label);
-        float: left;
+        display: inline-block;
+        width: auto;
+        /* float: left; */
+        text-align: left;
         font-weight: bold;
         text-transform: uppercase;
+
     }
 
     table td:last-child {
@@ -278,12 +292,20 @@ input[type="number"] {
         width: 45%;
     }
 
-    input[type="text"],
+    /* input[type="text"],
     input[type="tel"],
     input[type="email"],
     input[type="url"],
     input[type="date"],
     input[type="number"] {
         width: 50%;
+
+    } */
+
+    input[type="number"] {
+        width: 50%;  
+        align-content: center;
+        text-align: center;
+        font-size: clamp(.6rem, .7vw, 1rem);
     }
 }

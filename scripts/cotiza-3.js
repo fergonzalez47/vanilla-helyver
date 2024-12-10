@@ -50,11 +50,22 @@ const serviceOptions = [
     { value: "ventanaProyectante", text: "Ventana Proyectante" }
 ];
 
+document.addEventListener("DOMContentLoaded", () => {
+    checkAndAddRow();
+});
+
+
+function checkAndAddRow() {
+    if (tbody.rows.length === 0) {
+        addNewRow();
+        initCustomSelects(); // Inicializa el select después de agregar la fila
+    }
+}
 
 const table = document.getElementById("table");
 const tbody = table.tBodies[0]; // Obtener el primer <tbody>
-const lastRow = tbody.rows[tbody.rows.length - 1]; // Obtener la última fila <tr>
-const lastTd = lastRow.cells[lastRow.cells.length - 1]; // Obtener el último <td> de esa fila
+// const lastRow = tbody.rows[tbody.rows.length - 1]; // Obtener la última fila <tr>
+// const lastTd = lastRow.cells[lastRow.cells.length - 1]; // Obtener el último <td> de esa fila
 const addBtn = document.getElementById("add-btn");
 
 addBtn.addEventListener("click", () => {
@@ -62,6 +73,11 @@ addBtn.addEventListener("click", () => {
     // Ejecutar la inicialización del select personalizado RECIEN AGREGADOS después de agregar la fila
     initCustomSelects();
 })
+
+
+
+
+
 
 function addNewRow() {
     const newRow = tbody.insertRow();
@@ -200,10 +216,15 @@ function chooseOptionToDisplay(param, parent, deleteBtn, row) {
             row.subtotal.innerHTML = window.name;
             break;
         case "ventanaProyectante":
-            div.appendChild(createProjectingWindow());
+            let projectingWindow = createProjectingWindow();
+            row.color.innerHTML = projectingWindow.colors;
+            row.width.innerHTML = projectingWindow.width;
+            row.height.innerHTML = projectingWindow.height;
+            row.lineAM.innerHTML = projectingWindow.lineAM;
+            row.subtotal.innerHTML = projectingWindow.name;
             break;
         default:
-            div.innerHTML = "<p>Opción no válida, selecciona una opción correcta.</p>";
+            row.innerHTML = "<p>Opción no válida, selecciona una opción correcta.</p>";
             break;
     }
     initCustomSelects();
@@ -350,13 +371,13 @@ function createWindow() {
 
     let windowWidth = `
                         <label>
-                            <input placeholder="Ejemplo: 30 (cm)" type="number" name="height" required
+                            <input placeholder="Ejemplo: 30 (cm)" type="number" min="0" name="height" required
                                 class="${window.name}-width">
                         </label>
                         `;
     let windowHeight = `
                         <label>
-                            <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required
+                            <input placeholder="Ejemplo: 90 (cm)" type="number" min="0" name="height" required
                                 class="${window.name}-height">
                         </label>
                         `;
@@ -389,11 +410,11 @@ function createProjectingWindow() {
              <div class="div-label-input">
             <label>
                 <p><span class="required-element">*</span>Ancho (cm):</p>
-                <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required class="${selectedService.name}-width">
+                <input placeholder="Ejemplo: 125 (cm)" type="number" min="0" name="width" required class="${selectedService.name}-width">
             </label>
             <label>
                 <p><span class="required-element">*</span>Alto (cm): </p> 
-                <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required class="${selectedService.name}-height">
+                <input placeholder="Ejemplo: 90 (cm)" type="number" min="0" name="height" required class="${selectedService.name}-height">
             </label>
             </div>
         `;
@@ -452,13 +473,13 @@ function createDoor() {
 
     let doorWidth = `
                         <label>
-                            <input placeholder="Ejemplo: 30 (cm)" type="number" name="height" required
+                            <input placeholder="Ejemplo: 30 (cm)" type="number" min="0" name="height" required
                                 class="${door.name}-width">
                         </label>
                         `;
     let doorHeight = `
                         <label>
-                            <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required
+                            <input placeholder="Ejemplo: 90 (cm)" type="number" min="0" name="height" required
                                 class="${door.name}-height">
                         </label>
                         `;
@@ -483,13 +504,13 @@ function createMirror() {
     la funciuon que lo activ ya lo toma asi */
     let mirrorWidth = `
                         <label>
-                            <input placeholder="Ejemplo: 30 (cm)" type="number" name="height" required
+                            <input placeholder="Ejemplo: 30 (cm)" type="number" min="0" name="height" required
                                 class="${mirror.name}-width">
                         </label>
                         `;
     let mirrorHeight = `
                         <label>
-                            <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required
+                            <input placeholder="Ejemplo: 90 (cm)" type="number" min="0" name="height" required
                                 class="${mirror.name}-height">
                         </label>
                         `;
