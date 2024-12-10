@@ -65,6 +65,8 @@ addBtn.addEventListener("click", () => {
 
 function addNewRow() {
     const newRow = tbody.insertRow();
+
+
     let tdService = document.createElement("td");
     let tdColor = document.createElement("td");
     let tdWidth = document.createElement("td");
@@ -72,7 +74,7 @@ function addNewRow() {
     let tdLine = document.createElement("td");
     let tdSubtotal = document.createElement("td");
     let tdDeleteContainer = document.createElement("td");
-    
+
     tdService.setAttribute("data-label", "Servicio");
     tdColor.setAttribute("data-label", "Color");
     tdWidth.setAttribute("data-label", "Ancho(cm)");
@@ -80,12 +82,13 @@ function addNewRow() {
     tdLine.setAttribute("data-label", "Linea Aluminio");
     tdSubtotal.setAttribute("data-label", "Subtotal");
 
-    const deleteButton = createDeleteButton(tdService.parentElement);
+    const deleteButton = createDeleteButton(newRow);
 
     let row = {
         color: tdColor,
         width: tdWidth,
         height: tdHeight,
+        lineAM: tdLine,
         subtotal: tdSubtotal,
         DeleteContainer: tdDeleteContainer
     }
@@ -102,7 +105,7 @@ function addNewRow() {
         // sea el seleccionado , valga la redudancia
 
         if (e.target.dataset.value && e.target.classList.contains("same-as-selected")) {
-            handleServiceSelectChange(e.target.dataset.value, tdService.parentElement, deleteButton, row); 
+            handleServiceSelectChange(e.target.dataset.value, tdService.parentElement, deleteButton, row);
         }
     });
 
@@ -119,8 +122,8 @@ function addNewRow() {
 }
 
 function handleServiceSelectChange(element, parentContainer, deleteBtn, row) {
-    chooseOptionToDisplay(element, parentContainer, deleteBtn, row); 
-    
+    chooseOptionToDisplay(element, parentContainer, deleteBtn, row);
+
 }
 
 
@@ -153,30 +156,48 @@ function chooseOptionToDisplay(param, parent, deleteBtn, row) {
       deleteBtn: Boton que ira en el ultimo td para eliminar el tr en caso de que se quiera
         row: objeto que contiene los td en orden
          */
+    clearRow(row);
 
-    row.color.innerHTML = "";
-    row.width.innerHTML = "";
-    row.height.innerHTML = "";
-    row.subtotal.innerHTML = ""; 
+    row.DeleteContainer.appendChild(deleteBtn);
 
 
     switch (param) {
         case "celocia":
             let celocia = createCelocia();
             row.color.innerHTML = celocia.color;
-            row.width.innerHTML = celocia.size;
-            row.height.innerHTML = "No aplica";
+            row.height.innerHTML = celocia.size;
+            row.width.innerHTML = `<p class="text-alt">No aplica</p>`;
+            row.lineAM.innerHTML = `<p class="text-alt">No aplica</p>`;
+
             row.subtotal.innerHTML = celocia.name;
-            
+
+
             break;
         case "espejo":
-            div.appendChild(createMirror());
+            let espejo = createMirror();
+            row.color.innerHTML = `<p class="text-alt">No aplica</p>`;
+            row.width.innerHTML = espejo.width;
+            row.height.innerHTML = espejo.height;
+            row.lineAM.innerHTML = `<p class="text-alt">No aplica</p>`;
+            row.subtotal.innerHTML = espejo.name;
+
             break;
         case "puerta":
-            div.appendChild(createDoor());
+            let puerta = createDoor();
+            row.color.innerHTML = puerta.colors;
+            row.width.innerHTML = puerta.width;
+            row.height.innerHTML = puerta.height;
+            row.lineAM.innerHTML = puerta.lineAM;
+            row.subtotal.innerHTML = puerta.name;
+
             break;
-        case "ventanaNormal":
-            div.appendChild(createWindow());
+        case "ventana":
+            let window = createWindow();
+            row.color.innerHTML = window.colors;
+            row.width.innerHTML = window.width;
+            row.height.innerHTML = window.height;
+            row.lineAM.innerHTML = window.lineAM;
+            row.subtotal.innerHTML = window.name;
             break;
         case "ventanaProyectante":
             div.appendChild(createProjectingWindow());
@@ -235,7 +256,7 @@ function chooseOptionToDisplayOriginal(param, parent, deleteBtn, row) {
 
 // DELETE BUTTON
 
-function createDeleteButton(container) {
+function createDeleteButton(row) {
     const div = document.createElement("div");
     div.classList.add("container-delete-btn");
     const deleteBtn = document.createElement("button");
@@ -248,15 +269,16 @@ function createDeleteButton(container) {
     deleteBtn.appendChild(img);
 
     deleteBtn.addEventListener("click", () => {
-        deleteService(container)
+         row.remove();
+        // deleteService(row);
     })
     div.appendChild(deleteBtn);
     return div;
 
 }
 
-function deleteService(container) {
-    displayOption.removeChild(container);
+function deleteService(row) {
+    tbody.removeChild(row);
 }
 
 
@@ -267,7 +289,7 @@ function createCelocia() {
 
     let celociaObj = {};
     /*el problema esta en data-initialized='true'
-    la funciuon que lo activ ya lo toma asi */ 
+    la funciuon que lo activ ya lo toma asi */
     let celociaColors = `
                         <div class="custom-select" >
                             <select>
@@ -281,7 +303,7 @@ function createCelocia() {
                         </div>
                         `;
     let celociaSize = `
-                        <div class="custom-select" data-initialized='true'>
+                        <div class="custom-select">
                             <select>
                                 <option value="0">Elige el tamaño</option>
                                 <option value="grande">Grande</option>
@@ -300,59 +322,55 @@ function createCelocia() {
 }
 
 function createWindow() {
-    let selectedService = config.ventanaNormal;
+    let window = config.ventanaNormal;
 
-    let fieldset = document.createElement("fieldset");
-    fieldset.classList.add(`cotizacion-${selectedService.name}`);
-
-
-
-    let innerElements = `
-            <legend>Cotización de ${selectedService.name}</legend>`;
-
-    innerElements += `
-            <div><i>Por favor, ingrese las medidas en centímetros (cm), sin incluir el texto "cm".</i></div>
-            <div class="div-label-input">
-            <label>
-                <p><span class="required-element">*</span>Ancho (cm):</p>
-                <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required class="${selectedService.name}-width">
-            </label>
-            <label>
-                <p><span class="required-element">*</span>Alto (cm): </p> 
-                <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required class="${selectedService.name}-height">
-            </label>
-            </div>
-        `;
-
-    // opciones de línea de aluminio solo si aplica
-    if (selectedService.lineOptions) {
-        innerElements += `
-            <fieldset>
-                <legend><span class="required-element">*</span>Línea Aluminio:</legend>
-                ${selectedService.lineOptions.map(line => `
-                    <label>
-                        <input type="radio" name="line" required value="${line}"> ${line}
-                    </label>
-                `).join('')}
-            </fieldset>
-        `;
-
-        innerElements += `
-        <fieldset class="fieldset-block-color">
-            <legend><span class="required-element">*</span>Escoge el color del perfil:</legend>
-            <label class="color"><input type="radio" name="color" value="blanco">Blanco <div class="color-option" id="color-blanco"></div></label>
-            <label class="color"><input type="radio" name="color" value="madera"> Madera <div class="color-option" id="color-madera"></div></label>
-            <label class="color"><input type="radio" name="color" value="mate"> Mate <div class="color-option" id="color-mate"></div></label>
-            <label class="color"><input type="radio" name="color" value="Negro"> Negro <div class="color-option" id="color-negro"></div></label>
-            <label class="color"><input type="radio" name="color" value="titanio"> Titanio <div class="color-option" id="color-titanio"></div></label>
-        </fieldset>
-    `;
-    }
+    let windowObj = {};
+    windowColors = `
+                        <div class="custom-select" >
+                            <select>
+                                <option value="0">Elige el color</option>
+                                <option value="blanco">Blanco</option>
+                                <option value="madera">Madera</option>
+                                <option value="mate">Mate</option>
+                                <option value="negro">Negro</option>
+                                <option value="titanio">Titanio</option>
+                            </select>
+                        </div>
+                        `;
+    let windowLineAm = `
+                        <div class="custom-select" >
+                            <select>
+                                <option value="0">Elige el Aluminio</option>
+                                <option value="line25">Linea 25</option>
+                                <option value="line5000">Linea 5000</option>
+                            </select>
+                        </div>
+                        `;
 
 
-    fieldset.innerHTML = innerElements;
+    let windowWidth = `
+                        <label>
+                            <input placeholder="Ejemplo: 30 (cm)" type="number" name="height" required
+                                class="${window.name}-width">
+                        </label>
+                        `;
+    let windowHeight = `
+                        <label>
+                            <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required
+                                class="${window.name}-height">
+                        </label>
+                        `;
 
-    return fieldset;
+
+    windowObj.name = window.name;
+    windowObj.colors = windowColors;
+    windowObj.width = windowWidth;
+    windowObj.height = windowHeight;
+    windowObj.lineAM = windowLineAm;
+
+
+
+    return windowObj;
 }
 
 function createProjectingWindow() {
@@ -410,103 +428,87 @@ function createProjectingWindow() {
 }
 
 function createDoor() {
-    let selectedService = config.puerta;
+    let door = config.puerta;
 
-    let fieldset = document.createElement("fieldset");
-    fieldset.classList.add(`cotizacion-${selectedService.name}`);
+    let doorObj = {};
+    doorColors = `
+                        <div class="custom-select" >
+                            <select>
+                                <option value="0">Elige el color</option>
+                                <option value="blanco">Blanco</option>
+                                <option value="madera">Madera</option>
+                                <option value="mate">Mate</option>
+                                <option value="negro">Negro</option>
+                                <option value="titanio">Titanio</option>
+                            </select>
+                        </div>
+                        `;
+    let doorLineAm = `
+                        <p>
+                        Linea 35
+                        </p>
+                        `;
+
+
+    let doorWidth = `
+                        <label>
+                            <input placeholder="Ejemplo: 30 (cm)" type="number" name="height" required
+                                class="${door.name}-width">
+                        </label>
+                        `;
+    let doorHeight = `
+                        <label>
+                            <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required
+                                class="${door.name}-height">
+                        </label>
+                        `;
+
+
+    doorObj.name = door.name;
+    doorObj.colors = doorColors;
+    doorObj.width = doorWidth;
+    doorObj.height = doorHeight;
+    doorObj.lineAM = doorLineAm;
 
 
 
-    let innerElements = `
-            <legend>Cotización de ${selectedService.name}</legend>`;
-
-    innerElements += `
-            <div><i>Por favor, ingrese las medidas en centímetros (cm), sin incluir el texto "cm".</i></div>
-            <div class="div-label-input">
-            <label>
-                <p><span class="required-element">*</span>Ancho (cm):</p>
-                <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required class="${selectedService.name}-width">
-            </label>
-            <label>
-                <p><span class="required-element">*</span>Alto (cm): </p> 
-                <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required class="${selectedService.name}-height">
-            </label>
-            </div>
-        `;
-
-    // opciones de línea de aluminio solo si aplica
-    if (selectedService.lineOptions) {
-        innerElements += `
-            <fieldset>
-                <legend><span class="required-element">*</span>Línea Aluminio:</legend>
-                ${selectedService.lineOptions.map(line => `
-                    <label>
-                        <input type="radio" name="line" required value="${line}"> ${line}
-                    </label>
-                `).join('')}
-            </fieldset>
-        `;
-
-        innerElements += `
-        <fieldset>
-            <legend><span class="required-element">*</span>Escoge el color del marco:</legend>
-            <label class="color"><input type="radio" name="color" value="blanco">Blanco <div class="color-option" id="color-blanco"></div></label>
-            <label class="color"><input type="radio" name="color" value="madera"> Madera <div class="color-option" id="color-madera"></div></label>
-            <label class="color"><input type="radio" name="color" value="mate"> Mate <div class="color-option" id="color-mate"></div></label>
-            <label class="color"><input type="radio" name="color" value="Negro"> Negro <div class="color-option" id="color-negro"></div></label>
-            <label class="color"><input type="radio" name="color" value="titanio"> Titanio <div class="color-option" id="color-titanio"></div></label>
-        </fieldset>
-        <fieldset class="hidden-toggles">
-
-            <input name="coloration-level" type="radio" id="coloration-low" class="hidden-toggles__input">
-            <label for="coloration-low" class="hidden-toggles__label">Low</label>
-
-            <input name="coloration-level" type="radio" id="coloration-medium" class="hidden-toggles__input" checked>
-            <label for="coloration-medium" class="hidden-toggles__label">Medium</label>
-
-            <input name="coloration-level" type="radio" id="coloration-high" class="hidden-toggles__input">
-            <label for="coloration-high" class="hidden-toggles__label">High</label>
-
-            <input name="coloration-level" type="radio" id="coloration-striking" class="hidden-toggles__input">
-            <label for="coloration-striking" class="hidden-toggles__label">Striking</label>
-
-        </fieldset>
-    `;
-    }
-
-    fieldset.innerHTML = innerElements;
-    return fieldset;
+    return doorObj;
 }
 
 function createMirror() {
+    let mirror = config.espejo;
 
-    let selectedService = config.espejo;
-    let fieldset = document.createElement("fieldset");
+    let mirrorObj = {};
+    /*el problema esta en data-initialized='true'
+    la funciuon que lo activ ya lo toma asi */
+    let mirrorWidth = `
+                        <label>
+                            <input placeholder="Ejemplo: 30 (cm)" type="number" name="height" required
+                                class="${mirror.name}-width">
+                        </label>
+                        `;
+    let mirrorHeight = `
+                        <label>
+                            <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required
+                                class="${mirror.name}-height">
+                        </label>
+                        `;
 
-    fieldset.classList.add(`cotizacion-${selectedService.name}`);
 
-    let innerElements = `
-            <legend>Cotización de ${selectedService.name}</legend>`;
-    innerElements += `
-            <div><i>Por favor, ingrese las medidas en centímetros (cm), sin incluir el texto "cm".</i></div>
-            <div class="div-label-input">
-            <label>
-                <p><span class="required-element">*</span>Ancho (cm):</p>
-                <input placeholder="Ejemplo: 125 (cm)" type="number" name="width" required class="${selectedService.name}-width">
-            </label>
-            <label>
-                <p><span class="required-element">*</span>Alto (cm): </p> 
-                <input placeholder="Ejemplo: 90 (cm)" type="number" name="height" required class="${selectedService.name}-height">
-            </label>
-            </div>
-        `;
+    mirrorObj.name = mirror.name;
+    mirrorObj.width = mirrorWidth;
+    mirrorObj.height = mirrorHeight;
 
-    fieldset.innerHTML = innerElements;
 
-    return fieldset;
+    return mirrorObj;
 }
 
 
+
+
+function clearRow(row) {
+    Object.values(row).forEach(cell => cell.innerHTML = "");
+}
 
 
 

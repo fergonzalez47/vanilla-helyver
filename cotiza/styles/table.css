@@ -67,10 +67,11 @@ table {
     padding: 0;
     width: 100%;
     table-layout: fixed;
+    margin-bottom: 14rem;
 }
 
 table caption {
-    font-size: 1.5em;
+    font-size: 1.1em;
     margin: .5em 0 .75em;
 }
 
@@ -82,13 +83,13 @@ table tr {
 
 table th,
 table td {
-    padding: .625em;
+    padding: .5rem;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid var(--a-secondary-color);
 }
 
 table th {
-    letter-spacing: .1em;
+    letter-spacing: .05em;
     text-transform: uppercase;
 }
 
@@ -98,6 +99,11 @@ table th {
 tr {
     border: 1px solid black;
 }
+
+tbody tr:nth-child(even) {
+    background-color: #e7e5e5;
+}
+
 
 input[type="text"],
 input[type="tel"],
@@ -184,15 +190,41 @@ input[type="number"] {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
+.container-add-btn {
+    text-align: end;
+    padding: .25rem;
+}
 
 #add-btn {
     border: none;
+    transition: all 0.1s;
+
+}
+
+#add-btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+
 }
 
 #add-btn img {
     width: 48px;
     height: 48px;
 }
+
+
+.text-alt {
+    color: #4f5d75;
+    transform: scale(0.8);
+    font-style: italic;
+}
+
+.text-alt:hover {
+    cursor: not-allowed;
+}
+
+
+
 
 @media screen and (max-width: 600px) {
     table {
@@ -218,6 +250,11 @@ input[type="number"] {
         border-bottom: 3px solid #ddd;
         display: block;
         margin-bottom: .625em;
+        background-color: #007ecc;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #007ecc;
     }
 
     table td {
@@ -245,12 +282,12 @@ input[type="number"] {
         width: 50%;
     }
 
-        input[type="text"],
-        input[type="tel"],
-        input[type="email"],
-        input[type="url"],
-        input[type="date"],
-        input[type="number"] {
-            width: 50%;
-        }
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="url"],
+    input[type="date"],
+    input[type="number"] {
+        width: 50%;
+    }
 }

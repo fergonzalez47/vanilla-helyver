@@ -212,10 +212,6 @@ p {
 
 }
 
-.delete-btn img {
-    height: initial;
-    width: initial;
-}
 
 .new-service img:hover,
 .delete-btn:hover {
@@ -227,11 +223,13 @@ p {
 
 
 .container-delete-btn {
-    border-bottom: 1px solid #2d314259;
-    height: 30px;
-    text-align: right;
-    padding-right: 1.25rem;
+    text-align: center;
 
+}
+
+.delete-btn img {
+    height: 42px;
+    width: 42px;
 }
 
 /* Cotiza */
