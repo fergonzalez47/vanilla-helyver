@@ -34,6 +34,17 @@ main {
 }
 
 
+
+.delete-btn {
+    border: none;
+    transition: 0.07s all;
+}
+.delete-btn:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+
 input:required {
     border-bottom: solid 3px red;
     transition: 0.3s;
@@ -61,7 +72,7 @@ input:required:valid {
 
 
 table {
-    font-size: clamp(.7rem, 1vw, 1.2rem);
+    font-size: clamp(.8rem, 1vw, 1.2rem);
     border: 1px solid #ccc;
     border-collapse: collapse;
     margin: 0;
@@ -137,6 +148,7 @@ input[type="number"] {
     position: relative;
     text-align: center;
     justify-self: end;
+    width: 100%;
 }
 
 .custom-select select {
@@ -146,6 +158,7 @@ input[type="number"] {
 
 .select-selected {
     background-color: var(--a-auxiliar-color);
+    
 }
 
 /* Style the arrow inside the select element: */
@@ -170,6 +183,7 @@ input[type="number"] {
 .select-items div,
 .select-selected {
     color: var(--a-white-color);
+    /* width: 100%; */
     padding: 8px 16px;
     border: 1px solid transparent;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
@@ -197,14 +211,16 @@ input[type="number"] {
 }
 
 .container-add-btn {
+    
     text-align: end;
     padding: .25rem;
-    margin-bottom: 14rem;
+    margin-bottom: 6rem;
 }
 
 #add-btn {
     border: none;
     transition: all 0.1s;
+    background-color: rgba(255, 255, 255, 0);
 
 }
 
@@ -233,6 +249,41 @@ input[type="number"] {
 
 
 
+.button-41 {
+    background-color: initial;
+    background-image: linear-gradient(-180deg, #00D775, #00BD68);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    outline: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    pointer-events: auto;
+    position: relative;
+    text-align: center;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: top;
+    white-space: nowrap;
+    width: 10rem;
+    z-index: 9;
+    border: 0;
+
+}
+
+.button-41-container {
+    text-align: right;
+}
+
+.button-41:hover {
+    background: #00bd68;
+}
+
 @media screen and (max-width: 600px) {
     table {
         border: 0;
@@ -255,7 +306,7 @@ input[type="number"] {
     }
 
     table tr {
-        
+
         border-bottom: 3px solid #ddd;
         display: block;
         margin-bottom: .625em;
@@ -263,10 +314,20 @@ input[type="number"] {
     }
 
     table td {
-        
+
         border-bottom: 1px solid white;
-        display: block;
+        /* display: block; */
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
         text-align: right;
+    }
+
+    table p {
+        margin: initial;
+        padding: initial;
     }
 
     table td::before {
@@ -303,9 +364,24 @@ input[type="number"] {
     } */
 
     input[type="number"] {
-        width: 50%;  
+        width: 50%;
         align-content: center;
         text-align: center;
         font-size: clamp(.6rem, .7vw, 1rem);
     }
+
+
+    .quote-instructions {
+        margin: initial;
+        padding: .5rem;
+    }
+
+    .quote-instructions ol {
+        margin: initial;
+        margin-left: 0.9rem;
+        transform: scale(0.8);
+    }
+
+
+
 }

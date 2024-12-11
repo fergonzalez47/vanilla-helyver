@@ -6,7 +6,7 @@ const config = {
     ventanaProyectante: { name: "Ventana-Proyectante", lineOptions: ["Linea 42"] }
 
 };
-const prices = {
+const precios = {
     ventana: {
         'linea-25': {
             mate: 80000,
@@ -176,100 +176,60 @@ function chooseOptionToDisplay(param, parent, deleteBtn, row) {
 
     row.DeleteContainer.appendChild(deleteBtn);
 
-
+    let item;
     switch (param) {
         case "celocia":
-            let celocia = createCelocia();
-            row.color.innerHTML = celocia.color;
-            row.height.innerHTML = celocia.size;
+            item = createCelocia();
+            row.color.innerHTML = item.color;
+            row.height.innerHTML = item.size;
             row.width.innerHTML = `<p class="text-alt">No aplica</p>`;
             row.lineAM.innerHTML = `<p class="text-alt">No aplica</p>`;
 
-            row.subtotal.innerHTML = celocia.name;
+            row.subtotal.innerHTML = item.name;
 
 
             break;
         case "espejo":
-            let espejo = createMirror();
+            item = createMirror();
             row.color.innerHTML = `<p class="text-alt">No aplica</p>`;
-            row.width.innerHTML = espejo.width;
-            row.height.innerHTML = espejo.height;
+            row.width.innerHTML = item.width;
+            row.height.innerHTML = item.height;
             row.lineAM.innerHTML = `<p class="text-alt">No aplica</p>`;
-            row.subtotal.innerHTML = espejo.name;
+            row.subtotal.innerHTML = item.name;
 
             break;
         case "puerta":
-            let puerta = createDoor();
-            row.color.innerHTML = puerta.colors;
-            row.width.innerHTML = puerta.width;
-            row.height.innerHTML = puerta.height;
-            row.lineAM.innerHTML = puerta.lineAM;
-            row.subtotal.innerHTML = puerta.name;
+            item = createDoor();
+            row.color.innerHTML = item.colors;
+            row.width.innerHTML = item.width;
+            row.height.innerHTML = item.height;
+            row.lineAM.innerHTML = item.lineAM;
+            row.subtotal.innerHTML = item.name;
 
             break;
         case "ventana":
-            let window = createWindow();
-            row.color.innerHTML = window.colors;
-            row.width.innerHTML = window.width;
-            row.height.innerHTML = window.height;
-            row.lineAM.innerHTML = window.lineAM;
-            row.subtotal.innerHTML = window.name;
+            item = createWindow();
+            row.color.innerHTML = item.colors;
+            row.width.innerHTML = item.width;
+            row.height.innerHTML = item.height;
+            row.lineAM.innerHTML = item.lineAM;
+            row.subtotal.innerHTML = item.name;
             break;
         case "ventanaProyectante":
-            let projectingWindow = createProjectingWindow();
-            row.color.innerHTML = projectingWindow.colors;
-            row.width.innerHTML = projectingWindow.width;
-            row.height.innerHTML = projectingWindow.height;
-            row.lineAM.innerHTML = projectingWindow.lineAM;
-            row.subtotal.innerHTML = projectingWindow.name;
+            item = createProjectingWindow();
+            row.color.innerHTML = item.colors;
+            row.width.innerHTML = item.width;
+            row.height.innerHTML = item.height;
+            row.lineAM.innerHTML = item.lineAM;
+            row.subtotal.innerHTML = item.name;
             break;
         default:
             row.innerHTML = "<p>Opción no válida, selecciona una opción correcta.</p>";
             break;
     }
     initCustomSelects();
-}
-
-
-
-
-function chooseOptionToDisplayOriginal(param, parent, deleteBtn, row) {
-
-
-
-
-    // let rowElements = document.createElement("td")
-    // let div = parent.querySelector(".show-service");
-    // if (!div) {
-    //     div = document.createElement("div");
-    //     div.classList.add("show-service");
-    //     parent.insertRow(div);
-    // } else {
-    //     div.innerHTML = "";
-    // }
-
-
-    switch (param) {
-        case "celocia":
-            let fieldsetCelocia = createCelocia();
-            div.appendChild(fieldsetCelocia);
-            break;
-        case "espejo":
-            div.appendChild(createMirror());
-            break;
-        case "puerta":
-            div.appendChild(createDoor());
-            break;
-        case "ventanaNormal":
-            div.appendChild(createWindow());
-            break;
-        case "ventanaProyectante":
-            div.appendChild(createProjectingWindow());
-            break;
-        default:
-            div.innerHTML = "<p>Opción no válida, selecciona una opción correcta.</p>";
-            break;
-    }
+    row.subtotal.innerHTML = `<p class="subtotal-value">0</p>`;
+    setupPriceCalculation(row, param);
 }
 
 
@@ -290,7 +250,7 @@ function createDeleteButton(row) {
     deleteBtn.appendChild(img);
 
     deleteBtn.addEventListener("click", () => {
-         row.remove();
+        row.remove();
         // deleteService(row);
     })
     div.appendChild(deleteBtn);
@@ -395,57 +355,51 @@ function createWindow() {
 }
 
 function createProjectingWindow() {
-    let selectedService = config.ventanaProyectante;
+    let projectingWindow = config.ventanaNormal;
 
-    let fieldset = document.createElement("fieldset");
-    fieldset.classList.add(`cotizacion-${selectedService.name}`);
+    let projectingWindowObj = {};
+    projectingWindowColors = `
+                        <div class="custom-select" >
+                            <select>
+                                <option value="0">Elige el color</option>
+                                <option value="blanco">Blanco</option>
+                                <option value="madera">Madera</option>
+                                <option value="mate">Mate</option>
+                                <option value="negro">Negro</option>
+                                <option value="titanio">Titanio</option>
+                            </select>
+                        </div>
+                        `;
+    let projectingWindowLineAm = `
+                        <p>
+                           Linea 42
+                        </p>
+                        `;
+
+
+    let projectingWindowWidth = `
+                        <label>
+                            <input placeholder="Ejemplo: 30 (cm)" type="number" min="0" name="height" required
+                                class="${projectingWindow.name}-width">
+                        </label>
+                        `;
+    let projectingWindowHeight = `
+                        <label>
+                            <input placeholder="Ejemplo: 90 (cm)" type="number" min="0" name="height" required
+                                class="${projectingWindow.name}-height">
+                        </label>
+                        `;
+
+
+    projectingWindowObj.name = projectingWindow.name;
+    projectingWindowObj.colors = projectingWindowColors;
+    projectingWindowObj.width = projectingWindowWidth;
+    projectingWindowObj.height = projectingWindowHeight;
+    projectingWindowObj.lineAM = projectingWindowLineAm;
 
 
 
-    let innerElements = `
-            <legend>Cotización de ${selectedService.name}</legend>`;
-
-    innerElements += `
-            <div><i>Por favor, ingrese las medidas en centímetros (cm), sin incluir el texto "cm".</i></div>
-             <div class="div-label-input">
-            <label>
-                <p><span class="required-element">*</span>Ancho (cm):</p>
-                <input placeholder="Ejemplo: 125 (cm)" type="number" min="0" name="width" required class="${selectedService.name}-width">
-            </label>
-            <label>
-                <p><span class="required-element">*</span>Alto (cm): </p> 
-                <input placeholder="Ejemplo: 90 (cm)" type="number" min="0" name="height" required class="${selectedService.name}-height">
-            </label>
-            </div>
-        `;
-
-    // opciones de línea de aluminio solo si aplica
-    if (selectedService.lineOptions) {
-        innerElements += `
-            <fieldset>
-                <legend><span class="required-element">*</span>Línea Aluminio:</legend>
-                ${selectedService.lineOptions.map(line => `
-                    <label>
-                        <input type="radio" name="line" required value="${line}"> ${line}
-                    </label>
-                `).join('')}
-            </fieldset>
-        `;
-
-        innerElements += `
-        <fieldset>
-            <legend><span class="required-element">*</span>Escoge el color del perfil:</legend>
-            <label class="color"><input type="radio" name="color" value="blanco">Blanco <div class="color-option" id="color-blanco"></div></label>
-            <label class="color"><input type="radio" name="color" value="madera"> Madera <div class="color-option" id="color-madera"></div></label>
-            <label class="color"><input type="radio" name="color" value="mate"> Mate <div class="color-option" id="color-mate"></div></label>
-            <label class="color"><input type="radio" name="color" value="Negro"> Negro <div class="color-option" id="color-negro"></div></label>
-            <label class="color"><input type="radio" name="color" value="titanio"> Titanio <div class="color-option" id="color-titanio"></div></label>
-        </fieldset>
-    `;
-    }
-
-    fieldset.innerHTML = innerElements;
-    return fieldset;
+    return projectingWindowObj;
 }
 
 function createDoor() {
@@ -525,13 +479,9 @@ function createMirror() {
 }
 
 
-
-
 function clearRow(row) {
     Object.values(row).forEach(cell => cell.innerHTML = "");
 }
-
-
 
 
 function initCustomSelects() {
@@ -621,6 +571,36 @@ function closeAllSelect(elmnt) {
 }
 
 document.addEventListener("click", closeAllSelect);
+
+
+
+
+
+
+
+function setupPriceCalculation(row, service) {
+    const widthInput = row.width.querySelector("input");
+    const heightInput = row.height.querySelector("input");
+    const colorSelect = row.color.querySelector("select");
+    const lineAMSelect = row.lineAM.querySelector("select");
+    const subtotalDisplay = row.subtotal.querySelector(".subtotal-value");
+
+    function updateSubtotal() {
+        const width = widthInput?.value || 0;
+        const height = heightInput?.value || 0;
+        const color = colorSelect?.value || "todos";
+        const lineAM = lineAMSelect?.value || "todos";
+
+        const price = calcPrice(service, lineAM, color, width, height);
+        subtotalDisplay.textContent = price.toFixed(2);
+    }
+
+    // Agrega eventos a los elementos relevantes
+    if (widthInput) widthInput.addEventListener("input", updateSubtotal);
+    if (heightInput) heightInput.addEventListener("input", updateSubtotal);
+    if (colorSelect) colorSelect.addEventListener("change", updateSubtotal);
+    if (lineAMSelect) lineAMSelect.addEventListener("change", updateSubtotal);
+}
 
 
 function calcPrice(service, linea, color, ancho, alto) {
