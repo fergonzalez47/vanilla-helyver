@@ -149,7 +149,6 @@ function createSelectService() {
     div.classList.add("custom-select");
     let select = document.createElement("select");
 
-    // const deleteButton = createDeleteButton(container);
 
     serviceOptions.forEach(option => {
         let opt = document.createElement("option");
@@ -180,13 +179,12 @@ function chooseOptionToDisplay(param, parent, deleteBtn, row) {
     switch (param) {
         case "celocia":
             item = createCelocia();
+
             row.color.innerHTML = item.color;
-            row.height.innerHTML = item.size;
+            row.height.innerHTML = `<p class="text-alt">No aplica</p>`;
             row.width.innerHTML = `<p class="text-alt">No aplica</p>`;
-            row.lineAM.innerHTML = `<p class="text-alt">No aplica</p>`;
-
+            row.lineAM.innerHTML = item.size;
             row.subtotal.innerHTML = item.name;
-
 
             break;
         case "espejo":
@@ -228,7 +226,7 @@ function chooseOptionToDisplay(param, parent, deleteBtn, row) {
             break;
     }
     initCustomSelects();
-    row.subtotal.innerHTML = `<p class="subtotal-value">0</p>`;
+    row.subtotal.innerHTML = `<p>$ <span class="subtotal-value">0</span></p>`;
     setupPriceCalculation(row, param);
 }
 
@@ -297,8 +295,6 @@ function createCelocia() {
     celociaObj.name = celocia.name;
     celociaObj.color = celociaColors;
     celociaObj.size = celociaSize;
-
-
     return celociaObj;
 }
 
@@ -579,41 +575,73 @@ document.addEventListener("click", closeAllSelect);
 
 
 function setupPriceCalculation(row, service) {
-    const widthInput = row.width.querySelector("input");
-    const heightInput = row.height.querySelector("input");
-    const colorSelect = row.color.querySelector("select");
-    const lineAMSelect = row.lineAM.querySelector("select");
-    const subtotalDisplay = row.subtotal.querySelector(".subtotal-value");
 
-    function updateSubtotal() {
-        const width = widthInput?.value || 0;
-        const height = heightInput?.value || 0;
-        const color = colorSelect?.value || "todos";
-        const lineAM = lineAMSelect?.value || "todos";
+    try {
+        const colorSelect = row.color.querySelector(".select-selected"); // Captura del DIV personalizado
+        const widthInput = row.width.querySelector("input");
+        const heightInput = row.height.querySelector("input");
+        const lineAMSelect = row.lineAM.querySelector("select");
+        const subtotalDisplay = row.subtotal.querySelector(".subtotal-value");
 
-        const price = calcPrice(service, lineAM, color, width, height);
-        subtotalDisplay.textContent = price.toFixed(2);
+        // let width, height, color, lineAM;
+        // if (colorSelect) {
+        //     colorSelect?.removeEventListener("change", updateSubtotal);
+        //     colorSelect?.addEventListener("change", updateSubtotal);
+        //     width = 1;
+
+        // } else {
+
+        // }
+
+        function updateSubtotal() {
+
+            const width = parseFloat(widthInput?.value) || 0;
+            const height = parseFloat(heightInput?.value) || 0;
+            const color = row.color.querySelector("select")?.value || "todos";
+            const lineAM = lineAMSelect?.value || "todos";
+
+            const price = calcPrice(service, lineAM, color, width, height);
+            subtotalDisplay.textContent = price.toFixed(2);
+        }
+
+        // Elimina eventos previos para evitar duplicados
+        widthInput?.removeEventListener("input", updateSubtotal);
+        heightInput?.removeEventListener("input", updateSubtotal);
+        colorSelect?.removeEventListener("click", updateSubtotal);
+        lineAMSelect?.removeEventListener("click", updateSubtotal);
+
+        // Agrega eventos nuevos
+        widthInput?.addEventListener("input", updateSubtotal);
+        heightInput?.addEventListener("input", updateSubtotal);
+        colorSelect?.addEventListener("click", updateSubtotal);
+
+        lineAMSelect?.addEventListener("click", updateSubtotal);
+    } catch (error) {
+        console.log("MANEJO DE ERRORES:", error)
     }
-
-    // Agrega eventos a los elementos relevantes
-    if (widthInput) widthInput.addEventListener("input", updateSubtotal);
-    if (heightInput) heightInput.addEventListener("input", updateSubtotal);
-    if (colorSelect) colorSelect.addEventListener("change", updateSubtotal);
-    if (lineAMSelect) lineAMSelect.addEventListener("change", updateSubtotal);
 }
+
 
 
 function calcPrice(service, linea, color, ancho, alto) {
     let area = (ancho / 100) * (alto / 100); // Conversión a metros cuadrados
     let precioBase;
+    console.log("-----------------------------------------------------------------------------------------");
+    console.log("service", service);
+    console.log("linea", linea);
+    console.log("color", color);
+    console.log("ancho", ancho);
+    console.log("alto", alto);
 
     if (service === 'espejo') {
         precioBase = precios.espejo;
     } else if (service === 'celosia') {
         precioBase = precios.celosia[linea];
-    } else {
-        precioBase = precios[service][linea][color] || precios[service][linea].todos;
     }
+    // } else {
+    //     precioBase = precios[service][linea][color] || precios[service][linea].todos;
+    // }
 
     return area * precioBase;
 }
+
