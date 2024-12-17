@@ -8,14 +8,14 @@ const config = {
 };
 const precios = {
     ventana: {
-        'linea-25': {
+        line25: {
             mate: 80000,
             titanio: 90000,
             blanco: 90000,
             negro: 90000,
             madera: 120000
         },
-        'linea-5000': {
+        line5000: {
             mate: 50000,
             titanio: 60000,
             blanco: 60000,
@@ -24,13 +24,21 @@ const precios = {
         }
     },
     puerta: {
-        'linea-35': {
-            todos: 180000
+        line35: {
+            mate: 180000,
+            titanio: 180000,
+            blanco: 180000,
+            negro: 180000,
+            madera: 180000
         }
     },
-    proyectante: {
-        'linea-42': {
-            todos: 90000
+    ventanaProyectante: {
+        line42: {
+            mate: 90000,
+            titanio: 90000,
+            blanco: 90000,
+            negro: 90000,
+            madera: 90000
         }
     },
     celosia: {
@@ -43,7 +51,7 @@ const precios = {
 
 const serviceOptions = [
     { value: "0", text: "Elige un producto" },
-    { value: "celocia", text: "Celocia" },
+    { value: "celosia", text: "Celosia" },
     { value: "espejo", text: "Espejo" },
     { value: "puerta", text: "Puerta" },
     { value: "ventana", text: "Ventana" },
@@ -165,70 +173,108 @@ function createSelectService() {
 
 
 function chooseOptionToDisplay(param, parent, deleteBtn, row) {
-
-    /*param: valor seleccionado por el user como ejemplo venta,a puerta, etc
-     parent: contenedor donde desplegaremos o limpiaremos
-      deleteBtn: Boton que ira en el ultimo td para eliminar el tr en caso de que se quiera
-        row: objeto que contiene los td en orden
-         */
     clearRow(row);
-
     row.DeleteContainer.appendChild(deleteBtn);
-
     let item;
+
     switch (param) {
-        case "celocia":
+        case "celosia":
             item = createCelocia();
-
-            row.color.innerHTML = item.color;
-            row.height.innerHTML = `<p class="text-alt">No aplica</p>`;
-            row.width.innerHTML = `<p class="text-alt">No aplica</p>`;
-            row.lineAM.innerHTML = item.size;
-            row.subtotal.innerHTML = item.name;
-
             break;
         case "espejo":
             item = createMirror();
-            row.color.innerHTML = `<p class="text-alt">No aplica</p>`;
-            row.width.innerHTML = item.width;
-            row.height.innerHTML = item.height;
-            row.lineAM.innerHTML = `<p class="text-alt">No aplica</p>`;
-            row.subtotal.innerHTML = item.name;
-
             break;
         case "puerta":
             item = createDoor();
-            row.color.innerHTML = item.colors;
-            row.width.innerHTML = item.width;
-            row.height.innerHTML = item.height;
-            row.lineAM.innerHTML = item.lineAM;
-            row.subtotal.innerHTML = item.name;
-
             break;
         case "ventana":
             item = createWindow();
-            row.color.innerHTML = item.colors;
-            row.width.innerHTML = item.width;
-            row.height.innerHTML = item.height;
-            row.lineAM.innerHTML = item.lineAM;
-            row.subtotal.innerHTML = item.name;
             break;
         case "ventanaProyectante":
             item = createProjectingWindow();
-            row.color.innerHTML = item.colors;
-            row.width.innerHTML = item.width;
-            row.height.innerHTML = item.height;
-            row.lineAM.innerHTML = item.lineAM;
-            row.subtotal.innerHTML = item.name;
             break;
         default:
             row.innerHTML = "<p>Opción no válida, selecciona una opción correcta.</p>";
-            break;
+            return;
     }
-    initCustomSelects();
+
+    row.color.innerHTML = item.colors || `<p class="text-alt">No aplica</p>`;
+    row.width.innerHTML = item.width || `<p class="text-alt">No aplica</p>`;
+    row.height.innerHTML = item.height || `<p class="text-alt">No aplica</p>`;
+    row.lineAM.innerHTML = item.lineAM || item.size || `<p class="text-alt">No aplica</p>`;
     row.subtotal.innerHTML = `<p>$ <span class="subtotal-value">0</span></p>`;
+
+    initCustomSelects();
     setupPriceCalculation(row, param);
 }
+
+
+
+// function chooseOptionToDisplay(param, parent, deleteBtn, row) {
+
+//     /*param: valor seleccionado por el user como ejemplo venta,a puerta, etc
+//      parent: contenedor donde desplegaremos o limpiaremos
+//       deleteBtn: Boton que ira en el ultimo td para eliminar el tr en caso de que se quiera
+//         row: objeto que contiene los td en orden
+//          */
+//     clearRow(row);
+//     row.DeleteContainer.appendChild(deleteBtn);
+//     let item;
+
+//     switch (param) {
+//         case "celocia":
+//             item = createCelocia();
+
+//             row.color.innerHTML = item.color;
+//             row.height.innerHTML = `<p class="text-alt">No aplica</p>`;
+//             row.width.innerHTML = `<p class="text-alt">No aplica</p>`;
+//             row.lineAM.innerHTML = item.size;
+//             row.subtotal.innerHTML = item.name;
+
+//             break;
+//         case "espejo":
+//             item = createMirror();
+//             row.color.innerHTML = `<p class="text-alt">No aplica</p>`;
+//             row.width.innerHTML = item.width;
+//             row.height.innerHTML = item.height;
+//             row.lineAM.innerHTML = `<p class="text-alt">No aplica</p>`;
+//             row.subtotal.innerHTML = item.name;
+
+//             break;
+//         case "puerta":
+//             item = createDoor();
+//             row.color.innerHTML = item.colors;
+//             row.width.innerHTML = item.width;
+//             row.height.innerHTML = item.height;
+//             row.lineAM.innerHTML = item.lineAM;
+//             row.subtotal.innerHTML = item.name;
+
+//             break;
+//         case "ventana":
+//             item = createWindow();
+//             row.color.innerHTML = item.colors;
+//             row.width.innerHTML = item.width;
+//             row.height.innerHTML = item.height;
+//             row.lineAM.innerHTML = item.lineAM;
+//             row.subtotal.innerHTML = item.name;
+//             break;
+//         case "ventanaProyectante":
+//             item = createProjectingWindow();
+//             row.color.innerHTML = item.colors;
+//             row.width.innerHTML = item.width;
+//             row.height.innerHTML = item.height;
+//             row.lineAM.innerHTML = item.lineAM;
+//             row.subtotal.innerHTML = item.name;
+//             break;
+//         default:
+//             row.innerHTML = "<p>Opción no válida, selecciona una opción correcta.</p>";
+//             break;
+//     }
+//     initCustomSelects();
+//     row.subtotal.innerHTML = `<p>$ <span class="subtotal-value">0</span></p>`;
+//     setupPriceCalculation(row, param);
+
+// }
 
 
 
@@ -293,7 +339,7 @@ function createCelocia() {
 
 
     celociaObj.name = celocia.name;
-    celociaObj.color = celociaColors;
+    celociaObj.colors = celociaColors;
     celociaObj.size = celociaSize;
     return celociaObj;
 }
@@ -577,45 +623,45 @@ document.addEventListener("click", closeAllSelect);
 function setupPriceCalculation(row, service) {
 
     try {
-        const colorSelect = row.color.querySelector(".select-selected"); // Captura del DIV personalizado
+        const colorSelectDIV = row.color.querySelector(".custom-select"); // Captura del DIV personalizado
         const widthInput = row.width.querySelector("input");
         const heightInput = row.height.querySelector("input");
         const lineAMSelect = row.lineAM.querySelector("select");
+        const lineAMSelectDIV = row.lineAM.querySelector(".custom-select"); // Captura del DIV personalizado
         const subtotalDisplay = row.subtotal.querySelector(".subtotal-value");
 
-        // let width, height, color, lineAM;
-        // if (colorSelect) {
-        //     colorSelect?.removeEventListener("change", updateSubtotal);
-        //     colorSelect?.addEventListener("change", updateSubtotal);
-        //     width = 1;
-
-        // } else {
-
-        // }
+        const colorSelect = row.color.querySelector("select");
 
         function updateSubtotal() {
 
             const width = parseFloat(widthInput?.value) || 0;
             const height = parseFloat(heightInput?.value) || 0;
-            const color = row.color.querySelector("select")?.value || "todos";
-            const lineAM = lineAMSelect?.value || "todos";
+            const color = colorSelectDIV?.querySelector("select")?.value || "todos";
+            // const color = colorSelect?.value || "todos";
+            // const lineAM = lineAMSelect?.value || "todos";
+            const lineAM = lineAMSelectDIV?.querySelector("select")?.value;
 
-            const price = calcPrice(service, lineAM, color, width, height);
-            subtotalDisplay.textContent = price.toFixed(2);
+
+            if (color != 0 && lineAM != 0) {
+                const price = calcPrice(service, lineAM, color, width, height);
+                subtotalDisplay.textContent = price.toFixed(2);
+                calcTotal();
+            }
+
         }
 
         // Elimina eventos previos para evitar duplicados
         widthInput?.removeEventListener("input", updateSubtotal);
         heightInput?.removeEventListener("input", updateSubtotal);
-        colorSelect?.removeEventListener("click", updateSubtotal);
-        lineAMSelect?.removeEventListener("click", updateSubtotal);
+        colorSelectDIV?.removeEventListener("click", updateSubtotal);
+        lineAMSelectDIV?.removeEventListener("click", updateSubtotal);
 
         // Agrega eventos nuevos
         widthInput?.addEventListener("input", updateSubtotal);
         heightInput?.addEventListener("input", updateSubtotal);
-        colorSelect?.addEventListener("click", updateSubtotal);
+        colorSelectDIV?.addEventListener("click", updateSubtotal);
 
-        lineAMSelect?.addEventListener("click", updateSubtotal);
+        lineAMSelectDIV?.addEventListener("click", updateSubtotal);
     } catch (error) {
         console.log("MANEJO DE ERRORES:", error)
     }
@@ -623,25 +669,47 @@ function setupPriceCalculation(row, service) {
 
 
 
+
+
 function calcPrice(service, linea, color, ancho, alto) {
     let area = (ancho / 100) * (alto / 100); // Conversión a metros cuadrados
     let precioBase;
-    console.log("-----------------------------------------------------------------------------------------");
-    console.log("service", service);
-    console.log("linea", linea);
-    console.log("color", color);
-    console.log("ancho", ancho);
-    console.log("alto", alto);
 
-    if (service === 'espejo') {
-        precioBase = precios.espejo;
-    } else if (service === 'celosia') {
+    if (service === 'celosia') {
         precioBase = precios.celosia[linea];
-    }
-    // } else {
-    //     precioBase = precios[service][linea][color] || precios[service][linea].todos;
-    // }
+        console.log("AQUI: precio", precioBase);
+        return precioBase;
 
+    } else if (service === 'espejo') {
+        precioBase = precios.espejo;
+    } else {
+        if (linea == undefined) {
+            if (service === 'puerta') {
+                linea = "line35";
+            } else if (service === 'ventanaProyectante') {
+                linea = "line42";
+            }
+        }
+
+        precioBase = precios[service][linea][color];
+    }
     return area * precioBase;
 }
 
+
+function calcTotal() {
+
+    const totalDisplay = document.querySelector(".total-container .total");
+    const allSubtotal = document.querySelectorAll(".subtotal-value");
+
+    // Convertir a Array: Array.from(allSubtotal) permite usar reduce.
+    // Cálculo con reduce: Suma cada el.textContent convertido a número.
+    // Manejo de Errores: Usa || 0 para evitar NaN.
+    // Mostrar Total: Actualiza totalDisplay con el valor formateado.
+    const total = Array.from(allSubtotal).reduce(
+        (acc, el) => acc + (parseFloat(el.textContent) || 0),
+        0
+    );
+
+    totalDisplay.textContent = total.toFixed(2);
+}
