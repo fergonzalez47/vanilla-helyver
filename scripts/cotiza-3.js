@@ -48,6 +48,14 @@ const precios = {
     espejo: 60000
 };
 
+// formato de mnoneda chilena
+const formatter = new Intl.NumberFormat('es-CL', {
+    style: 'currency',
+    currency: 'CLP',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+});
+
 
 const serviceOptions = [
     { value: "0", text: "Elige un producto" },
@@ -202,81 +210,11 @@ function chooseOptionToDisplay(param, parent, deleteBtn, row) {
     row.width.innerHTML = item.width || `<p class="text-alt">No aplica</p>`;
     row.height.innerHTML = item.height || `<p class="text-alt">No aplica</p>`;
     row.lineAM.innerHTML = item.lineAM || item.size || `<p class="text-alt">No aplica</p>`;
-    row.subtotal.innerHTML = `<p>$ <span class="subtotal-value">0</span></p>`;
+    row.subtotal.innerHTML = `<p><span class="subtotal-value">0</span></p>`;
 
     initCustomSelects();
     setupPriceCalculation(row, param);
 }
-
-
-
-// function chooseOptionToDisplay(param, parent, deleteBtn, row) {
-
-//     /*param: valor seleccionado por el user como ejemplo venta,a puerta, etc
-//      parent: contenedor donde desplegaremos o limpiaremos
-//       deleteBtn: Boton que ira en el ultimo td para eliminar el tr en caso de que se quiera
-//         row: objeto que contiene los td en orden
-//          */
-//     clearRow(row);
-//     row.DeleteContainer.appendChild(deleteBtn);
-//     let item;
-
-//     switch (param) {
-//         case "celocia":
-//             item = createCelocia();
-
-//             row.color.innerHTML = item.color;
-//             row.height.innerHTML = `<p class="text-alt">No aplica</p>`;
-//             row.width.innerHTML = `<p class="text-alt">No aplica</p>`;
-//             row.lineAM.innerHTML = item.size;
-//             row.subtotal.innerHTML = item.name;
-
-//             break;
-//         case "espejo":
-//             item = createMirror();
-//             row.color.innerHTML = `<p class="text-alt">No aplica</p>`;
-//             row.width.innerHTML = item.width;
-//             row.height.innerHTML = item.height;
-//             row.lineAM.innerHTML = `<p class="text-alt">No aplica</p>`;
-//             row.subtotal.innerHTML = item.name;
-
-//             break;
-//         case "puerta":
-//             item = createDoor();
-//             row.color.innerHTML = item.colors;
-//             row.width.innerHTML = item.width;
-//             row.height.innerHTML = item.height;
-//             row.lineAM.innerHTML = item.lineAM;
-//             row.subtotal.innerHTML = item.name;
-
-//             break;
-//         case "ventana":
-//             item = createWindow();
-//             row.color.innerHTML = item.colors;
-//             row.width.innerHTML = item.width;
-//             row.height.innerHTML = item.height;
-//             row.lineAM.innerHTML = item.lineAM;
-//             row.subtotal.innerHTML = item.name;
-//             break;
-//         case "ventanaProyectante":
-//             item = createProjectingWindow();
-//             row.color.innerHTML = item.colors;
-//             row.width.innerHTML = item.width;
-//             row.height.innerHTML = item.height;
-//             row.lineAM.innerHTML = item.lineAM;
-//             row.subtotal.innerHTML = item.name;
-//             break;
-//         default:
-//             row.innerHTML = "<p>Opción no válida, selecciona una opción correcta.</p>";
-//             break;
-//     }
-//     initCustomSelects();
-//     row.subtotal.innerHTML = `<p>$ <span class="subtotal-value">0</span></p>`;
-//     setupPriceCalculation(row, param);
-
-// }
-
-
 
 
 // DELETE BUTTON
@@ -296,6 +234,7 @@ function createDeleteButton(row) {
     deleteBtn.addEventListener("click", () => {
         row.remove();
         // deleteService(row);
+        calcTotal();
     })
     div.appendChild(deleteBtn);
     return div;
@@ -304,6 +243,7 @@ function createDeleteButton(row) {
 
 function deleteService(row) {
     tbody.removeChild(row);
+
 }
 
 
@@ -630,7 +570,7 @@ function setupPriceCalculation(row, service) {
         const lineAMSelectDIV = row.lineAM.querySelector(".custom-select"); // Captura del DIV personalizado
         const subtotalDisplay = row.subtotal.querySelector(".subtotal-value");
 
-        const colorSelect = row.color.querySelector("select");
+        // const colorSelect = row.color.querySelector("select");
 
         function updateSubtotal() {
 
@@ -644,7 +584,10 @@ function setupPriceCalculation(row, service) {
 
             if (color != 0 && lineAM != 0) {
                 const price = calcPrice(service, lineAM, color, width, height);
-                subtotalDisplay.textContent = price.toFixed(2);
+
+                subtotalDisplay.setAttribute("data-value", price);
+                subtotalDisplay.textContent = formatter.format(price);
+                // subtotalDisplay.textContent = price.toFixed(2);
                 calcTotal();
             }
 
@@ -663,9 +606,9 @@ function setupPriceCalculation(row, service) {
 
         lineAMSelectDIV?.addEventListener("click", updateSubtotal);
     } catch (error) {
-        console.log("MANEJO DE ERRORES:", error)
+        console.log("ERRORES:", error)
     }
-}
+};
 
 
 
@@ -677,7 +620,6 @@ function calcPrice(service, linea, color, ancho, alto) {
 
     if (service === 'celosia') {
         precioBase = precios.celosia[linea];
-        console.log("AQUI: precio", precioBase);
         return precioBase;
 
     } else if (service === 'espejo') {
@@ -702,14 +644,95 @@ function calcTotal() {
     const totalDisplay = document.querySelector(".total-container .total");
     const allSubtotal = document.querySelectorAll(".subtotal-value");
 
+    if (!totalDisplay || allSubtotal.length === 0) {
+        console.error("Elementos no encontrados");
+        return;
+    }
+
     // Convertir a Array: Array.from(allSubtotal) permite usar reduce.
     // Cálculo con reduce: Suma cada el.textContent convertido a número.
     // Manejo de Errores: Usa || 0 para evitar NaN.
     // Mostrar Total: Actualiza totalDisplay con el valor formateado.
-    const total = Array.from(allSubtotal).reduce(
-        (acc, el) => acc + (parseFloat(el.textContent) || 0),
-        0
-    );
 
-    totalDisplay.textContent = total.toFixed(2);
+    const total = Array.from(allSubtotal).reduce((acc, el) => {
+        const value = parseFloat(el.getAttribute("data-value")) || 0;
+        return acc + value;
+    }, 0);
+
+    totalDisplay.textContent = formatter.format(total);
 }
+
+
+
+
+
+
+
+
+
+// Validación del formulario
+function validateQuoteForm() {
+    const rows = document.querySelectorAll('#table tbody tr');
+    const errors = [];
+
+    rows.forEach((row, index) => {
+        const service = row.querySelector('[data-label="Servicio"] select');
+        const colorContainer = row.querySelector('[data-label="Color"]');
+        const width = row.querySelector('[data-label="Ancho(cm)"] input');
+        const height = row.querySelector('[data-label="Alto(cm)"] input');
+        const lineAMContainer = row.querySelector('[data-label="Linea Aluminio"]');
+
+        // Validaciones de servicio
+        if (!service || service.value === "0") {
+            errors.push(`Fila ${index + 1}: Selecciona un servicio.`);
+        }
+
+        // Validación condicional para color
+        if (colorContainer && colorContainer.querySelector('select')) {
+            const color = colorContainer.querySelector('select');
+            if (color.value === "0") {
+                errors.push(`Fila ${index + 1}: Selecciona un color.`);
+            }
+        }
+
+        // Validaciones de ancho y alto
+        if (width && (!/^[0-9]+$/.test(width.value) || width.value <= 0)) {
+            errors.push(`Fila ${index + 1}: Ingresa un ancho válido.`);
+        }
+
+        if (height && (!/^[0-9]+$/.test(height.value) || height.value <= 0)) {
+            errors.push(`Fila ${index + 1}: Ingresa un alto válido.`);
+        }
+
+        // Validación condicional para línea de aluminio
+        if (lineAMContainer && lineAMContainer.querySelector('select')) {
+            const lineAM = lineAMContainer.querySelector('select');
+            if (lineAM.value === "0") {
+                errors.push(`Fila ${index + 1}: Selecciona una línea de aluminio.`);
+            }
+        }
+    });
+
+    if (errors.length > 0) {
+        alert(`Errores encontrados:\n${errors.join('\n')}`);
+        return false;
+    }
+
+    return true;
+}
+
+// Manejar el clic en el botón de solicitar cotización
+const requestServiceBtn = document.getElementById("requestServiceBtn");
+requestServiceBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (validateQuoteForm()) {
+        alert("Cotización enviada correctamente.");
+    }
+});
+
+
+
+
+// document.getElementById("requestServiceBtn").addEventListener("click", function () {
+//     window.location.href = "solicitar-servicio/index.html";
+// });
