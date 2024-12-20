@@ -403,7 +403,12 @@ function createDoor() {
     let doorLineAm = `
                         <p>
                         Linea 35
+                        <span title="naklgas" class="tooltip" onclick="toggleTooltip(event)"><img
+                                src="../images/svg/questionmark.svg" alt="signo de interrogacion">
+                        <span class="tooltip-text">Aquí va una breve explicación sobre el término.</span>
+                        </span>
                         </p>
+        
                         `;
 
 
@@ -714,7 +719,8 @@ function validateQuoteForm() {
     });
 
     if (errors.length > 0) {
-        alert(`Errores encontrados:\n${errors.join('\n')}`);
+        displayErrors(errors);
+        // alert(`Errores encontrados:\n${errors.join('\n')}`);
         return false;
     }
 
@@ -736,3 +742,37 @@ requestServiceBtn.addEventListener("click", (e) => {
 // document.getElementById("requestServiceBtn").addEventListener("click", function () {
 //     window.location.href = "solicitar-servicio/index.html";
 // });
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     const popup = document.getElementById("popup");
+
+//     // Mostrar la ventana emergente
+//     setTimeout(() => {
+//         popup.classList.add("show");
+
+//         // Ocultar después de 5 segundos
+//         setTimeout(() => {
+//             popup.classList.remove("show");
+//         }, 4000);
+//     }, 500);
+// });
+
+function displayErrors(errorArray) {
+
+    const popup = document.getElementById("popup");
+    popup.innerHTML = "";
+    errorArray.forEach(error => {
+        popup.innerHTML += `<p>${error}</p>`;
+    });
+    setTimeout(() => {
+        popup.classList.add("show");
+
+        // Ocultar después de 5 segundos
+        setTimeout(() => {
+            popup.classList.remove("show");
+        }, 4000);
+    }, 500);
+
+
+}
