@@ -26,3 +26,4 @@ function getFromSessionStorage() {
     const data = JSON.parse(sessionStorage.getItem("cotizacion")) || [];
     return data;
 }
+

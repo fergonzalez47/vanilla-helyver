@@ -17,7 +17,8 @@
 
     <link rel="stylesheet" href="../../styles/base.css">
     <link rel="stylesheet" href="../../styles/base-large.css">
-    <title>Cotiza en linea | Fabricación e Instalación de Ventanas, Puertas y Espejos en Santiago </title>
+    <link rel="stylesheet" href="../styles/solicitar-servicio.css">
+    <title>PEdir servicio | Fabricación e Instalación de Ventanas, Puertas y Espejos en Santiago </title>
     <script src="../../scripts/main.js" type="text/javascript" defer></script>
     <script src="../../scripts/getdates.js" type="text/javascript" defer></script>
     <script src="../../scripts/preform.js" defer></script>
@@ -55,6 +56,27 @@
             </thead>
             <tbody></tbody>
         </table>
+
+
+        <!-- https://codepen.io/joanasesinando/pen/gOrrNMj -->
+        <div class="form-container">
+            <form action="/action_page.php">
+                <label for="name">Nombre y Apellido</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre...">
+
+                <label for="lname">Numero telefónico</label>
+                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                    <option value="australia">Australia</option>
+                    <option value="canada">Canada</option>
+                    <option value="usa">USA</option>
+                </select>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
 
     </main>
 
