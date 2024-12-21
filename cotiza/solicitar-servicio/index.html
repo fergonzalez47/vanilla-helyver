@@ -1,11 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="author" content="Fernando Gonzalez">
+    <meta name="description"
+        content="Cotiza en línea ventanas y puertas de aluminio, espejos y estructuras a medida en Santiago de Chile. Obtén un presupuesto rápido y garantizado con nuestro servicio profesional y de calidad.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="../../styles/base-large.css">
+    <title>Cotiza en linea | Fabricación e Instalación de Ventanas, Puertas y Espejos en Santiago </title>
+    <script src="../../scripts/main.js" type="text/javascript" defer></script>
+    <script src="../../scripts/getdates.js" type="text/javascript" defer></script>
+    <script src="../../scripts/preform.js" defer></script>
 </head>
+
 <body>
-    aqui datos
+    <header>
+        <a href="../../index.html" aria-label="Ir al inicio">
+            Helyver S
+        </a>
+        <button id="menu" aria-label="Abrir menú de navegación"></button>
+        <nav class="navigation">
+            <ul>
+                <li class="active"><a href="../../cotiza/index.html">Cotiza</a></li>
+                <li><a href="../../servicios/index.html">Servicios</a></li>
+                <li><a href="../../nosotros/index.html">Quienes Somos</a></li>
+                <li><a href="../../contacto/index.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+        <table id="quoteTable">
+            <caption>Tu Cotización</caption>
+            <thead>
+                <tr>
+                    <th>Servicio</th>
+                    <th>Color</th>
+                    <th>Ancho</th>
+                    <th>Alto</th>
+                    <th>Línea</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+    </main>
+
+
+
+    <footer>
+        <div class="IOO hidden footer-social-media">
+            <h3>Nombre de la Marca</h3>
+            <p>Siguenos en redes sociales y estemos en contacto. Conocer nuestros proyectos! Encuentra inspiración
+                para tus propias
+                ideas y requerimientos</p>
+            <ul>
+                <li><a href="#" target="_blank"><img src="../images/facebook-svg.svg" alt="Icono de Facebook"></a></li>
+                <li><a href="#" target="_blank"><img src="../images/instagram-svg.svg" alt="Icono de Instagram"></a>
+                </li>
+                <li><a href="#" target="_blank"><img src="../images/gmail-svg.svg" alt=" Icono de Gmail "></a></li>
+            </ul>
+        </div>
+        <div class="IOO hidden footer-information">
+            <h3>Información</h3>
+            <ul>
+                <li><a href="">Preguntas Frecuentes</a>
+                <li><a href="../../politica-de-privacidad">Política de Privacidad</a></li>
+                <li><a href="../../terminos-y-condiciones">Términos de Servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="IOO hidden footer-menu">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../servicios/index.html">Servicios</a></li>
+                <li><a href="../../cotiza/index.html">Cotiza</a></li>
+                <li><a href="../../nosotros/index.html">Quienes Somos</a></li>
+                <li><a href="../../contacto/index.html">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="IOO hidden footer-contact">
+            <h3>Contáctanos</h3>
+            <h4>Teléfono</h4>
+
+            <p>+56 9 3583 6484</p>
+            <h4>Correo</h4>
+            <p>example@gmail.com</p>
+        </div>
+        <div class="footer-dev">
+            <p>©<span id="currentYear"></span> - Desarrollado por Fernando Gonzalez | Santiago de Chile</p>
+            <p>Ultima Modificación: <span id="lastModified"></span></p>
+        </div>
+    </footer>
+
 </body>
+
 </html>

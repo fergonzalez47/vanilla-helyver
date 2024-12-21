@@ -222,6 +222,7 @@ function chooseOptionToDisplay(param, parent, deleteBtn, row) {
 function createDeleteButton(row) {
     const div = document.createElement("div");
     div.classList.add("container-delete-btn");
+    div.setAttribute("title", "Eliminar Item");
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("delete-btn");
     deleteBtn.setAttribute("aria-label", "Eliminar esta cotización");
@@ -304,7 +305,7 @@ function createWindow() {
                         <div class="custom-select" >
                             <select>
                                 <option value="0">Elige el Aluminio</option>
-                                <option value="line25">Linea 25</option>
+                                <option value="line25">Linea 25 </option>
                                 <option value="line5000">Linea 5000</option>
                             </select>
                         </div>
@@ -354,7 +355,15 @@ function createProjectingWindow() {
                         `;
     let projectingWindowLineAm = `
                         <p>
-                           Linea 42
+                           Linea 42 <span title="Linea 42 es para ventanas de aluminio que pueden ser fijas o proyectantes y se utilizan
+                            en casas, edificios de departamentos, hospitales, oficinas, entre otros"
+                             class="tooltip" onclick="toggleTooltip(event)">
+                             <img src="../images/svg/questionmark.svg" alt="signo de interrogacion">
+                            <span class="tooltip-text">
+                                Linea 42 es para ventanas de aluminio que pueden ser fijas o proyectantes y se utilizan
+                                en casas, edificios de departamentos, hospitales, oficinas, entre otros
+                            </span>
+                            </span>
                         </p>
                         `;
 
@@ -403,9 +412,9 @@ function createDoor() {
     let doorLineAm = `
                         <p>
                         Linea 35
-                        <span title="naklgas" class="tooltip" onclick="toggleTooltip(event)"><img
+                        <span title="La linea 35 es para hacer puertas abatibles, tanto una puerta como doble" class="tooltip" onclick="toggleTooltip(event)"><img
                                 src="../images/svg/questionmark.svg" alt="signo de interrogacion">
-                        <span class="tooltip-text">Aquí va una breve explicación sobre el término.</span>
+                        <span class="tooltip-text">La linea 35 es para hacer puertas abatibles, tanto una puerta como doble</span>
                         </span>
                         </p>
         
@@ -720,7 +729,6 @@ function validateQuoteForm() {
 
     if (errors.length > 0) {
         displayErrors(errors);
-        // alert(`Errores encontrados:\n${errors.join('\n')}`);
         return false;
     }
 
@@ -732,31 +740,14 @@ const requestServiceBtn = document.getElementById("requestServiceBtn");
 requestServiceBtn.addEventListener("click", (e) => {
     e.preventDefault();
     if (validateQuoteForm()) {
-        alert("Cotización enviada correctamente.");
+
+        saveInSessionStorage();
+
+        window.location.href = "solicitar-servicio/index.html";
     }
 });
 
 
-
-
-// document.getElementById("requestServiceBtn").addEventListener("click", function () {
-//     window.location.href = "solicitar-servicio/index.html";
-// });
-
-
-// document.addEventListener("DOMContentLoaded", () => {
-//     const popup = document.getElementById("popup");
-
-//     // Mostrar la ventana emergente
-//     setTimeout(() => {
-//         popup.classList.add("show");
-
-//         // Ocultar después de 5 segundos
-//         setTimeout(() => {
-//             popup.classList.remove("show");
-//         }, 4000);
-//     }, 500);
-// });
 
 function displayErrors(errorArray) {
 
@@ -775,4 +766,27 @@ function displayErrors(errorArray) {
     }, 500);
 
 
+}
+
+
+function saveInSessionStorage() {
+    const rows = document.querySelectorAll("#table tbody tr");
+    const quotes = Array.from(rows).map(row => {
+        return {
+            servicio: row.querySelector('[data-label="Servicio"] .select-selected')?.innerText || '',
+            color: row.querySelector('[data-label="Color"] .select-selected')?.innerText || '',
+            ancho: row.querySelector('[data-label="Ancho(cm)"] input')?.value || '',
+            alto: row.querySelector('[data-label="Alto(cm)"] input')?.value || '',
+            linea: row.querySelector('[data-label="Linea Aluminio"] .select-selected')?.innerText || '',
+            subtotal: row.querySelector('[data-label="Subtotal"] .subtotal-value')?.getAttribute('data-value') || ''
+        };
+    });
+
+    sessionStorage.setItem("cotizacion", JSON.stringify(quotes));
+
+}
+
+function getFromSessionStorage() {
+
+    const data = sessionStorage.getItem("cotizacion");
 }
