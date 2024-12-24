@@ -44,12 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     data.forEach(item => {
         const row = tbody.insertRow();
-
+        console.log(item.alto);
         row.innerHTML = `
             <td data-label= "Servicio" class="text-bold">${item.servicio}</td>
             <td data-label= "Color">${item.color || "--"}</td>
             <td data-label= "Ancho(cm)">${item.ancho || "--"}</td>
-            <td data-label= "Alto(cm)"${item.alto || "--"}</td>
+            <td data-label= "Alto(cm)">${item.alto || "--"}</td>
             <td data-label= "Linea Aluminio">${item.linea || "--"}</td>
             <td data-label= "Subtotal" class="text-bold">${formatter.format(item.subtotal)}</td>
         `;

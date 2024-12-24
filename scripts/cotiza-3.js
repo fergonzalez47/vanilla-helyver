@@ -762,7 +762,7 @@ function displayErrors(errorArray) {
         // Ocultar después de 5 segundos
         setTimeout(() => {
             popup.classList.remove("show");
-        }, 4000);
+        }, 5000);
     }, 500);
 
 
@@ -790,3 +790,7 @@ function getFromSessionStorage() {
 
     const data = sessionStorage.getItem("cotizacion");
 }
+
+
+
+// https://chatgpt.com/share/676b3b7f-d030-800e-a598-1b885f9ba1f0

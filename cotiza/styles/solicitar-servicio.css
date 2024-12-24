@@ -40,9 +40,22 @@ main {
 
 }
 
+.data-lock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-
-
+.data-lock p {
+    margin: 0;
+    padding: 0;
+    
+}
+.data-lock img {
+    height: 36px;
+    width: 36px;
+    margin-left: 1rem;
+}
 
 .container-form {
     background-image: url("../../images/hero-large.webp");
@@ -100,6 +113,7 @@ legend {
     color: var(--b-background-color);
     margin-left: -5px;
     margin-bottom: 0.15rem;
+    font-weight: bolder;
 
 }
 
@@ -224,6 +238,8 @@ input::placeholder {
     margin: initial;
     padding: initial;
     text-align: center;
+    margin-top: .75rem;
+    margin-bottom: .5rem;
 }
 
 .button-41:hover {
@@ -318,7 +334,7 @@ input::placeholder {
 
 
 
-@media screen and (max-width: 710px) {
+@media screen and (max-width: 576px) {
     main {
         grid-template-columns: 1fr;
     }
@@ -342,7 +358,7 @@ input::placeholder {
 
     .container-form form {
         margin: 0 auto;
-        width: 90%;
+    
     }
 
 
