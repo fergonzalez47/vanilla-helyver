@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../../styles/base.css">
     <link rel="stylesheet" href="../../styles/base-large.css">
     <link rel="stylesheet" href="../styles/solicitar-servicio.css">
-    <title>PEdir servicio | Fabricación e Instalación de Ventanas, Puertas y Espejos en Santiago </title>
+    <title>Pedir servicio | Fabricación e Instalación de Ventanas, Puertas y Espejos en Santiago </title>
     <script src="../../scripts/main.js" type="text/javascript" defer></script>
     <script src="../../scripts/getdates.js" type="text/javascript" defer></script>
     <script src="../../scripts/preform.js" defer></script>
@@ -42,40 +42,79 @@
 
 
     <main>
-        <table id="quoteTable">
-            <caption>Tu Cotización</caption>
-            <thead>
-                <tr>
-                    <th>Servicio</th>
-                    <th>Color</th>
-                    <th>Ancho</th>
-                    <th>Alto</th>
-                    <th>Línea</th>
-                    <th>Subtotal</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+        <div class="container-table">
+<div class="background-c">
+                <table id="quoteTable">
+                    <caption>Tu Cotización</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Servicio</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">Ancho (cm)</th>
+                            <th scope="col">Alto (cm)</th>
+                            <th scope="col">Linea Aluminio</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+</div>
 
-
-        <!-- https://codepen.io/joanasesinando/pen/gOrrNMj -->
-        <div class="form-container">
-            <form action="/action_page.php">
-                <label for="name">Nombre y Apellido</label>
-                <input type="text" id="name" name="name" placeholder="Tu nombre...">
-
-                <label for="lname">Numero telefónico</label>
-                <input type="number" id="phone" name="phone" placeholder="9 1234 5678">
-
-                <label for="commune">Comuna</label>
-                <select id="comunasSelect" name="comunasSelect">
-                    <option value="" disabled selected>Seleccione una comuna</option>
-                </select>
-
-                <input type="submit" value="Pedir Servicio">
-            </form>
         </div>
 
+
+        <div class="container-form">
+
+            <form method="POST" action="#">
+                <div class="inf">
+                    <p>DATOS PERSONALES</p>
+                    <p>Por favor, completa los datos y te contactaremos</p>
+                </div>
+
+                <fieldset>
+                    <legend>Nombre y Apellido</legend>
+                    <label>
+                        <input type="text" id="name" name="name" required placeholder="Javiera Perez">
+                    </label>
+                </fieldset>
+                <div class="address-container">
+                <fieldset>
+                    <legend>Telefono</legend>
+                    <label>
+                        <input type="number" id="phone" name="phone" required placeholder="9 9022 0000">
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Correo <i>(Opcional)</i></legend>
+                    <label>
+                        <input type="email" id="email" name="email" placeholder="ejemplo@gmail.com">
+                    </label>
+                </fieldset>
+                </div>
+                <div class="address-container">
+                    <fieldset>
+                        <legend>Comuna</legend>
+                        <label>
+                            <select name="comunasSelect" id="comunasSelect" required>
+                                <option value="" disabled selected>Seleccione una comuna</option>
+                            </select>
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Dirección</legend>
+                        <label>
+                            <input type="text" id="address" name="address" required placeholder="Calle moneda 1234">
+                        </label>
+                    </fieldset>
+                </div>
+                <div class="button-41-container">
+                    <button id="" class="button-41" role="button">
+                        Solicitar Servicio
+                    </button>
+                </div>
+            </form>
+        </div>
     </main>
 
 

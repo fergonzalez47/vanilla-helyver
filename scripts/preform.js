@@ -9,6 +9,16 @@ const comunasRM = [
     "Santiago", "Vitacura"
 ];
 
+
+// formato de mnoneda chilena
+const formatter = new Intl.NumberFormat('es-CL', {
+    style: 'currency',
+    currency: 'CLP',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+});
+
+
 // Referencia al elemento <select>
 const comunasSelect = document.getElementById('comunasSelect');
 
@@ -34,14 +44,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     data.forEach(item => {
         const row = tbody.insertRow();
+
         row.innerHTML = `
-            <td>${item.servicio}</td>
-            <td>${item.color}</td>
-            <td>${item.ancho}</td>
-            <td>${item.alto}</td>
-            <td>${item.linea}</td>
-            <td>${item.subtotal}</td>
+            <td data-label= "Servicio" class="text-bold">${item.servicio}</td>
+            <td data-label= "Color">${item.color || "--"}</td>
+            <td data-label= "Ancho(cm)">${item.ancho || "--"}</td>
+            <td data-label= "Alto(cm)"${item.alto || "--"}</td>
+            <td data-label= "Linea Aluminio">${item.linea || "--"}</td>
+            <td data-label= "Subtotal" class="text-bold">${formatter.format(item.subtotal)}</td>
         `;
+
     });
 });
 

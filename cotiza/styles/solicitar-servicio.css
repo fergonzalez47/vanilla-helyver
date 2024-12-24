@@ -1,31 +1,425 @@
-input[type=text],
-select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+:root {
+
+    /* FIRST PALLET */
+    --font-body: "Nunito", sans-serif;
+    --font-heading: "Bebas Neue", serif;
+    --a-primary-color: #e7b324;
+    /* --a-primary-color: #e05215; */
+    --a-secondary-color: #2d3142;
+    --a-white-color: #ffffff;
+    --a-background-color: #bfc0c0;
+    --a-auxiliar-color: #4f5d75;
+
+    /* secondary pallet  */
+    --b-primary-color: #F6C279;
+    --b-secondary-color: #161B33;
+    --b-white-color: #DBDBDB;
+    --b-background-color: #0D0C1D;
+    --b-auxiliar-color: #36d830;
+    /* --b-auxiliar-color: #52B77C; */
+
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
+
+main {
+    all: unset;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+
+
+}
+
+
+
+
+
+.container-form {
+    background-image: url("../../images/hero-large.webp");
+    background-repeat: no-repeat;
+    padding: 2rem;
+    height: 100%;
+    background-size: cover;
+    /* O usar contain para mantener la proporción */
+    background-position: center;
+
+}
+
+.container-table {
+    padding: 2rem;
+}
+
+.background-c,
+.container-form form {
+
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.container-form form {
+    background-color: var(--a-white-color);
+    font-size: clamp(.9rem, 1vw, 1.2rem);
+    opacity: 0.92;
+
+}
+
+
+.container-form form .inf {
+    text-align: center;
+    color: var(--a-secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.inf p {
+    margin: initial;
+    padding: initial;
+}
+
+.container-form form .inf p:first-child {
+    font-size: clamp(1.5rem, 1.2vw, 2rem);
+}
+
+
+fieldset {
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    margin: 0 0.5rem .85rem 0.5rem;
 }
 
-input[type=submit]:hover {
-    background-color: #45a049;
+
+legend {
+    color: var(--b-background-color);
+    margin-left: -5px;
+    margin-bottom: 0.15rem;
+
 }
 
-.form-container {
+
+.address-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+}
+
+table {
+    font-size: clamp(.7rem, .9vw, 1rem);
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* table-layout: fixed; */
+
+
+}
+
+table caption {
+    font-size: 1.1em;
+    margin: .5em 0 .75em;
+}
+
+table tr {
+    background-color: #f8f8f8;
+    /* border: 1px solid #ddd; */
+    padding: .35em;
+}
+
+table th,
+table td {
+    padding: .5rem;
+    text-align: center;
+    border: 1px solid var(--a-secondary-color);
+}
+
+table th {
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+
+
+tr {
+    border: 1px solid var(--a-secondary-color);
+}
+
+tbody tr:nth-child(even) {
+    background-color: #e7e5e5;
+}
+
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="url"],
+input[type="date"],
+input[type="number"] {
+    background-color: var(--a-white-color);
+    align-content: center;
+    border: solid 1px rgb(201, 197, 197);
+    padding: .85rem;
+    color: var(--a-secondary-color);
+    width: 100%;
+    appearance: none;
+}
+
+input::placeholder {
+    font-style: italic;
+}
+
+
+
+.text-alt {
+    color: #4f5d75;
+    transform: scale(0.8);
+    font-style: italic;
+}
+
+.text-alt:hover {
+    cursor: not-allowed;
+}
+
+.text-bold {
+    font-weight: bold;
+    color: var(--b-secondary-color);
+}
+
+
+.button-41 {
+    background-color: initial;
+    background-image: linear-gradient(-180deg, #00D775, #00BD68);
     border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    outline: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    pointer-events: auto;
+    position: relative;
+    text-align: center;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: top;
+    white-space: nowrap;
+    width: 10rem;
+    z-index: 9;
+    border: 0;
+
+}
+
+.button-41-container {
+    margin: initial;
+    padding: initial;
+    text-align: center;
+}
+
+.button-41:hover {
+    background: #00bd68;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 1060px) {
+
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .address-container {
+        grid-template-columns: initial;
+
+    }
+
+    table {
+        border: 0;
+
+    }
+
+    table caption {
+        font-size: 1.3em;
+    }
+
+    table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    table tr {
+
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+
+    }
+
+    table td {
+
+        border-bottom: 1px solid white;
+        /* display: block; */
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+        text-align: right;
+    }
+
+    table p {
+        margin: initial;
+        padding: initial;
+    }
+
+    table td::before {
+        /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+        content: attr(data-label);
+        display: inline-block;
+        width: auto;
+        /* float: left; */
+        text-align: left;
+        font-weight: bold;
+        text-transform: uppercase;
+
+    }
+
+    table td:last-child {
+        border-bottom: 0;
+    }
+
+
+
+
+}
+
+
+
+@media screen and (max-width: 710px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+    }
+
+    input,
+    select {
+        margin-bottom: 1rem;
+        /* Espaciado adecuado entre elementos */
+    }
+
+    .container-form {
+        grid-row: 1/-1;
+        height: auto;
+
+    }
+
+    .container-form form {
+        margin: 0 auto;
+        width: 80%;
+    }
+
+
+    .address-container {
+        grid-template-columns: 1fr;
+
+    }
+
+    table {
+        border: 0;
+
+    }
+
+    table caption {
+        font-size: 1.3em;
+    }
+
+    table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    table tr {
+
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+
+    }
+
+    table td {
+
+        border-bottom: 1px solid white;
+        /* display: block; */
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+        text-align: right;
+    }
+
+    table p {
+        margin: initial;
+        padding: initial;
+    }
+
+    table td::before {
+        /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+        content: attr(data-label);
+        display: inline-block;
+        width: auto;
+        /* float: left; */
+        text-align: left;
+        font-weight: bold;
+        text-transform: uppercase;
+
+    }
+
+    table td:last-child {
+        border-bottom: 0;
+    }
+
+    .custom-select {
+        width: 45%;
+    }
+
+    .button-41 {
+        width: 100%;
+    }
 }
