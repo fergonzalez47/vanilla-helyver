@@ -1,3 +1,7 @@
+// formato de mnoneda chilena
+import { formatter } from './utility.js';
+
+
 const config = {
     celocia: { name: "Celocia", lineOptions: ["Pequeña", "Grande"] },
     espejo: { name: "Espejo", lineOptions: false },
@@ -47,14 +51,6 @@ const precios = {
     },
     espejo: 60000
 };
-
-// formato de mnoneda chilena
-const formatter = new Intl.NumberFormat('es-CL', {
-    style: 'currency',
-    currency: 'CLP',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-});
 
 
 const serviceOptions = [
@@ -786,9 +782,11 @@ function saveInSessionStorage() {
 
 }
 
+
 function getFromSessionStorage() {
 
-    const data = sessionStorage.getItem("cotizacion");
+    const data = JSON.parse(sessionStorage.getItem("cotizacion")) || [];
+    return data;
 }
 
 

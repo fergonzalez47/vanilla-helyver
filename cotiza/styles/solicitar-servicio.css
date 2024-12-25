@@ -49,8 +49,9 @@ main {
 .data-lock p {
     margin: 0;
     padding: 0;
-    
+
 }
+
 .data-lock img {
     height: 36px;
     width: 36px;
@@ -248,8 +249,36 @@ input::placeholder {
 
 
 
+.error-message {
+    margin: 0;
+    padding: 0;
+    transform: scale(0.8);
+    color: red;
+    font-style: italic;
+    opacity: 0;
+    
+    transition: opacity 0.3s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.error-message.show {
+    opacity: 1;
+}
 
 
+select:focus {
+    border: 2px solid var(--a-primary-color);
+    background-color: #f0f8ff;
+}
+
+input:focus {
+    border: 2px solid var(--a-primary-color);
+    outline: none;
+    /* Elimina el borde de enfoque predeterminado en algunos navegadores */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    /* Añade una sombra sutil */
+    color: #333;
+
+}
 
 
 @media screen and (max-width: 1060px) {
@@ -334,6 +363,9 @@ input::placeholder {
 
 
 
+
+
+
 @media screen and (max-width: 576px) {
     main {
         grid-template-columns: 1fr;
@@ -358,7 +390,7 @@ input::placeholder {
 
     .container-form form {
         margin: 0 auto;
-    
+
     }
 
 
