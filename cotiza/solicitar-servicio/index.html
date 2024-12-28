@@ -21,7 +21,7 @@
     <title>Pedir servicio | Fabricación e Instalación de Ventanas, Puertas y Espejos en Santiago </title>
     <script src="../../scripts/main.js" type="text/javascript" defer></script>
     <script src="../../scripts/getdates.js" type="text/javascript" defer></script>
-    <script src="../../scripts/preform.js" defer></script>
+    <script src="../../scripts/preform.js" type="module" defer></script>
 </head>
 
 <body>
@@ -66,51 +66,58 @@
 
         <div class="container-form">
 
-            <form method="POST" action="#">
+            <form id="serviceForm" method="POST" action="#">
                 <div class="inf">
                     <p>DATOS PERSONALES</p>
                     <p>Por favor, completa los datos y te contactaremos</p>
                 </div>
 
-                <fieldset>
+                <fieldset id="fieldset-name">
                     <legend>Nombre y Apellido</legend>
                     <label>
                         <input type="text" id="name" name="name" required placeholder="Javiera Perez">
                     </label>
+                    <p class="error-message">Por favor, ingresa un nombre válido (Nombre y Apellido).</p>
                 </fieldset>
                 <div class="address-container">
-                    <fieldset>
+                    <fieldset id="fieldset-phone">
                         <legend>Telefono</legend>
                         <label>
-                            <input type="number" id="phone" name="phone" required placeholder="9 9022 0000">
+                            <input  type="number" id="phone" name="phone" required placeholder="9 9022 0000">
                         </label>
+                        <p class="error-message">Por favor, ingresa un número de teléfono válido (8 dígitos después del
+                            9 inicial).</p>
                     </fieldset>
-                    <fieldset>
+                    <fieldset id="fieldset-email">
                         <legend>Correo <i>(Opcional)</i></legend>
                         <label>
                             <input type="email" id="email" name="email" placeholder="ejemplo@gmail.com">
                         </label>
+                        <p class="error-message">Por favor, ingresa un correo electrónico válido.</p>
                     </fieldset>
                 </div>
                 <div class="address-container">
-                    <fieldset>
+                    <fieldset id="fieldset-comunasSelect">
                         <legend>Comuna</legend>
                         <label>
                             <select name="comunasSelect" id="comunasSelect" required>
                                 <option value="" disabled selected>Seleccione una comuna</option>
                             </select>
                         </label>
+                        <p class="error-message">Por favor, selecciona una comuna.</p>
+
                     </fieldset>
-                    <fieldset>
+                    <fieldset id="fieldset-address">
                         <legend>Dirección</legend>
                         <label>
                             <input type="text" id="address" name="address" required placeholder="Calle moneda 1234">
                         </label>
+                        <p class="error-message">Por favor, ingresa una dirección válida (Ejemplo: La rueda 390)</p>
                     </fieldset>
                 </div>
 
                 <div class="button-41-container">
-                    <button id="" class="button-41" role="button">
+                    <button type="button" id="submitButton" class="button-41" role="button">
                         Solicitar Servicio
                     </button>
                 </div>
@@ -136,10 +143,11 @@
                 para tus propias
                 ideas y requerimientos</p>
             <ul>
-                <li><a href="#" target="_blank"><img src="../images/facebook-svg.svg" alt="Icono de Facebook"></a></li>
-                <li><a href="#" target="_blank"><img src="../images/instagram-svg.svg" alt="Icono de Instagram"></a>
+                <li><a href="#" target="_blank"><img src="../../images/facebook-svg.svg" alt="Icono de Facebook"></a>
                 </li>
-                <li><a href="#" target="_blank"><img src="../images/gmail-svg.svg" alt=" Icono de Gmail "></a></li>
+                <li><a href="#" target="_blank"><img src="../../images/instagram-svg.svg" alt="Icono de Instagram"></a>
+                </li>
+                <li><a href="#" target="_blank"><img src="../../images/gmail-svg.svg" alt=" Icono de Gmail "></a></li>
             </ul>
         </div>
         <div class="IOO hidden footer-information">
