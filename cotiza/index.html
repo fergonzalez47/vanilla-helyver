@@ -17,7 +17,8 @@
 
     <link rel="stylesheet" href="../styles/base.css">
     <link rel="stylesheet" href="../styles/base-large.css">
-    <link rel="stylesheet" href="styles/cotiza.css">
+    <link rel="stylesheet" href="styles/table.css">
+    <link rel="stylesheet" href="../styles/accordion.css">
 
     <link rel="stylesheet" href="styles/table.css">
     <title>Cotiza en linea | Fabricación e Instalación de Ventanas, Puertas y Espejos en Santiago </title>
@@ -47,49 +48,45 @@
         <div class="pop-up" id="popup">
 
         </div>
-        <h2>Cotiza en línea</h2>
+        <div class="cotiza-header">
+            <h1 id="cotiza-title">Cotiza en línea</h1>
 
-        <p>Recibe un presupuesto de forma instantánea
-        </p>
+            <p>
+                Cotiza en línea y obtén tu presupuesto al instante. Solo sigue las instrucciones,
+                y de forma automática el sistema te dará el valor.
+            </p>
+        </div>
         <div class="quote-instructions">
             <h2>Pasos para obtener tu cotización</h2>
-            <ol>
+            <ul>
                 <li>
-                    <strong>Selecciona el servicio:</strong> Elige que tipo de producto quieres cotizar (ventana,
-                    puerta, etc...).
+                    <span class="quote-instructions-steps">1</span>
+                    <strong>Selecciona tu producto y personalízalo:</strong>
+                    <p>Elige el tipo (ventana, puerta, etc.)
+                        Selecciona el color del aluminio <i>(si aplica)</i>
+                        ingresa las medidas (cm) y elige la linea de aluminio.
+                    </p>
+                </li>
+
+                <li>
+                    <span class="quote-instructions-steps">2</span> <strong>Obtén tu precio:</strong>
+                    <p>Revisa el costo total calculado automáticamente según tus especificaciones. Puedes agregar varios
+                        items.</p>
                 </li>
                 <li>
-                    <strong>Selecciona el color <i>(si aplica)</i>:</strong> Elige el color de aluminio que deseas para
-                    tu ventana.
+                    <span class="quote-instructions-steps">3</span> <strong>Solicita el Servicio:</strong>
+                    <p>Haz clic en
+                        "Solicitar Servicio" e ingresa tus datos (nombre, dirección y teléfono)</p>
                 </li>
-                <li>
-                    <strong>Ingresa las medidas <i>(si aplica)</i>:</strong>
-                    <ul>
-                        <li>Ancho en centímetros (cm).</li>
-                        <li>Largo en centímetros (cm).</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Elige la línea de aluminio <i>(si aplica)</i>:</strong> Selecciona la línea que se ajuste a
-                    tus necesidades
-                    (Línea 25,
-                    Línea 5000, etc.).
-                </li>
-                <li>
-                    <strong>Obtén el precio:</strong> El sistema calculará automáticamente el costo total según las
-                    especificaciones ingresadas. Puedes ir agregando items y el total aparecera al final de la tabla
-                </li>
-                <li>
-                    <strong>Solicita el Servicio:</strong> Haga click en el botón para solicitar el Servicio. Cuando el
-                    sistema le pida,
-                    ingrese su nombre. dirección y numero telefonico para coordinar con usted
-                </li>
-            </ol>
+            </ul>
             <p class="tip">
                 💡 <em>Puedes modificar los datos si necesitas ajustar la cotización.</em>
             </p>
-        </div>
 
+            <div class="container-btn-preguntas"><a class="btn-preguntas" href="#preguntas">Tienes preguntas? ⬇️</a>
+            </div>
+
+        </div>
         <table id="table">
             <caption>Resumen Cotización</caption>
             <thead>
@@ -106,19 +103,115 @@
             <tbody>
             </tbody>
         </table>
+
         <div class="container-add-btn">
             <button id="add-btn"><img src="../images/svg/add-btn.svg" alt="Simbolo de añadir"></button>
         </div>
+
         <div class="total-container">
-            <p> Total:
+            <p class="button-51"> Total:
                 <span class="total">0</span>
             </p>
         </div>
+        <p class="tip text-alt">
+            Los valores obtenidos son aproximados y pueden variar ligeramente. Podrían aplicarse recargos adicionales
+            según la
+            distancia de la comuna o características específicas del proyecto
+        </p>
         <div class="button-41-container">
             <button id="requestServiceBtn" class="button-41" role="button">
                 Solicitar Servicio
             </button>
         </div>
+
+
+
+        <div class="c" id="preguntas">
+            <h2>Tienes preguntas?</h2>
+            <input type="checkbox" id="pregunta1">
+            <h3><label for="pregunta1">Cómo medir el ancho?</label></h3>
+            <div class="p">
+                <p>Usa una cinta métrica y mide de un extremo al otro, horizontalmente. Asegúrate de medir en la
+                    parte más
+                    amplia
+                    del espacio donde irá la ventana o puerta.
+
+                </p>
+                <div class="regla-container">
+                    <img class="regla" src="../images/svg/measure-svgrepo-com (1).svg" alt="Escuadra o regla">
+                    <p class="tip">
+                        💡Tip: Siempre mide dos veces para confirmar y anota los números en milímetros o centímetros,
+                        según
+                        prefieras. Si no
+                        estás
+                        seguro(a), ¡contáctanos y te ayudamos!"</p>
+                </div>
+            </div>
+            <div class="c">
+                <input type="checkbox" id="pregunta2">
+                <h3><label for="pregunta2">Cómo medir el alto?</label></h3>
+                <div class="p">
+                    <p>Mide desde la parte superior hasta la base, verticalmente. Hazlo en al menos dos puntos
+                        (izquierda y derecha)
+                        para asegurarte de que sea uniforme.</p>
+                    <div class="regla-container"><img class="regla" src="../images/svg/measure-svgrepo-com (2).svg"
+                            alt="Escuadra o regla">
+                    </div>
+                    <p class="tip">
+                        💡Tip: Siempre mide dos veces para confirmar y anota los números en milímetros o centímetros,
+                        según
+                        prefieras. Si no
+                        estás
+                        seguro(a), ¡contáctanos y te ayudamos!"</p>
+                </div>
+            </div>
+            <div class="c">
+                <input type="checkbox" id="pregunta3">
+                <h3><label for="pregunta3">Qué es Línea 35 Aluminio?</label></h3>
+                <div class="p">
+                    <p><strong>Línea 35 o AM-35:</strong> Se usa para puertas abatibles (tanto de una hoja como de doble
+                        hoja).
+                        Perfil diseñado específicamente para soportar el peso de las puertas. Posee mayor rigidez
+                        estructural para
+                        permitir un cierre hermético. Utilizado en puertas de entrada, oficinas o espacios donde se
+                        prefieren puertas
+                        abatibles. Acabado elegante y versátil, adaptable a diferentes tipos de vidrio.</p>
+
+                </div>
+            </div>
+            <div class="c">
+                <input type="checkbox" id="pregunta4">
+                <h3><label for="pregunta4">Qué es Línea 25 Aluminio?</label></h3>
+                <div class="p">
+                    <p><strong>Línea 25:</strong> Se emplea para ventanas y ventanales corredizos. Algunas de sus
+                        características
+                        es que es un perfil más robusto y firme, ideal para ventanas de gran tamaño o altura superior a
+                        1.40mts. Permite incluso integrar vidrios mas gruesos, ideales para proyectos que demandan mayor
+                        seguridad.</p>
+
+
+                </div>
+            </div>
+
+            <div class="c">
+                <input type="checkbox" id="pregunta5">
+                <h3><label for="pregunta5">Qué es Línea 5000 Aluminio?</label></h3>
+                <div class="p">
+                    <p><strong>Línea 5000:</strong>Es la linea mas económica y por ende más delgada. Es ideal para
+                        ventanas
+                        cuyo tamaño
+                        sea menor a 1.40mts. Se usa en proyectos de hogares con un toque mas minimalista.
+                    </p>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-up"><a class="" href="#cotiza-title">Ir arriba ⬆️ </a>
+        </div>
+
     </main>
 
 

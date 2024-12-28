@@ -24,15 +24,80 @@
 html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+
 }
+
+
+
 
 
 /*----------- MAIN --------------*/
 main {
-    padding: 2rem 2%;
+    padding: 2rem 1%;
 
 }
 
+.cotiza-header {
+    background-color: var(--a-secondary-color);
+    color: var(--a-white-color);
+    text-align: center;
+}
+
+.cotiza-header h1 {
+    padding-top: 1rem;
+    margin-bottom: .25rem;
+    color: var(--b-auxiliar-color);
+}
+
+.cotiza-header p {
+    margin: 0 auto;
+    width: 70%;
+}
+
+
+
+
+.container-up a, .container-btn-preguntas a {
+    background-color: var(--a-primary-color);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.2s;
+    padding: 0.25rem;
+}
+
+.container-up a:link, .container-btn-preguntas a:link,
+.container-up a:visited, .container-btn-preguntas a:visited {
+    color: var(--b-background-color);
+
+}
+
+
+.container-up a:hover, .container-btn-preguntas a:hover {
+    background-color: var(--a-white-color);
+    /* Estilo cuando el usuario pasa el cursor.container-up a,  */
+}
+
+.container-up a:active, .container-btn-preguntas a:active {
+    color: orange;
+    /* Estilo durante el clic */
+}
+
+.container-up a  a:focus, .container-btn-preguntas a:focus {
+    outline: 2px solid #ff0;
+    /* Estilo cuando está enfocado */
+}
+
+
+.container-btn-preguntas, .container-up {
+    text-align: center;
+}
+
+.container-up {
+
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
 
 
 .delete-btn {
@@ -58,20 +123,109 @@ input:required:valid {
 }
 
 .quote-instructions {
-    border: 1px solid #00BD68;
-    margin: 2rem 1rem 1rem 1rem;
+    margin: 1rem;
 
 }
 
-.quote-instructions ol {
+.quote-instructions h2 {
+    text-align: center;
+
+}
+
+
+.quote-instructions ul {
     margin-left: 1rem;
     transform: scale(0.7);
-    border: 1px solid #00BD68;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    justify-content: center;
+    text-align: center;
+
 }
 
-.quote-instructions ol li {
-    font-style: italic;
+
+.quote-instructions ul li {
+
+    display: flex;
+    padding: 1rem .25rem .25rem .25rem;
+    flex-direction: column;
+    /* border: 2px solid var(--a-primary-color); */
+    border-radius: 15px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
+
+.quote-instructions-steps {
+    background-color: var(--a-primary-color);
+    color: var(--b-background-color);
+    border-radius: 50%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    margin: .5rem;
+    transform: scale(1.2);
+}
+
+
+.tip {
+    font-size: 1rem;
+    text-align: center;
+}
+
+
+.regla {
+    width: 120px;
+    height: 120px;
+    padding: 0;
+    margin: 0;
+
+}
+
+.regla-container {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+}
+
+.button-51 {
+    background-color: transparent;
+    border: 1px solid #266DB6;
+    box-sizing: border-box;
+    color: var(--b-background-color);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    padding: 16px 2332x;
+    position: relative;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+
+}
+
+
+.button-51:hover {
+    background-color: transparent;
+
+}
+
+.button-51:before {
+    background-color: #f8fa8eee;
+    content: "";
+    height: calc(100% + 3px);
+    position: absolute;
+    right: -7px;
+    top: -9px;
+    transition: background-color 300ms ease-in;
+    width: 100%;
+    z-index: -1;
+}
+
 
 
 
@@ -266,6 +420,12 @@ input[type="number"] {
 
 .total-container {
     text-align: right;
+    width: 100%;
+}
+
+.total-container p {
+    width: 40%;
+    justify-self: right;
 }
 
 
@@ -439,10 +599,16 @@ input[type="number"] {
         padding: .5rem;
     }
 
-    .quote-instructions ol {
+    .quote-instructions ul {
         margin: initial;
         margin-left: 0.9rem;
         transform: scale(0.8);
+        gap: 1rem;
+    }
+
+    .quote-instructions ul li {
+        display: flex;
+        flex-direction: column;
     }
 
 
@@ -451,5 +617,14 @@ input[type="number"] {
         width: 80%;
         left: 0;
 
+    }
+
+    .total-container p {
+        width: 100%;
+        justify-self: center;
+    }
+
+    .button-51 {
+        padding: 16px 23px;
     }
 }
