@@ -184,7 +184,7 @@ nav a {
     background-position: right;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    
+
 
 
 }
@@ -362,7 +362,7 @@ main .section1-svg-icons {
 main .section1-svg-icons,
 .main-section-2-div ul,
 h1 {
-    margin: 2rem 0 2rem 0;
+    margin: 2rem 0 .25rem 0;
 }
 
 
@@ -381,7 +381,23 @@ h1 {
 }
 
 .main-section-2-div p {
+
+    padding: 0 3rem 0 3rem;
     text-align: center;
+    justify-self: center;
+    border-radius: 8px;
+}
+
+.p-experience {
+
+    justify-self: center;
+    text-align: center;
+    transform: scale(0.9);
+    background-color: var(--a-auxiliar-color);
+    padding: 0.25rem 3rem 0.25 3rem;
+    color: var(--a-white-color);
+    width: 100%;
+    border-radius: 8px;
 }
 
 .main-section-2-div ul li {
@@ -426,7 +442,7 @@ main section:nth-child(3) #truck {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
-    color: var(--a-background-color);
+    color: var(--a-white-color);
     font-style: italic;
     font-size: 70%;
     grid-auto-flow: row;

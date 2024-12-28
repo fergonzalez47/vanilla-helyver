@@ -55,37 +55,45 @@ main {
     width: 70%;
 }
 
-
-
-
-.container-up a, .container-btn-preguntas a {
-    background-color: var(--a-primary-color);
-    border-radius: 5px;
-    text-decoration: none;
-    transition: 0.2s;
-    padding: 0.25rem;
-}
-
-.container-up a:link, .container-btn-preguntas a:link,
-.container-up a:visited, .container-btn-preguntas a:visited {
+.button-8 {
+    background-color: #e1ecf4;
+    border-radius: 3px;
+    border: 1px solid #7aa7c7;
+    box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+    box-sizing: border-box;
     color: var(--b-background-color);
-
+    cursor: pointer;
+    font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0;
+    outline: none;
+    padding: .5rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    transition: .1s;
 }
 
-
-.container-up a:hover, .container-btn-preguntas a:hover {
-    background-color: var(--a-white-color);
-    /* Estilo cuando el usuario pasa el cursor.container-up a,  */
+.button-8:hover,
+.button-8:focus {
+    background-color: #b3d3ea;
+    color: #2c5777;
 }
 
-.container-up a:active, .container-btn-preguntas a:active {
-    color: orange;
-    /* Estilo durante el clic */
+.button-8:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
 }
 
-.container-up a  a:focus, .container-btn-preguntas a:focus {
-    outline: 2px solid #ff0;
-    /* Estilo cuando está enfocado */
+.button-8:active {
+    background-color: #a0c7e4;
+    box-shadow: none;
+    color: #2c5777;
 }
 
 

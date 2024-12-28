@@ -71,8 +71,11 @@
 
     }
 
+    .p-experience {
+        width: 60%;
 
-    #cta-btn {
+    }
+     #cta-btn {
 
         padding: .8rem 1rem;
         background-color: var(--a-white-color);
@@ -168,7 +171,7 @@
     }
 
 
-  
+
 
 
     /* carrusel */
