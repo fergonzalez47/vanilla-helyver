@@ -1,6 +1,9 @@
 // formato de mnoneda chilena
 import { formatter, validateAddress, validateEmail, validateName, validatePhone, showError } from './utility.js';
 
+// formato de mnoneda chilena
+import { formatter, validateAddress, validateEmail, validateName, validatePhone, showError } from './utility.js';
+
 const comunasRM = [
     "Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central",
     "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja",
@@ -32,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const data = getFromSessionStorage();
     const tbody = document.querySelector('#quoteTable tbody');
+
 
     if (data.length === 0) {
         tbody.innerHTML = '<tr><td colspan="6">No hay datos de cotización disponibles.</td></tr>';
