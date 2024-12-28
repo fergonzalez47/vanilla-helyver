@@ -1,8 +1,6 @@
 // formato de mnoneda chilena
 import { formatter, validateAddress, validateEmail, validateName, validatePhone, showError } from './utility.js';
 
-// formato de mnoneda chilena
-import { formatter, validateAddress, validateEmail, validateName, validatePhone, showError } from './utility.js';
 
 const comunasRM = [
     "Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central",
