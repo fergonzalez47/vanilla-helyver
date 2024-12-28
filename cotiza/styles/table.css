@@ -58,13 +58,15 @@ input:required:valid {
 }
 
 .quote-instructions {
+    border: 1px solid #00BD68;
     margin: 2rem 1rem 1rem 1rem;
-    padding: 0, 5rem;
+
 }
 
 .quote-instructions ol {
-    margin-left: 2rem;
+    margin-left: 1rem;
     transform: scale(0.7);
+    border: 1px solid #00BD68;
 }
 
 .quote-instructions ol li {
