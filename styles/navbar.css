@@ -53,6 +53,7 @@ a {
     justify-content: space-around;
     align-items: center;
     padding: 0 24px;
+    
 }
 
 .nav-menu {
@@ -108,6 +109,7 @@ a {
         width: 100%;
         position: fixed;
         height: 80px;
+        margin-bottom: 0;
 
     }
 
@@ -134,16 +136,22 @@ a {
         position: fixed;
         left: -100%;
         top: 80px;
+        margin-top: 0;
         gap: 0;
         flex-direction: column;
         background-color: var(--b-background-color);
         width: 100%;
         text-align: center;
         transition: 0.3s;
+        opacity: 0.83;
+
+        backdrop-filter: blur(4.5px);
+        -webkit-backdrop-filter: blur(4.5px);
+
     }
 
     .nav-item {
-        margin: 16px 0;
+        margin: 10px 0;
 
     }
 
