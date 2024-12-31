@@ -17,29 +17,53 @@
 
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/base-large.css">
+    <link rel="stylesheet" href="styles/navbar.css">
 
     <title>Fabricación e Instalación de Ventanas, Puertas y Espejos en Santiago | </title>
     <script src="scripts/main.js" type="text/javascript" defer></script>
     <script src="scripts/getdates.js" type="text/javascript" defer></script>
     <script src="scripts/carrusel.js" type="text/javascript" defer></script>
+    <script src="scripts/navbar.js" defer></script>
 
 </head>
 
 <body>
-    <header>
-        <a href="/" aria-label="Ir al inicio">
+    <!-- <header>
+        <a class="nav-branding" href="/" aria-label="Ir al inicio">
             Helyver S
         </a>
         <button id="menu" aria-label="Abrir menú de navegación"></button>
-        <nav class="navigation">
+        <nav class="navbar">
             <ul>
                 <li><a href="cotiza/index.html">Cotiza</a></li>
                 <li><a href="servicios/index.html">Servicios</a></li>
                 <li><a href="nosotros/index.html">Quienes Somos</a></li>
                 <li><a href="contacto/index.html">Contacto</a></li>
             </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header> -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="nav-branding">Helyver</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a class="nav-link" href="cotiza/index.html">Cotiza</a></li>
+                <li class="nav-item"><a class="nav-link" href="servicios/index.html">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="nosotros/index.html">Quienes Somos</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacto/index.html">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </nav>
     </header>
+
     <main>
         <section class="IOO hidden hero">
             <div class="hero-content">
@@ -138,7 +162,8 @@
                         <h5>Limpieza y atención a los detalles </h5>
                     </li>
                 </ul>
-                <p class="p-experience">Con <span class="heading-span">+7</span> años de experiencia, estamos comprometidos a garantizar la
+                <p class="p-experience">Con <span class="heading-span">+7</span> años de experiencia, estamos
+                    comprometidos a garantizar la
                     satisfacción del cliente, trabajando en cada proyecto con
                     dedicación y cuidado.
                 </p>
@@ -251,7 +276,7 @@
                     <div>
                         <p><i>¿Prefieres hablar con nosotros?</i></p>
                         <a href="https://wa.me/56935836484?text=Hola, necesito ayuda sobre..." target="_blank"
-                rel="noopener noreferrer">Contáctanos aquí</a>
+                            rel="noopener noreferrer">Contáctanos aquí</a>
                     </div>
                 </div>
             </div>
@@ -396,14 +421,14 @@
         </section>
 
 
-        <section class="IOO hidden container-shadow">
+        <!-- <section class="IOO hidden container-shadow">
             <h2 class="hidden-content">Testimonios de Nuestros Clientes</h2>
             <blockquote class="hidden-content">"Helyver transformó nuestra oficina con divisiones de vidrio que
                 aumentaron la productividad y
                 mejoraron
                 el ambiente laboral. ¡Altamente recomendados!"</blockquote>
             <p>- Carlos Sánchez, Santiago de Chile</p>
-        </section>
+        </section> -->
 
         <div class="Whatsapp-floating-chat">
             <a href="https://wa.me/56935836484?text=Hola, necesito ayuda con una cotización de..." target="_blank"

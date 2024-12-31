@@ -1,40 +1,4 @@
 @media screen and (min-width: 576px) {
-
-    header {
-        display: flex;
-        justify-content: space-around;
-    }
-
-    #menu {
-        display: none;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-
-    }
-
-    .open ul {
-        display: flex;
-    }
-
-    nav ul li {
-        flex: 1;
-        text-align: center;
-
-        padding: 0.5rem 0.4rem;
-    }
-
-    nav a {
-        display: block;
-        white-space: nowrap;
-        text-align: center;
-    }
-
-
     .hero {
         height: 90vh;
     }
@@ -75,7 +39,8 @@
         width: 60%;
 
     }
-     #cta-btn {
+
+    #cta-btn {
 
         padding: .8rem 1rem;
         background-color: var(--a-white-color);
@@ -88,7 +53,7 @@
 
     }
 
-
+ 
 
 
     main section:not(.hero) {
