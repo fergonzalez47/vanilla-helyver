@@ -17,25 +17,32 @@
 
     <link rel="stylesheet" href="../styles/base.css">
     <link rel="stylesheet" href="../styles/base-large.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+
 
     <title>Fabricación e Instalación de Ventanas, Puertas y Espejos en Santiago | </title>
     <script src="../scripts/main.js" type="text/javascript" defer></script>
     <script src="../scripts/getdates.js" type="text/javascript" defer></script>
+    <script src="../scripts/navbar.js" type="text/javascript" defer></script>
+
+
 </head>
 
 <body>
     <header>
-        <a href="../" aria-label="Ir al inicio">
-            Helyver S
-        </a>
-        <button id="menu" aria-label="Abrir menú de navegación"></button>
-        <nav class="navigation">
-            <ul>
-                <li><a href="../cotiza/index.html">Cotiza</a></li>
-                <li><a href="../servicios/index.html">Servicios</a></li>
-                <li class="active"><a href="../nosotros/index.html" class="active">Quienes Somos</a></li>
-                <li><a href="../contacto/index.html">Contacto</a></li>
+        <nav class="navbar">
+            <a href="../" aria-label="Ir al inicio" class="nav-branding">Helyver</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a class="nav-link" href="../cotiza/index.html">Cotiza</a></li>
+                <li class="nav-item"><a class="nav-link" href="../servicios/index.html">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="../nosotros/index.html">Quienes Somos</a></li>
+                <li class="nav-item"><a class="nav-link" href="../contacto/index.html">Contacto</a></li>
             </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </nav>
     </header>
     <main>
@@ -113,7 +120,8 @@
         <div class="IOO hidden footer-contact">
             <h3>Contáctanos</h3>
             <h4>Teléfono</h4>
-            <p><img class="svg-icon-phone" src="../images/svg/phone-svg.svg" alt="icono de telefono"> +56 9 3583 6484</p>
+            <p><img class="svg-icon-phone" src="../images/svg/phone-svg.svg" alt="icono de telefono"> +56 9 3583 6484
+            </p>
             <h4>Correo</h4>
             <p><img class="svg-icon-phone" src="../images/gmail-svg.svg" alt="icono de gmail"> example@gmail.com</p>
         </div>

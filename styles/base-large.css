@@ -1,3 +1,28 @@
+:root {
+    /* FIRST PALLET */
+    --font-body: "Nunito", sans-serif;
+    --font-heading: "Bebas Neue", serif;
+    --a-primary-color: #e7b324;
+    /* --a-primary-color: #e05215; */
+    --a-secondary-color: #2d3142;
+    --a-white-color: #ffffff;
+    --a-background-color: #bfc0c0;
+    --a-auxiliar-color: #4f5d75;
+
+    /* secondary pallet  */
+    --b-primary-color: #F6C279;
+    --b-secondary-color: #161B33;
+    --b-white-color: #DBDBDB;
+    --b-background-color: #0D0C1D;
+    --b-auxiliar-color: #36d830;
+    /* --b-auxiliar-color: #52B77C; */
+}
+
+
+
+
+
+
 @media screen and (min-width: 576px) {
     .hero {
         height: 90vh;
@@ -53,7 +78,7 @@
 
     }
 
- 
+
 
 
     main section:not(.hero) {
@@ -62,12 +87,29 @@
     }
 
 
+    .services {
+        display: grid;
+    
+        column-gap: 1.5rem;
+        grid-template-columns: 1fr 1fr;
+    }
 
+    .linea {
+        background-color: aquamarine;
+        padding: .5rem;
+        grid-column: 1 / -1;
+
+    }
 
     main section:nth-child(2) .services ul:nth-child(2) {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        /* display: grid;
+        grid-template-columns: repeat(2, 1fr); */
+        grid-column: 1 / 2;
+        
+    }
 
+    main section:nth-child(2) .services .div-experience-container {
+        grid-column: 2 / 3;
     }
 
 
