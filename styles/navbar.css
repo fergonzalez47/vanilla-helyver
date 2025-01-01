@@ -11,7 +11,7 @@
 
     /* secondary pallet  */
     --b-primary-color: #F6C279;
-    --b-secondary-color: #161B33;
+    --b-secondary-color: #2d3142;
     --b-white-color: #DBDBDB;
     --b-background-color: #0D0C1D;
     --b-auxiliar-color: #36d830;
@@ -94,12 +94,12 @@ a {
     height: 3px;
     margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
-    background-color: var(--b-background-color);
+    background-color: var(--a-white-color);
 
 }
 
 .bar:nth-child(2) {
-    background-color: var(--a-secondary-color);
+    background-color: var(--a-primary-color);
 }
 
 
@@ -108,14 +108,20 @@ a {
     header {
         width: 100%;
         position: fixed;
-        height: 80px;
         margin-bottom: 0;
-
+        background-color: #2175a7;
+            background-image: linear-gradient(160deg, #2175a7 0%, #2d3142 100%);
+        
     }
 
 
     .hamburger {
         display: block;
+        
+    }
+
+    .hamburger.active-opt{
+        background-color: #4f5d7500;
     }
 
     .hamburger.active-opt .bar:nth-child(2) {
@@ -124,11 +130,13 @@ a {
 
     .hamburger.active-opt .bar:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
+        background-color: var(--a-primary-color);
 
     }
 
     .hamburger.active-opt .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+        background-color: var(--a-primary-color);
     }
 
     .nav-menu {
@@ -138,16 +146,15 @@ a {
         top: 80px;
         margin-top: 0;
         gap: 0;
+        align-items: center;
         flex-direction: column;
         background-color: var(--b-background-color);
         width: 100%;
         text-align: center;
         transition: 0.3s;
         opacity: 0.83;
-
         backdrop-filter: blur(4.5px);
         -webkit-backdrop-filter: blur(4.5px);
-
     }
 
     .nav-item {
@@ -157,10 +164,12 @@ a {
 
     .nav-menu.active-opt {
         left: 0;
+        
     }
 
     .active-opt {
         background-color: var(--a-white-color);
+        
     }
 
     .navbar {
@@ -168,6 +177,13 @@ a {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 24px;
+
+
     }
+
+    .nav-branding {
+        color: var(--a-white-color);
+    }
+
+
 }
