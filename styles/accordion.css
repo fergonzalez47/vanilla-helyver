@@ -64,21 +64,21 @@ div.c h2 {
     transition: .2s;
 }
 
-label::before {
+.c label::before {
     content: "";
     display: inline-block;
     border: 15px solid transparent;
     border-left: 20px solid var(--a-primary-color);
 }
 
-label {
+.c label {
     cursor: pointer;
     position: relative;
     display: flex;
     align-items: center;
 }
 
-div.p {
+.c div.p {
     font-size: 1rem;
     max-height: 0px;
     overflow: hidden;
@@ -87,17 +87,17 @@ div.p {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
-div.p p {
+.c div.p p {
     padding: 0.75em;
 }
 
-input:checked~h3 label::before {
+.c input:checked~h3 label::before {
     border-left: 15px solid transparent;
     border-top: 20px solid var(--a-primary-color);
     margin-top: 12px;
     margin-right: 10px;
 }
 
-input:checked~h3~div.p {
+.c input:checked~h3~div.p {
     max-height: 520px;
 }

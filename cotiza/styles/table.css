@@ -154,11 +154,9 @@ input:required:valid {
 
 
 .quote-instructions ul li {
-
     display: flex;
     padding: 1rem .25rem .25rem .25rem;
     flex-direction: column;
-    /* border: 2px solid var(--a-primary-color); */
     border-radius: 15px;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
@@ -309,7 +307,6 @@ input[type="number"] {
 
 
 /* SELECT PERSONALIZADO */
-
 /* The container must be positioned relative: */
 .custom-select {
     position: relative;
@@ -317,7 +314,6 @@ input[type="number"] {
     justify-self: end;
     width: 100%;
     border-radius: 5px;
-
 }
 
 .custom-select select {
@@ -347,14 +343,12 @@ input[type="number"] {
 .select-selected.select-arrow-active:after {
     border-color: transparent transparent var(--a-primary-color) transparent;
     top: 30%;
-
 }
 
 /* style the items (options), including the selected item: */
 .select-items div,
 .select-selected {
     color: var(--a-white-color);
-    /* width: 100%; */
     padding: 8px 16px;
     border: 1px solid transparent;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
@@ -383,9 +377,6 @@ input[type="number"] {
 .same-as-selected {
     background-color: rgba(0, 0, 0, 0.3);
 }
-
-
-
 
 
 
@@ -471,12 +462,6 @@ input[type="number"] {
 .button-41:hover {
     background: #00bd68;
 }
-
-
-
-
-
-
 
 
 

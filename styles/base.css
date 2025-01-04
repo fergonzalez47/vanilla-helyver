@@ -401,7 +401,7 @@ main section:nth-child(3) #truck {
     font-weight: 400;
     font-style: normal;
     text-shadow: .1em .1em 0 hsl(200 50% 30%);
-    
+
 }
 
 
@@ -412,6 +412,91 @@ p {
     margin-bottom: 1rem;
     padding: 0.75rem;
 }
+
+
+
+/* Section color */
+
+.section-color {
+    display: grid;
+    background-color: var(--a-auxiliar-color);
+    background-image: linear-gradient(160deg, #2175a7 0%, #2d3142 100%);
+    color: white;
+}
+
+.section-color .heading-2 {
+    color: var(--a-white-color);
+}
+
+.div-color-container {
+    width: 100%;
+    background-image: url("../images/trabajos/ready4.jpg");
+    width: 100%;
+    min-height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    align-content: center;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+
+
+.div-color-color {
+    margin: 0 auto;
+    width: 100%;
+    align-content: center;
+    background: rgba(5, 28, 45, 0.22);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(5px);
+    min-height: 300px;
+}
+
+
+
+.div-color {
+    min-height: 50px;
+    border: 1px solid white;
+    margin: .25rem auto;
+    align-content: center;
+    width: 75%;
+    text-align: center;
+}
+
+
+.blanco {
+    background-color: var(--a-white-color);
+    color: var(--a-secondary-color);
+    border: 1px solid black;
+}
+
+.madera {
+    background-color: #966F33;
+
+}
+
+.mate {
+    background-color: #222222;
+
+}
+
+.negro {
+    background-color: #000000;
+
+}
+
+.titanio {
+    background-color: #a4aeb1;
+    background-image: url("../images/trabajos/titanio.jpg");
+    background-repeat: repeat-x;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    color: var(--b-background-color);
+}
+
+
 
 
 .section5-cto {
@@ -523,17 +608,18 @@ main section:nth-child(3)>div:nth-child(4) p {
     text-align: center;
 }
 
-main section:nth-child(6) {
+.cotiza-en-linea {
     display: grid;
+
 }
 
 
-main section:nth-child(6) img {
+.cotiza-en-linea img {
     width: 100%;
     height: auto;
 }
 
-main section:nth-child(6) div {
+.cotiza-en-linea div {
     padding: 1rem;
 }
 
