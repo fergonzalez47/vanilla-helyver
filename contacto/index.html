@@ -18,11 +18,13 @@
     <link rel="stylesheet" href="../styles/base.css">
     <link rel="stylesheet" href="../styles/base-large.css">
     <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../cotiza/styles/solicitar-servicio.css">
 
     <title>Contacto | Fabricación e Instalación de Ventanas, Puertas y Espejos en Santiago | </title>
     <script src="../scripts/main.js" type="text/javascript" defer></script>
     <script src="../scripts/getdates.js" type="text/javascript" defer></script>
     <script src="../scripts/navbar.js" type="text/javascript" defer></script>
+    <script src="../scripts/preform.js" type="module" defer></script>
 </head>
 
 <body>
@@ -42,7 +44,87 @@
             </div>
         </nav>
     </header>
+    <main>
 
+
+        <div class="container-form">
+            <form id="serviceForm" method="POST" action="#">
+                <div class="inf">
+                    <p>DATOS PERSONALES</p>
+                    <p>Por favor, completa los datos y te contactaremos</p>
+                </div>
+
+                <fieldset id="fieldset-name">
+                    <legend>Nombre y Apellido</legend>
+                    <label>
+                        <input type="text" id="name" name="name" required placeholder="Javiera Perez">
+                    </label>
+                    <p class="error-message">Por favor, ingresa un nombre válido (Nombre y Apellido).</p>
+                </fieldset>
+                <div class="address-container">
+                    <fieldset id="fieldset-phone">
+                        <legend>Telefono</legend>
+                        <label>
+                            <input type="number" id="phone" name="phone" required placeholder="9 9022 0000">
+                        </label>
+                        <p class="error-message">Por favor, ingresa un número de teléfono válido (8 dígitos después del
+                            9 inicial).</p>
+                    </fieldset>
+                    <fieldset id="fieldset-email">
+                        <legend>Correo <i>(Opcional)</i></legend>
+                        <label>
+                            <input type="email" id="email" name="email" placeholder="ejemplo@gmail.com">
+                        </label>
+                        <p class="error-message">Por favor, ingresa un correo electrónico válido.</p>
+                    </fieldset>
+                </div>
+                <div class="address-container">
+                    <fieldset id="fieldset-comunasSelect">
+                        <legend>Comuna</legend>
+                        <label>
+                            <select name="comunasSelect" id="comunasSelect" required>
+                                <option value="" disabled selected>Seleccione una comuna</option>
+                            </select>
+                        </label>
+                        <p class="error-message">Por favor, selecciona una comuna.</p>
+
+                    </fieldset>
+                    <fieldset id="fieldset-address">
+                        <legend>Dirección</legend>
+                        <label>
+                            <input type="text" id="address" name="address" required placeholder="Calle moneda 1234">
+                        </label>
+                        <p class="error-message">Por favor, ingresa una dirección válida (Ejemplo: La rueda 390)</p>
+                    </fieldset>
+                </div>
+
+                <div class="button-41-container">
+                    <button type="button" id="submitButton" class="button-41" role="button">
+                        Enviar datos
+                    </button>
+                </div>
+                <div class="data-lock">
+                    <img src="../../images/svg/icons8-lock.svg" alt="candado">
+                    <p class="text-alt">Tus datos personales están protegidos con confidencialidad y seguridad. Serán
+                        utilizados
+                        únicamente para los
+                        fines
+                        indicados, cumpliendo con nuestra política de privacidad.</p>
+                </div>
+            </form>
+
+        </div>
+        <div>
+            <h2>Infomración de contacto</h2>
+            <div class="IOO hidden footer-contact">
+                <h3>Contáctanos</h3>
+                <h4>Teléfono</h4>
+                <p>+56 9 3583 6484</p>
+                <h4>Correo</h4>
+                <p>example@gmail.com</p>
+            </div>
+        </div>
+    </main>
 
     <footer>
         <div class="IOO hidden footer-social-media">
