@@ -30,7 +30,7 @@ body {
     font-family: var(--font-body);
     font-weight: 400;
     font-style: normal;
-    font-size: clamp(1.25rem, 1.4vw, 1.5rem);
+    font-size: clamp(1.1rem, 1.2vw, 1.3rem);
 }
 
 h1,
@@ -492,7 +492,7 @@ p {
     background-repeat: repeat-x;
     background-repeat: no-repeat;
     background-position: center;
-    
+
     color: var(--b-background-color);
 }
 
@@ -788,6 +788,89 @@ main section:nth-child(3)>div:nth-child(4) p {
 .all-services ul li div:first-child {
     color: var(--a-white-color);
     font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* PAGINA ABOUT */
+.about-hero {
+
+    background-image: url("../images/trabajos/ready4.jpg");
+}
+
+.about-hero-2 {
+
+    background-image: url("../images/hand-i.jpg");
+}
+.about-hero, .about-hero-2 {
+    width: 100%;
+    width: 100%;
+    min-height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    align-content: center;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
+     rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
+      rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px,
+       rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+
+
+
+/* servics page */
+
+
+.all-services-2 {
+display: grid;
+}
+
+
+
+.about-especialidad {
+    display: grid;
+}
+
+
+.our-mission {
+    display: grid;
+    background-color: var(--b-secondary-color);
+    padding: 0 auto;
+    color: var(--a-white-color);
+}
+
+.our-mission img {
+    width: 80%;
+    max-height: 400px;
+}
+
+.container-image-about {
+    background-color: white;
+    text-align: center;
+}
+
+.container-text-about {
+    padding: 1.25rem .25rem;
+    justify-content: center;
+}
+
+.container-text-about p {
+   text-align: center;
+}
+.container-text-about h2 {
+    color: var(--a-primary-color);
+    text-align: center;
 }
 
 

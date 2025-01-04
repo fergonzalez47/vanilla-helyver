@@ -228,7 +228,7 @@
 
     .div-color {
         height: 80px;
-        
+
         margin: .25rem auto;
 
     }
@@ -236,6 +236,31 @@
     .cotiza-en-linea {
         grid-template-columns: 1fr 1fr;
     }
+
+
+
+
+    /* ABOUT PAGE */
+
+
+    .about-especialidad {
+
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .our-mission {
+        grid-template-columns: 2fr;
+    }
+
+
+    /* services page */
+
+
+    .all-services-2 {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+
 
     footer {
         display: grid;
