@@ -61,7 +61,7 @@ main {
 .container-form {
     background-image: url("../../images/hero-large.webp");
     background-repeat: no-repeat;
-    padding: 2rem;
+    padding: 1rem;
     height: 100%;
     background-size: cover;
     /* O usar contain para mantener la proporción */
@@ -434,7 +434,7 @@ input:focus {
     }
 
     .container-form {
-        grid-row: 1/-1;
+        grid-row: 2/3;
         height: auto;
 
     }
