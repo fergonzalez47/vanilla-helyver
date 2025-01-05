@@ -812,7 +812,39 @@ main section:not(.hero),
 
     background-image: url("../images/hand-i.jpg");
 }
-.about-hero, .about-hero-2 {
+
+.contact-hero {
+
+    background-image: url("../images/hero-santiago.webp");
+    grid-column: 1 / -1;
+    margin-bottom: 2rem;
+}
+
+
+
+.contact-item {
+    
+    justify-content: center;
+    justify-items: center;
+}
+
+.contact-item p {
+    all: unset;
+    align-items: end;
+    align-content: end;
+    padding: 0.5rem 0;
+}
+
+.contact-item img {
+    width: 18px;
+    height: 18px;
+
+}
+
+
+.about-hero,
+.about-hero-2,
+.contact-hero {
     width: 100%;
     width: 100%;
     min-height: 300px;
@@ -821,9 +853,9 @@ main section:not(.hero),
     background-attachment: fixed;
     align-content: center;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
-     rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
-      rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px,
-       rgba(0, 0, 0, 0.07) 0px 32px 64px;
+        rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
+        rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px,
+        rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
 
@@ -833,15 +865,17 @@ main section:not(.hero),
 
 
 .all-services-2 {
-display: grid;
+    display: grid;
 
 }
+
 .all-services-2>div {
     text-align: center;
 
 }
 
-.all-services-2-title, .services-contact h2 {
+.all-services-2-title,
+.services-contact h2, .contact-information h2 {
     grid-column: 1 / -1;
     text-align: center;
     align-items: center;
@@ -883,7 +917,9 @@ display: grid;
 
 
 
-
+textarea {
+    resize: none;
+}
 
 
 .about-especialidad {
@@ -914,12 +950,17 @@ display: grid;
 }
 
 .container-text-about p {
-   text-align: center;
+    text-align: center;
 }
-.container-text-about h2 {
+
+.container-text-about h2{
     color: var(--a-primary-color);
     text-align: center;
 }
+
+
+
+
 
 
 

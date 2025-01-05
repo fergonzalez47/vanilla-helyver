@@ -37,3 +37,8 @@ export function validateEmail(email) {
 export function validateAddress(address) {
     return address.length >= 5;
 }
+
+export function validateTextarea(text) {
+    const textRegex = /^[a-zA-Z0-9ÁÉÍÓÚáéíóúÑñ\s.,'";:?!()-]+$/;
+    return textRegex.test(text) && text.length >= 10; // Mínimo 10 caracteres
+}

@@ -256,7 +256,7 @@ input::placeholder {
     color: red;
     font-style: italic;
     opacity: 0;
-    
+
     transition: opacity 0.3s ease-in-out, transform 0.5s ease-in-out;
 }
 
@@ -279,6 +279,57 @@ input:focus {
     color: #333;
 
 }
+
+
+
+
+.fieldset-message-container {
+    justify-content: center;
+    justify-items: center;
+}
+
+
+.contact-information {
+    display: grid;
+
+}
+
+
+/* mapa */
+
+.mapouter {
+    position: relative;
+    text-align: right;
+    width: 100%;
+    max-height: 400px;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    width: 100%;
+    max-height: 400px;
+}
+
+.gmap_iframe {
+    max-height: 400px !important;
+    width: 100%;
+    
+}
+
+/* contact-form */
+
+
+
+.main-contact {
+    display: grid;
+    
+}
+
+
+
+
+
 
 
 @media screen and (max-width: 1060px) {
