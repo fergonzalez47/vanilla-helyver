@@ -99,5 +99,5 @@ div.c h2 {
 }
 
 .c input:checked~h3~div.p {
-    max-height: 520px;
+    max-height: 1220px;
 }

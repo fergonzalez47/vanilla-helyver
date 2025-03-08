@@ -253,14 +253,14 @@
     .our-mission {
         grid-template-columns: 1fr 1fr;
     }
-
-    .services-contact {
-        width: 80%;
-        min-height: 200px;
-        grid-template-columns: 1fr 1fr;
-    }
-
-
+    
+        .services-contact {
+            width: 80%;
+            min-height: 200px;
+            grid-template-columns: 1fr 1fr;
+        }
+    
+    
 
 
     .main-contact {

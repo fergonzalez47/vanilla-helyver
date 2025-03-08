@@ -97,7 +97,8 @@ main {
 }
 
 
-.container-btn-preguntas, .container-up {
+.container-btn-preguntas,
+.container-up {
     text-align: center;
 }
 
@@ -181,16 +182,30 @@ input:required:valid {
 
 
 .regla {
-    width: 120px;
-    height: 120px;
+    width: 100%;
+    max-width: 400px;
     padding: 0;
     margin: 0;
 
 }
 
+.regla2 {
+    width: 100%;
+    max-width: 400px;
+    padding: 0;
+    margin: 0;
+    transform: scale(.78);
+
+}
+
 .regla-container {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
     text-align: center;
     justify-content: center;
+    justify-items: center;
     align-items: center;
     align-items: center;
     vertical-align: middle;
@@ -619,5 +634,11 @@ input[type="number"] {
 
     .button-51 {
         padding: 16px 23px;
+    }
+
+
+    .regla-container {
+        grid-template-columns: 1fr;
+   
     }
 }

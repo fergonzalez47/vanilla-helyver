@@ -62,22 +62,9 @@ const serviceOptions = [
     { value: "ventanaProyectante", text: "Ventana Proyectante" }
 ];
 
-document.addEventListener("DOMContentLoaded", () => {
-    checkAndAddRow();
-});
-
-
-function checkAndAddRow() {
-    if (tbody.rows.length === 0) {
-        addNewRow();
-        initCustomSelects(); // Inicializa el select después de agregar la fila
-    }
-}
 
 const table = document.getElementById("table");
 const tbody = table.tBodies[0]; // Obtener el primer <tbody>
-// const lastRow = tbody.rows[tbody.rows.length - 1]; // Obtener la última fila <tr>
-// const lastTd = lastRow.cells[lastRow.cells.length - 1]; // Obtener el último <td> de esa fila
 const addBtn = document.getElementById("add-btn");
 
 addBtn.addEventListener("click", () => {
@@ -88,12 +75,32 @@ addBtn.addEventListener("click", () => {
 
 
 
+// una vez carga la pagina cotiza.html, se llama la funcion checkAndAddRow()
+document.addEventListener("DOMContentLoaded", () => {
+    checkAndAddRow();
+});
 
 
 
+// Esta funcion verifica si el cuerpo de la tabla esta vacio o sin lineas.
+// Si esta vacia entonces se ejecutan las otras dos funciones
+
+function checkAndAddRow() {
+    if (tbody.rows.length === 0) {
+        addNewRow();
+        initCustomSelects(); // Inicializa el select después de agregar la fila
+    }
+}
+
+
+
+
+
+
+// Esta funcion añade la linea, y los datos corrrespondientes a cada celda de la fila
+// además de atrubutos. Basicamente añade una fila a la tabla
 function addNewRow() {
     const newRow = tbody.insertRow();
-
 
     let tdService = document.createElement("td");
     let tdColor = document.createElement("td");
@@ -149,12 +156,17 @@ function addNewRow() {
 
 }
 
+
+// esta funcion recibe el valor del select y el padre del select, el boton de eliminar y la fila
+// lo que hace es verificar que opcion se selecciono y en base a eso, se crea el contenido de la fila
+// ejemplo: element = celosia; parentContainer = tdService; deleteBtn = boton de eliminar; row = fila 
 function handleServiceSelectChange(element, parentContainer, deleteBtn, row) {
     chooseOptionToDisplay(element, parentContainer, deleteBtn, row);
 
 }
 
-
+//Esra funcion crea el select personalizado y lo llena con las opciones de servicios
+// ya definidas en serviceOptions
 function createSelectService() {
 
     let div = document.createElement("div");
@@ -175,8 +187,11 @@ function createSelectService() {
     return div;
 }
 
-
+//El objetivo de esta funciones es crear el contenido de la fila en base a la opcion seleccionada
+// por el usuario.Se verifica que nombre es el parametro(por ejemplo "celosia") y en base a eso se
+// escoge la funcion que se debe llamar pra crear el resto del contenido de las columnas de esa fila
 function chooseOptionToDisplay(param, parent, deleteBtn, row) {
+    // param: nombre del servicio; deleteBtn: boton de eliminar; row: fila(objeto)
     clearRow(row);
     row.DeleteContainer.appendChild(deleteBtn);
     let item;
@@ -213,8 +228,8 @@ function chooseOptionToDisplay(param, parent, deleteBtn, row) {
 }
 
 
-// DELETE BUTTON
-
+//crea el boton DELETE BUTTON
+// row representa la fila que se va a eliminar
 function createDeleteButton(row) {
     const div = document.createElement("div");
     div.classList.add("container-delete-btn");
@@ -238,13 +253,11 @@ function createDeleteButton(row) {
 
 }
 
-function deleteService(row) {
-    tbody.removeChild(row);
-
-}
 
 
 // CREATE SERVICES
+// Crea el contenido exclusivo que debe mostrarse si se selecciona una opción específica
+// Todas las que empiezan con create
 
 function createCelocia() {
     let celocia = config.celocia;
@@ -470,14 +483,14 @@ function createMirror() {
     return mirrorObj;
 }
 
-
+// Esta funcion limpia el contenido de la fila cada vez que se llama. Por eso recibe la fila como parametro "row"
 function clearRow(row) {
     Object.values(row).forEach(cell => cell.innerHTML = "");
 }
 
-
+// Esta funcion inicializa los select personalizados aunque no lo hace con el select tag normal de html,
+// sino divs para poder ser personlazidos con css
 function initCustomSelects() {
-    // console.log("si se llama");
     var x, i, j, l, ll, selElmnt, a, b, c;
     /* Look for any elements with the class "custom-select" that haven't been initialized: */
     x = document.querySelectorAll(".custom-select:not([data-initialized='true'])");
@@ -542,6 +555,8 @@ function initCustomSelects() {
     }
 }
 
+
+// Esta funcion cierra todos los select personalizados que no son seleccionados. Es decir, los oculta 
 function closeAllSelect(elmnt) {
     var x, y, i, xl, yl, arrNo = [];
     x = document.getElementsByClassName("select-items");
@@ -562,9 +577,8 @@ function closeAllSelect(elmnt) {
     }
 }
 
+// SI se hace click en cualquir parte de documento, se cierran los select personalizado esta abierto
 document.addEventListener("click", closeAllSelect);
-
-
 
 
 
@@ -576,32 +590,54 @@ function setupPriceCalculation(row, service) {
         const colorSelectDIV = row.color.querySelector(".custom-select"); // Captura del DIV personalizado
         const widthInput = row.width.querySelector("input");
         const heightInput = row.height.querySelector("input");
-        const lineAMSelect = row.lineAM.querySelector("select");
+        // const lineAMSelect = row.lineAM.querySelector("select");
         const lineAMSelectDIV = row.lineAM.querySelector(".custom-select"); // Captura del DIV personalizado
         const subtotalDisplay = row.subtotal.querySelector(".subtotal-value");
 
-        // const colorSelect = row.color.querySelector("select");
+
 
         function updateSubtotal() {
-
             const width = parseFloat(widthInput?.value) || 0;
             const height = parseFloat(heightInput?.value) || 0;
-            const color = colorSelectDIV?.querySelector("select")?.value || "todos";
-            // const color = colorSelect?.value || "todos";
-            // const lineAM = lineAMSelect?.value || "todos";
             const lineAM = lineAMSelectDIV?.querySelector("select")?.value;
 
-
-            if (color != 0 && lineAM != 0) {
-                const price = calcPrice(service, lineAM, color, width, height);
-
-                subtotalDisplay.setAttribute("data-value", price);
-                subtotalDisplay.textContent = formatter.format(price);
-                // subtotalDisplay.textContent = price.toFixed(2);
-                calcTotal();
+            if (service === "puerta") {
+                // Para puertas, se calcula solo si se ingresan ancho, alto y se selecciona la línea
+                if (width > 0 && height > 0 && lineAM != 0) {
+                    // Usamos "mate" como valor por defecto para color
+                    const price = calcPrice(service, lineAM, "mate", width, height);
+                    subtotalDisplay.setAttribute("data-value", price);
+                    subtotalDisplay.textContent = formatter.format(price);
+                    calcTotal();
+                }
+            } else {
+                const color = colorSelectDIV?.querySelector("select")?.value || "todos";
+                if (color != 0 && lineAM != 0) {
+                    const price = calcPrice(service, lineAM, color, width, height);
+                    subtotalDisplay.setAttribute("data-value", price);
+                    subtotalDisplay.textContent = formatter.format(price);
+                    calcTotal();
+                }
             }
-
         }
+
+        // function updateSubtotal() {
+
+        //     const width = parseFloat(widthInput?.value) || 0;
+        //     const height = parseFloat(heightInput?.value) || 0;
+        //     const color = colorSelectDIV?.querySelector("select")?.value || "todos";
+        //     const lineAM = lineAMSelectDIV?.querySelector("select")?.value;
+
+
+        //     if (color != 0 && lineAM != 0) {
+        //         const price = calcPrice(service, lineAM, color, width, height);
+
+        //         subtotalDisplay.setAttribute("data-value", price);
+        //         subtotalDisplay.textContent = formatter.format(price);
+        //         calcTotal();
+        //     }
+
+        // }
 
         // Elimina eventos previos para evitar duplicados
         widthInput?.removeEventListener("input", updateSubtotal);
@@ -613,8 +649,8 @@ function setupPriceCalculation(row, service) {
         widthInput?.addEventListener("input", updateSubtotal);
         heightInput?.addEventListener("input", updateSubtotal);
         colorSelectDIV?.addEventListener("click", updateSubtotal);
-
         lineAMSelectDIV?.addEventListener("click", updateSubtotal);
+
     } catch (error) {
         console.log("ERRORES:", error)
     }
@@ -642,6 +678,10 @@ function calcPrice(service, linea, color, ancho, alto) {
                 linea = "line42";
             }
         }
+        // Para puertas, si color no es válido se asigna "mate"
+        if (service === 'puerta' && (color === "0" || !color)) {
+            color = "mate";
+        }
 
         precioBase = precios[service][linea][color];
     }
@@ -655,9 +695,13 @@ function calcTotal() {
     const allSubtotal = document.querySelectorAll(".subtotal-value");
 
     if (!totalDisplay || allSubtotal.length === 0) {
+        totalDisplay.textContent = formatter.format(0);
         console.error("Elementos no encontrados");
         return;
     }
+
+
+
 
     // Convertir a Array: Array.from(allSubtotal) permite usar reduce.
     // Cálculo con reduce: Suma cada el.textContent convertido a número.
