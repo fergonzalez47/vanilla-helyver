@@ -823,7 +823,7 @@ main section:not(.hero),
 
 
 .contact-item {
-    
+
     justify-content: center;
     justify-items: center;
 }
@@ -875,7 +875,8 @@ main section:not(.hero),
 }
 
 .all-services-2-title,
-.services-contact h2, .contact-information h2 {
+.services-contact h2,
+.contact-information h2 {
     grid-column: 1 / -1;
     text-align: center;
     align-items: center;
@@ -921,10 +922,87 @@ textarea {
     resize: none;
 }
 
+.section-call-to-action {
+
+    display: grid;
+    background-image: url("../images/bg-services2.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    column-gap: 2rem;
+    align-items: center;
+}
+
+
+.section-call-to-action div img{
+    width: 100%;
+    max-width: 600px;
+    border-radius: 5px;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.9) 0px 0px 1px 1px;
+}
+
+
+.section-call-to-action h2,
+.section-call-to-action h3 {
+
+    text-align: center;
+    color: white;
+    text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3),
+        0px 8px 13px rgba(0, 0, 0, 0.1),
+        0px 8px 3px rgba(0, 0, 0, 0.01);
+    background-color: var(--b-background-color);
+    padding: .5rem;
+}
+
+
+.section-call-to-action p {
+    color: white;
+    /* background: rgba(5, 28, 45, 0.22);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    backdrop-filter: blur(3px); */
+    margin: 0 auto;
+    max-width: 700px;
+        text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.9),
+                0px 8px 13px rgba(0, 0, 0, 0.4),
+                0px 8px 3px rgba(0, 0, 0, 0.01);
+}
 
 .about-especialidad {
     display: grid;
+    background-image: url("../images/trabajos/ready4.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
+    background-attachment: fixed;
+
+    /* Opcional: establece el alto del body para ocupar toda la pantalla */
+    margin: 0;
+    padding: 0;
 }
+
+.about-especialidad div {
+    background-color: rgba(255, 255, 255, 0.788);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 1rem;
+    font-size: calc(clamp(.8rem, 1.6vw, 1.5rem) * 0.8);
+    border-radius: 5px;
+}
+
+
+
+.about-especialidad div h2 {
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    border-bottom: 2px solid var(--a-primary-color);
+    padding: 0 .5rem;
+    width: 90%;
+    margin: .5rem auto;
+}
+
 
 
 .our-mission {
@@ -953,7 +1031,7 @@ textarea {
     text-align: center;
 }
 
-.container-text-about h2{
+.container-text-about h2 {
     color: var(--a-primary-color);
     text-align: center;
 }
