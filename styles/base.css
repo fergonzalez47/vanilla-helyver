@@ -871,7 +871,8 @@ main section:not(.hero),
 
 .all-services-2>div {
     text-align: center;
-
+    display: grid;
+    row-gap: 1rem;
 }
 
 .all-services-2-title,
@@ -887,6 +888,26 @@ main section:not(.hero),
 }
 
 
+
+
+
+.all-services-2-item img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    max-height: 500px;
+    margin: 0 auto;
+}
+
+
+
+.all-services-2-item-text>div {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
 
 
 
@@ -936,12 +957,11 @@ textarea {
     align-items: center;
 }
 
-
-.section-call-to-action div img{
+.section-call-to-action div img {
     width: 100%;
     max-width: 600px;
     border-radius: 5px;
-    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.9) 0px 0px 1px 1px;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.9) 0px 0px 8px 8px;
 }
 
 
@@ -965,9 +985,9 @@ textarea {
     backdrop-filter: blur(3px); */
     margin: 0 auto;
     max-width: 700px;
-        text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.9),
-                0px 8px 13px rgba(0, 0, 0, 0.4),
-                0px 8px 3px rgba(0, 0, 0, 0.01);
+    text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.9),
+        0px 8px 13px rgba(0, 0, 0, 0.4),
+        0px 8px 3px rgba(0, 0, 0, 0.01);
 }
 
 .about-especialidad {
@@ -976,15 +996,13 @@ textarea {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* Evita que la imagen se repita */
     background-attachment: fixed;
-
-    /* Opcional: establece el alto del body para ocupar toda la pantalla */
     margin: 0;
     padding: 0;
 }
 
-.about-especialidad div {
+.about-especialidad>div {
+    text-align: center;
     background-color: rgba(255, 255, 255, 0.788);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin: 1rem;
@@ -992,13 +1010,29 @@ textarea {
     border-radius: 5px;
 }
 
+.heading-icon-title {
+    margin: 0 auto;
+    background-color: white;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    padding: 0 .25rem;
+    border-bottom: 2px solid var(--a-primary-color);
+}
+
+.heading-icon-title img {
+    width: 32px;
+    height: 32px;
+    margin-right: 0.5rem;
+}
+
 
 
 .about-especialidad div h2 {
-    background-color: rgb(255, 255, 255);
-    text-align: center;
-    border-bottom: 2px solid var(--a-primary-color);
-    padding: 0 .5rem;
+   text-align: left;
     width: 90%;
     margin: .5rem auto;
 }
@@ -1007,9 +1041,11 @@ textarea {
 
 .our-mission {
     display: grid;
-    background-color: var(--b-secondary-color);
+    /* background-color: var(--b-secondary-color); */
+    border-bottom: 4px solid var(--a-primary-color);
+    border-top: 4px solid var(--a-primary-color);
     padding: 0 auto;
-    color: var(--a-white-color);
+    color: var(--b-background-color);
 }
 
 .our-mission img {
@@ -1025,6 +1061,7 @@ textarea {
 .container-text-about {
     padding: 1.25rem .25rem;
     justify-content: center;
+
 }
 
 .container-text-about p {
@@ -1033,6 +1070,10 @@ textarea {
 
 .container-text-about h2 {
     color: var(--a-primary-color);
+    /* text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3),
+        0px 18px 13px rgba(0, 0, 0, 0.1),
+        0px 18px 3px rgba(0, 0, 0, 0.01); */
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.9);
     text-align: center;
 }
 

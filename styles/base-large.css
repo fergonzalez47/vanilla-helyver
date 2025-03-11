@@ -253,14 +253,14 @@
     .our-mission {
         grid-template-columns: 1fr 1fr;
     }
-    
-        .services-contact {
-            width: 80%;
-            min-height: 200px;
-            grid-template-columns: 1fr 1fr;
-        }
-    
-    
+
+    .services-contact {
+        width: 80%;
+        min-height: 200px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+
 
 
     .main-contact {
@@ -270,11 +270,32 @@
     /* services page */
 
 
-    .all-services-2 {
-        /* grid-template-columns: 1fr 1fr 1fr; */
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1rem;
+    .all-services-2>div {
+        grid-template-columns: 1fr 1fr;
     }
+
+
+
+    .all-services-2>div:nth-child(odd) .all-services-2-item {
+        order: -1;
+        /* Mueve la imagen a la izquierda en filas impares */
+    }
+
+    .all-services-2>div:nth-child(even) .all-services-2-item {
+        order: 1;
+        /* Mueve la imagen a la derecha en filas pares */
+    }
+
+
+    .all-services-2>div:nth-child(odd) .all-services-2-item img {
+
+        clip-path: polygon(0 0, 88% 0, 100% 100%, 12% 100%);
+    }
+
+    .all-services-2>div:nth-child(even) .all-services-2-item img {
+        clip-path: polygon(12% 0, 100% 0%, 88% 100%, 0% 100%);
+    }
+
 
 
     footer {
