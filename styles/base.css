@@ -37,7 +37,6 @@ h1,
 h2,
 h3,
 h4,
-h5,
 h6,
 a,
 .cta-btn {
@@ -813,6 +812,11 @@ main section:not(.hero),
     background-image: url("../images/hand-i.jpg");
 }
 
+.about-hero-2 h1, .about-hero h1 {
+    color: white;
+    font-size: clamp(1.8rem, 4vw, 5rem);
+}
+
 .contact-hero {
 
     background-image: url("../images/hero-santiago.webp");
@@ -873,6 +877,8 @@ main section:not(.hero),
     text-align: center;
     display: grid;
     row-gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid rgba(211, 205, 205, 0.623);
 }
 
 .all-services-2-title,
@@ -893,9 +899,9 @@ main section:not(.hero),
 
 .all-services-2-item img {
     width: 100%;
-    max-width: 500px;
+    max-width: 450px;
     height: auto;
-    max-height: 500px;
+    max-height: 450px;
     margin: 0 auto;
 }
 
@@ -909,6 +915,9 @@ main section:not(.hero),
     align-content: center;
 }
 
+.all-services-2-item-text ul {
+    font-family: unset;
+}
 
 
 
@@ -943,14 +952,19 @@ textarea {
     resize: none;
 }
 
-.section-call-to-action {
-
-    display: grid;
+.section-call-to-action-container {
     background-image: url("../images/bg-services2.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+
+}
+
+.section-call-to-action {
+
+    display: grid;
+    background-color: #161b339a;
     padding: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     column-gap: 2rem;
@@ -961,7 +975,7 @@ textarea {
     width: 100%;
     max-width: 600px;
     border-radius: 5px;
-    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.9) 0px 0px 8px 8px;
+    box-shadow: rgba(136, 136, 136, 0.9) 0px 0px 2px 2px;
 }
 
 
@@ -1006,7 +1020,7 @@ textarea {
     background-color: rgba(255, 255, 255, 0.788);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin: 1rem;
-    font-size: calc(clamp(.8rem, 1.6vw, 1.5rem) * 0.8);
+    font-size: clamp(.8rem, 1.2vw, 1.4rem);
     border-radius: 5px;
 }
 
@@ -1032,7 +1046,7 @@ textarea {
 
 
 .about-especialidad div h2 {
-   text-align: left;
+    text-align: left;
     width: 90%;
     margin: .5rem auto;
 }

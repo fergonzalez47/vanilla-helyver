@@ -143,7 +143,7 @@ a {
         z-index: 99;
         position: fixed;
         left: -100%;
-        top: 64px;
+        top: 80px;
         margin-top: 0;
         gap: 0;
         align-items: center;
@@ -152,7 +152,7 @@ a {
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        opacity: 0.9;
+        opacity: 1;
         backdrop-filter: blur(4.5px);
         -webkit-backdrop-filter: blur(4.5px);
     }
