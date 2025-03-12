@@ -211,7 +211,7 @@ h1 {
 }
 
 
-main section .svg-icon {
+main section .svg-icon:not(.region-metropolitana .svg-icon) {
     min-width: 48px;
     max-width: 88px;
     width: 80px;
@@ -243,7 +243,8 @@ main ul li img {
 }
 
 .heading-span {
-    color: var(--a-primary-color);
+    color: var(--b-background-color);
+    font-style: italic;
 }
 
 main section:not(.hero) {
@@ -308,9 +309,9 @@ h1 {
 
 }
 
-.container-shadow {
+/* .container-shadow {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
-}
+} */
 
 main section:nth-child(2) {
     display: grid;
@@ -358,6 +359,20 @@ main section:nth-child(2) .services img {
     text-align: center;
 }
 
+.services {
+    background-image: url("../images/experience-c.jpg");
+    background-size: 200% 200%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.services ul {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: .5rem;
+}
+
+
 
 .div-experience-container {
     width: 100%;
@@ -368,20 +383,26 @@ main section:nth-child(2) .services img {
     background-repeat: no-repeat;
     background-attachment: fixed;
     align-content: center;
+    justify-items: center;
+    border-radius: 5px;
+
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
 
 
 .div-experience {
-    margin: 0 auto;
+    margin: .5rem;
     width: 90%;
     align-content: center;
-    background: rgba(5, 28, 45, 0.22);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.9) 0px 10px 49px;
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(5px);
     min-height: 260px;
+    height: 90%;
+    /* opacity: .9; */
+    border-radius: 5px;
 }
 
 .p-experience {
@@ -391,19 +412,24 @@ main section:nth-child(2) .services img {
     justify-self: center;
     transform: scale(0.9);
     padding: 0.25rem 3rem 0.25 3rem;
-    color: var(--a-white-color);
+    color: black;
     width: 100%;
     border-radius: 8px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-family: "Outfit", serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    text-shadow: .1em .1em 0 hsl(200 50% 30%);
 
 }
 
-
+.span-experience {
+    font-family: var(--font-heading);
+    font-style: italic;
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-shadow: 0px 1px 23px rgb(180, 180, 145);
+}
 
 
 p {
@@ -558,13 +584,49 @@ p {
 
 }
 
-.some-works>div:nth-child(4) {
+.region-metropolitana {
+    display: grid;
+    min-height: 420px;
     text-align: center;
-
-    background-color: var(--a-auxiliar-color);
+    background-image: url("../images/hero-santiago.webp");
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: var(--a-white-color);
-    border-radius: 5px
+    border-radius: 5px;
 }
+
+
+
+.region-metropolitana h3 {
+    text-align: center;
+    color: var(--a-white-color);
+    font-size: clamp(1.5rem, 3vw, 4rem);
+}
+
+.region-metropolitana h3 .heading-span {
+    color: var(--a-white-color);
+    border-bottom: 4px solid var(--a-primary-color);
+}
+
+.truck-container {
+    margin: 0 auto;
+}
+
+
+.region-metropolitana .svg-icon {
+    max-width: 160px;
+    width: 160px;
+    height: 160px;
+}
+
+.region-metropolitana p {
+    background-color: #0d0c1d8e;
+    align-content: center;
+}
+
+
 
 .some-works>div:nth-child(5) {
     display: grid;
@@ -596,14 +658,10 @@ p {
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-.some-works>div:nth-child(4) h3 {
-    text-align: center;
-    color: var(--a-background-color);
-    font-size: clamp(1.5rem, 3vw, 4rem);
-}
+
 
 main section:not(.hero),
-.some-works>div:nth-child(4) p {
+.region-metropolitana p {
     text-align: center;
 }
 
@@ -812,7 +870,8 @@ main section:not(.hero),
     background-image: url("../images/hand-i.jpg");
 }
 
-.about-hero-2 h1, .about-hero h1 {
+.about-hero-2 h1,
+.about-hero h1 {
     color: white;
     font-size: clamp(1.8rem, 4vw, 5rem);
 }
