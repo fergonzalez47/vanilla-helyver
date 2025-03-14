@@ -94,7 +94,7 @@
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
-        
+
     }
 
     .services ul {
@@ -249,7 +249,13 @@
         grid-template-columns: 1fr 1fr;
     }
 
-
+    .cotiza-en-linea img {
+        position: relative;
+        top: -60px;
+        transform: rotate(5deg);
+        width: 110%;
+        height: auto;
+    }
 
 
     /* ABOUT PAGE */

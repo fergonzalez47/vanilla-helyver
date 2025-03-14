@@ -720,9 +720,7 @@ function calcTotal() {
 
 
 
-
-
-
+// subir sitio: https://chatgpt.com/c/67d44c3f-784c-800e-8950-1004259e89db
 
 // Validación del formulario
 function validateQuoteForm() {
@@ -783,7 +781,7 @@ requestServiceBtn.addEventListener("click", (e) => {
 
         saveInSessionStorage();
 
-        window.location.href = "solicitar-servicio/index.html";
+        window.location.href = "solicitar-servicio/";
     }
 });
 

@@ -38,9 +38,10 @@ div.c h2 {
     font-size: 1.3rem;
     margin-top: 1rem;
     margin-bottom: .75rem;
-    
+
 }
- div.c h3:hover {
+
+div.c h3:hover {
     background-color: var(--b-background-color);
 }
 
@@ -56,7 +57,7 @@ div.c h2 {
 
 .c h3 {
     font-size: 1rem;
-    background: var(--a-auxiliar-color);
+    background: var(--a-secondary-color);
     color: var(--a-white-color);
     font-family: var(--font-body);
     padding: .3em;
@@ -100,4 +101,25 @@ div.c h2 {
 
 .c input:checked~h3~div.p {
     max-height: 1220px;
+}
+
+
+.section-preguntas>#preguntas>div {
+
+   border: 1px solid #bfc0c0;
+   margin: .5rem 0;
+
+}
+
+
+.section-preguntas>#preguntas>div>h3 {
+
+    font-size: 1rem;
+    background: var(--a-white-color);
+    color: var(--b-background-color);
+    font-family: var(--font-body);
+    padding: .3em;
+    position: relative;
+    transition: .2s;
+
 }

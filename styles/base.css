@@ -64,6 +64,10 @@ h1 {
     text-align: center;
 }
 
+h1 .heading-span {
+    color: var(--a-primary-color);
+    font-style: normal;
+}
 
 .open ul {
     display: flex;
@@ -203,11 +207,9 @@ main h3,
 main h4,
 .heading-2,
 h1 {
-    color: var(--a-auxiliar-color);
+    color: var(--b-background-color);
     margin: 0.2rem;
-    text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3),
-        0px 18px 13px rgba(0, 0, 0, 0.1),
-        0px 18px 3px rgba(0, 0, 0, 0.01);
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -309,9 +311,19 @@ h1 {
 
 }
 
-/* .container-shadow {
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
-} */
+.container-shadow {
+    background: rgb(79, 93, 117);
+    background: -moz-radial-gradient(circle, rgba(79, 93, 117, 1) 0%, rgba(22, 27, 51, 1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(79, 93, 117, 1) 0%, rgba(22, 27, 51, 1) 100%);
+    background: radial-gradient(circle, rgba(79, 93, 117, 1) 0%, rgba(22, 27, 51, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4f5d75", endColorstr="#161b33", GradientType=1);
+    color: var(--a-white-color);
+}
+
+
+.container-shadow .heading-2 {
+    color: var(--a-primary-color);
+}
 
 main section:nth-child(2) {
     display: grid;
@@ -525,7 +537,6 @@ p {
 
 
 .section5-cto {
-    background-color: var(--a-auxiliar-color);
     color: var(--a-white-color);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -667,6 +678,11 @@ main section:not(.hero),
 
 .cotiza-en-linea {
     display: grid;
+    background: rgb(79, 93, 117);
+    background: -moz-radial-gradient(circle, rgba(79, 93, 117, 1) 0%, rgba(22, 27, 51, 1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(79, 93, 117, 1) 0%, rgba(22, 27, 51, 1) 100%);
+    background: radial-gradient(circle, rgba(79, 93, 117, 1) 0%, rgba(22, 27, 51, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4f5d75", endColorstr="#161b33", GradientType=1);
 
 }
 
@@ -678,6 +694,13 @@ main section:not(.hero),
 
 .cotiza-en-linea div {
     padding: 1rem;
+    color: var(--a-white-color);
+
+}
+
+.cotiza-en-linea>div h2 {
+    color: var(--a-white-color);
+    font-size: clamp(2rem, 4vw, 4rem);
 }
 
 /* carrusel */
@@ -815,7 +838,15 @@ main section:not(.hero),
 
 
 /* section 4 ventanas y ventanales */
+.all-services>div {
+    transition: 0.2s;
+}
 
+.all-services>div:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
 .all-services ul li {
     display: flex;
