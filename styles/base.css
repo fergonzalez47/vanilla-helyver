@@ -1270,8 +1270,15 @@ footer ul:not(.footer-menu) {
         0px 18px 23px rgba(0, 0, 0, 0.1);
 }
 
+.footer-dev p {
+    font-size: .65rem;
+}
 
 
+.footer-dev a {
+    font-family: var(--font-body);
+    border-bottom: 1px solid white;
+}
 
 /* Inersection Observer Object: */
 
