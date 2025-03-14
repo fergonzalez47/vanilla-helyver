@@ -665,6 +665,7 @@ p {
 }
 
 .img-gallery img {
+    max-width: 400px;
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
@@ -840,6 +841,8 @@ main section:not(.hero),
 /* section 4 ventanas y ventanales */
 .all-services>div {
     transition: 0.2s;
+    margin-top: 1rem;
+    padding: .75rem;
 }
 
 .all-services>div:hover {
@@ -983,6 +986,9 @@ main section:not(.hero),
     background-color: var(--a-secondary-color);
 }
 
+.main-contact {
+    row-gap: 1rem;
+}
 
 
 
@@ -1346,6 +1352,10 @@ footer ul:not(.footer-menu) {
     visibility: visible;
     opacity: 1;
 }
+
+
+
+
 
 /* animations */
 

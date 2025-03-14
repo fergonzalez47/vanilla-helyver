@@ -71,6 +71,7 @@ main {
 
 .container-table {
     padding: 2rem;
+    margin-top: 1.5rem;
 }
 
 .background-c,
@@ -421,6 +422,7 @@ input:focus {
     main {
         grid-template-columns: 1fr;
     }
+    
 
     fieldset {
         margin: 0;

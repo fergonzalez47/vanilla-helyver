@@ -268,7 +268,7 @@ function createCelocia() {
     let celociaColors = `
                         <div class="custom-select" >
                             <select>
-                                <option value="0">Elige el color</option>
+                                <option class="option-value-0" value="0">Elige el color</option>
                                 <option value="blanco">Blanco</option>
                                 <option value="madera">Madera</option>
                                 <option value="mate">Mate</option>
@@ -280,7 +280,7 @@ function createCelocia() {
     let celociaSize = `
                         <div class="custom-select">
                             <select>
-                                <option value="0">Elige el tamaño</option>
+                                <option class="option-value-0" value="0">Elige el tamaño</option>
                                 <option value="grande">Grande</option>
                                 <option value="pequeña">Pequeña</option>
                             </select>
@@ -301,7 +301,7 @@ function createWindow() {
     let windowColors = `
                         <div class="custom-select" >
                             <select>
-                                <option value="0">Elige el color</option>
+                                <option class="option-value-0" value="0">Elige el color</option>
                                 <option value="blanco">Blanco</option>
                                 <option value="madera">Madera</option>
                                 <option value="mate">Mate</option>
@@ -313,7 +313,7 @@ function createWindow() {
     let windowLineAm = `
                         <div class="custom-select" >
                             <select>
-                                <option value="0">Elige el Aluminio</option>
+                                <option class="option-value-0" value="0">Elige el Aluminio</option>
                                 <option value="line25">Linea 25 </option>
                                 <option value="line5000">Linea 5000</option>
                             </select>
@@ -353,7 +353,7 @@ function createProjectingWindow() {
     let projectingWindowColors = `
                         <div class="custom-select" >
                             <select>
-                                <option value="0">Elige el color</option>
+                                <option class="option-value-0" value="0">Elige el color</option>
                                 <option value="blanco">Blanco</option>
                                 <option value="madera">Madera</option>
                                 <option value="mate">Mate</option>
@@ -409,7 +409,7 @@ function createDoor() {
     let doorColors = `
                         <div class="custom-select" >
                             <select>
-                                <option value="0">Elige el color</option>
+                                <option class="option-value-0" value="0">Elige el color</option>
                                 <option value="blanco">Blanco</option>
                                 <option value="madera">Madera</option>
                                 <option value="mate">Mate</option>

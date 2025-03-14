@@ -336,11 +336,15 @@ input[type="number"] {
     /*hide original SELECT element: */
 }
 
-.select-selected {
+
+/* este dal color al selected */
+
+.select-selected  {
     border-radius: 5px;
     background-color: var(--a-auxiliar-color);
 
 }
+
 
 /* Style the arrow inside the select element: */
 .select-selected:after {
@@ -392,7 +396,6 @@ input[type="number"] {
 .same-as-selected {
     background-color: rgba(0, 0, 0, 0.3);
 }
-
 
 
 .container-add-btn {

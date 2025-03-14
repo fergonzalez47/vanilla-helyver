@@ -281,6 +281,7 @@
 
     .main-contact {
         grid-template-columns: 1fr;
+    
     }
 
     /* services page */
@@ -337,5 +338,6 @@
 
     .main-contact {
         grid-template-columns: 1fr 1fr;
+        
     }
 }
