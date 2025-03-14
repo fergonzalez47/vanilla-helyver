@@ -1186,6 +1186,12 @@ textarea {
 
 
 
+.privacy-policy p, .terms-conditions p {
+    margin: 0;
+    padding: 0;
+    color: var(--a-secondary-color);
+}
+
 
 
 
